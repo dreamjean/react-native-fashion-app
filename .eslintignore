@@ -1,0 +1,8 @@
+# node_modules ignored by default
+
+*.md
+**/*{.,-}min.js
+/lib/
+/flow-typed/
+/docs/
+/.git/

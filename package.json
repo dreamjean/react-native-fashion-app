@@ -5,19 +5,72 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,css,md,json}' --config ./.prettierrc",
     "eject": "expo eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
+    "@react-native-community/async-storage": "~1.11.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/bottom-tabs": "^5.8.0",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "css-tree": "^1.0.0-alpha.39",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
     "expo": "~38.0.8",
+    "expo-asset": "~8.1.7",
+    "expo-constants": "~9.1.1",
+    "expo-font": "~8.2.1",
+    "expo-linear-gradient": "~8.2.1",
     "expo-status-bar": "^1.0.2",
+    "formik": "^2.2.0",
+    "prettier": "^2.1.1",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
-    "react-native-web": "~0.11.7"
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-keyboard-aware-scrollview": "^2.1.0",
+    "react-native-reanimated": "~1.9.0",
+    "react-native-redash": "^15.1.4",
+    "react-native-safe-area-context": "~3.0.7",
+    "react-native-screens": "~2.9.0",
+    "react-native-svg": "^12.1.0",
+    "react-native-web": "~0.11.7",
+    "styled-components": "^5.2.0",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-emotion": "^10.0.33",
+    "babel-plugin-styled-components": "^1.11.1",
+    "babel-preset-expo": "~8.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-emotion": "^10.0.27",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "react-native-svg-transformer": "^0.14.3"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "styled-components": "^5.2.0"
+  }
 }
