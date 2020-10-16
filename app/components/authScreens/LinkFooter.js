@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableWithoutFeedback } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
 import SocialLogin from './SocialLogin';
@@ -9,11 +9,11 @@ const LinkFooter = ({ title, action, onPress }) => {
   return (
     <Container>
       <SocialLogin />
-      <TouchableWithoutFeedback onPress={onPress}>
+      <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
         <Text1 button primary>
           {title} <Text2>{action}</Text2>
         </Text1>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </Container>
   );
 };

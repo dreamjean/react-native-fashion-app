@@ -34,7 +34,7 @@ const borderStyle = css`
 
 const spaceStyle = css`
   ${({ theme: { space } }) => ({
-    marginTop: space.l,
+    marginTop: space.m,
   })}
 `;
 

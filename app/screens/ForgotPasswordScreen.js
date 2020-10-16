@@ -1,8 +1,9 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Container, IconFooter } from '../components/authScreens';
+import { Container, LinkFooter } from '../components/authScreens';
 import Text from '../components/styles/Text';
 import { Form, FormField, SubmitButton } from '../components/forms';
 
@@ -13,7 +14,7 @@ let validationSchema = Yup.object().shape({
 const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <>
-      <Container>
+      <Container pattern={2} ltBorder rtBorder>
         <Wrapper>
           <TextBox>
             <Text title2>Forgot password?</Text>
@@ -24,7 +25,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
           <Form
             initialValues={{ email: '' }}
             validationSchema={validationSchema}
-            onSubmit={(values) => navigation.navigate('PasswordChanged')}
+            onSubmit={() => navigation.navigate('PasswordChanged')}
           >
             <FormField
               allowFontScaling={false}
@@ -37,15 +38,17 @@ const ForgotPasswordScreen = ({ navigation }) => {
               name="email"
               numberOfLines={1}
               placeholder="Enter email"
-              returnKeyLabel="go"
-              returnKeyType="go"
               textContentType="emailAddress"
             />
             <SubmitButton label="Reset password" />
           </Form>
         </Wrapper>
       </Container>
-      <IconFooter onPress={() => navigation.pop()} />
+      <LinkFooter
+        title="Don't work?"
+        action="Try another way"
+        onPress={() => Linking.openURL('"mailto:help@support.com"')}
+      />
     </>
   );
 };

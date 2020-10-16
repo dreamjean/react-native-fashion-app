@@ -25,7 +25,7 @@ let validationSchema = Yup.object().shape({
 const RegisterScreen = ({ navigation }) => {
   return (
     <>
-      <Container>
+      <Container pattern={1} imgRbr ltBorder>
         <TextBox>
           <Text title2>Create Account</Text>
           <Text body center>

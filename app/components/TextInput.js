@@ -18,14 +18,14 @@ const TextInput = ({ icon, error, touched, ...rest }) => {
         selectionColor={colors.primary}
         underlineColorAndroid="transparent"
       />
-      {touched && <Icon iconName={error ? 'close' : 'check'} size={18} backgroundColor={reColor} />}
+      {touched && <Icon iconName={error ? 'close' : 'check'} size={22} backgroundColor={reColor} />}
     </Box>
   );
 };
 
 const Box = styled.View`
   flex-direction: row;
-  height: 48px;
+  /* height: 48px; */
   align-items: center;
   border-width: 1px;
 

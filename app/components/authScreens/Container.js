@@ -8,32 +8,47 @@ import calendar from '../../config/calendar';
 import { isIos } from '../../config/theme';
 import Icon from '../Icon';
 import colors from '../../config/colors';
+import { StatusBar } from 'expo-status-bar';
 
 const { BAR_HEIGHT, IMG_HEIGHT } = calendar;
+const images = [
+  require('../../assets/bg1.png'),
+  require('../../assets/bg2.png'),
+  require('../../assets/bg3.png'),
+];
 
-const Container = ({ children }) => {
+const Container = ({
+  children,
+  pattern,
+  imgLbr = false,
+  imgRbr = false,
+  ltBorder = false,
+  rtBorder = false,
+}) => {
   const navigation = useNavigation();
+  const img = images[pattern];
 
   return (
     <Box>
+      <StatusBar style="dark" />
       <Header>
-        <ImageBox>
-          <Image header source={require('../../assets/bg1.png')} />
+        <ImageBox {...{ imgLbr, imgRbr }}>
+          <Image header source={img} />
           <CloseButton activeOpacity={0.6} onPress={() => navigation.goBack()}>
             <Icon
               backgroundColor={colors.white}
               color={colors.primary}
               iconRatio={0.8}
               iconName="arrow-left-bold-outline"
-              size={50}
+              size={40}
             />
           </CloseButton>
         </ImageBox>
         <Border>
-          <Image border source={require('../../assets/bg1.png')} />
+          <Image border source={img} />
         </Border>
       </Header>
-      <Medium>
+      <Medium {...{ ltBorder, rtBorder }}>
         <KeyboardAwareScrollView
           enableOnAndroid
           enableAutoAutomaticScrol={isIos}
@@ -67,8 +82,9 @@ const ImageBox = styled.View`
   overflow: hidden;
   height: ${BAR_HEIGHT}px;
 
-  ${({ theme: { radii } }) => ({
-    borderBottomLeftRadius: radii.xl,
+  ${({ imgLbr, imgRbr, theme: { radii } }) => ({
+    borderBottomLeftRadius: imgLbr ? radii.xl : radii.n,
+    borderBottomRightRadius: imgRbr ? radii.xl : radii.n,
   })}
 `;
 
@@ -86,10 +102,11 @@ const Medium = styled.View`
   flex: 1;
   margin-top: -${IMG_HEIGHT}px;
 
-  ${({ theme: { colors, radii, space } }) => ({
+  ${({ ltBorder, rtBorder, theme: { colors, radii, space } }) => ({
     backgroundColor: colors.white,
     borderRadius: radii.xl,
-    borderTopLeftRadius: radii.n,
+    borderTopLeftRadius: ltBorder ? radii.xl : radii.n,
+    borderTopRightRadius: rtBorder ? radii.xl : radii.n,
     padding: space.xxl,
   })}
 `;

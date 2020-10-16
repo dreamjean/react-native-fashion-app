@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import calendar from '../../config/calendar';
 
-const { width, BAR_HEIGHT, CELL_NUM, IMG_HEIGHT } = calendar;
+const { width, BAR_HEIGHT, IMG_HEIGHT } = calendar;
 
 const borderStyle = css`
   width: ${width}px;
@@ -13,7 +13,6 @@ const borderStyle = css`
 const headerStyle = css`
   width: ${width}px;
   height: ${IMG_HEIGHT}px;
-  border-bottom-left-radius: ${CELL_NUM}px;
 `;
 
 const mediumStyle = css`

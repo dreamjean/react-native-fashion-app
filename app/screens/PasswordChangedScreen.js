@@ -23,7 +23,7 @@ let validationSchema = Yup.object().shape({
 const PasswordChangedScreen = ({ navigation }) => {
   return (
     <>
-      <Container>
+      <Container ltBorder rtBorder>
         <Wrapper>
           <TextBox>
             <Text title2>Change Password</Text>
@@ -34,7 +34,7 @@ const PasswordChangedScreen = ({ navigation }) => {
           <Form
             initialValues={{ newPassword: '', confirmNewPassword: '' }}
             validationSchema={validationSchema}
-            onSubmit={(values) => navigation.navigate('Login')}
+            onSubmit={() => navigation.navigate('Login')}
           >
             <FormField
               allowFontScaling={false}
@@ -48,8 +48,6 @@ const PasswordChangedScreen = ({ navigation }) => {
               name="newPassword"
               numberOfLines={1}
               placeholder="New Password"
-              // returnKeyLabel="next"
-              // returnKeyType="next"
               secureTextEntry
               textContentType="password"
             />
@@ -65,8 +63,6 @@ const PasswordChangedScreen = ({ navigation }) => {
               name="confirmNewPassword"
               numberOfLines={1}
               placeholder="Confirm New Password"
-              // returnKeyLabel="go"
-              // returnKeyType="go"
               secureTextEntry
               textContentType="password"
             />
@@ -74,7 +70,7 @@ const PasswordChangedScreen = ({ navigation }) => {
           </Form>
         </Wrapper>
       </Container>
-      <IconFooter onPress={() => navigation.pop()} />
+      <IconFooter onPress={() => navigation.goBack()} />
     </>
   );
 };

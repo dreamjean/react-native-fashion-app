@@ -17,7 +17,7 @@ let validationSchema = Yup.object().shape({
 const LoginScreen = ({ navigation }) => {
   return (
     <>
-      <Container>
+      <Container pattern={0} imgLbr rtBorder>
         <TextBox>
           <Text title2>Welcome Back</Text>
           <Text body center>

@@ -9,7 +9,7 @@ import Apple from '../../assets/logos/apple.svg';
 const SocialLogin = () => {
   return (
     <Icons>
-      <SvgIcon IconName={Facebook} />
+      <SvgIcon IconName={Facebook} width={50} height={50} />
       <SvgIcon IconName={Google} width={26} height={26} />
       <SvgIcon IconName={Apple} width={28} height={28} />
     </Icons>
