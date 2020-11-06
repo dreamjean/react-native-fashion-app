@@ -57,7 +57,7 @@ const Wrapper = styled.View`
   height: ${CTG_RADIUS * 2}px;
   justify-content: center;
   align-items: center;
-  border-width: 1px;
+  border-width: 2px;
   border-radius: ${CTG_RADIUS}px;
 
   ${({ selected, backgroundColor, theme: { colors, space } }) => ({
