@@ -1,21 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppLoading } from 'expo';
+import React, { useEffect, useState } from 'react';
+
+import { Theme } from './app/components';
+import useLoadAssets from './app/hooks/useLoadAssets';
+// import AuthNavigator from './app/navigation/AuthNavigator';
+import DrawerNavigator from './app/navigation/DrawerNavigator';
+import { navigationRef } from './app/navigation/rootNavigation';
+// import AppNavigator from './app/navigation/AppNavigator';
+import cache from './app/utility/cache';
+
+const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 export default function App() {
+  const [isReady, setIsReady] = useState(false);
+  const [initialState, setInitalState] = useState();
+  const { assetsLoaded, setAssetsLoaded, loadAssetsAsync } = useLoadAssets();
+
+  const restoreState = async () => {
+    try {
+      const state = (await cache.get(PERSISTENCE_KEY)) || undefined;
+
+      setInitalState(state);
+    } finally {
+      setIsReady(true);
+    }
+
+    if (!isReady) restoreState();
+  };
+
+  useEffect(() => {
+    restoreState();
+  }, [isReady]);
+
+  const onStateChange = (PERSISTENCE_KEY, state) => cache.store(PERSISTENCE_KEY, state);
+
+  if (!assetsLoaded || !isReady)
+    return (
+      <AppLoading
+        startAsync={loadAssetsAsync}
+        onFinish={() => setAssetsLoaded(true)}
+        onError={console.warn}
+      />
+    );
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Theme>
+      <NavigationContainer ref={navigationRef} {...{ initialState, onStateChange }}>
+        {/* <AuthNavigator /> */}
+        <DrawerNavigator />
+      </NavigationContainer>
+    </Theme>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

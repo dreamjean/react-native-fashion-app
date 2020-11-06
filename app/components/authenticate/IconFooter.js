@@ -1,0 +1,30 @@
+import React from 'react';
+import styled from 'styled-components';
+
+import { colors } from '../../config';
+import IconButton from '../IconButton';
+
+const IconFooter = ({ onPress }) => {
+  return (
+    <Container>
+      <IconButton
+        {...{ onPress }}
+        backgroundColor={colors.primary}
+        iconName="close-outline"
+        size={60}
+      />
+    </Container>
+  );
+};
+
+const Container = styled.View`
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+  ${({ theme: { colors } }) => ({
+    backgroundColor: colors.secondary,
+  })}
+`;
+
+export default IconFooter;
