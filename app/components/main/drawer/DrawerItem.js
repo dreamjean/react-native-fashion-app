@@ -1,20 +1,27 @@
 import React from 'react';
-import { RectButton } from 'react-native-gesture-handler';
+import { Pressable } from 'react-native';
 import styled from 'styled-components';
 
-import Icon from '../Icon';
-import Text from '../styles/Text';
+import { colors } from '../../../config';
+import Icon from '../../Icon';
+import Text from '../../styles/Text';
 
 const DrawerItem = ({ label, icon, color, focused, onPress }) => {
   return (
-    <RectButton onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => ({
+        opacity: pressed ? 0.5 : 1,
+        backgroundColor: pressed ? colors.lightCyan : 'transparent',
+      })}
+    >
       <Box {...{ focused }}>
         <Icon iconName={icon} iconRatio={0.6} size={36} backgroundColor={color} />
         <Title caption {...{ focused }}>
           {label}
         </Title>
       </Box>
-    </RectButton>
+    </Pressable>
   );
 };
 
@@ -32,7 +39,7 @@ const Box = styled.View`
 const Title = styled(Text)`
   ${({ focused, theme: { colors, size, space } }) => ({
     color: focused ? colors.primary : colors.sencodary,
-    fontSize: size.l,
+    fontSize: focused ? size.l2 : size.l,
     fontWeight: focused ? 'bold' : '500',
     marginLeft: space.m2,
   })}

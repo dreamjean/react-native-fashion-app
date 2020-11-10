@@ -6,5 +6,9 @@ import { isIos } from '../../config/theme';
 const SafeAreaView = styled.SafeAreaView`
   flex: 1;
   padding-top: ${isIos ? 0 : Constants.statusBarHeight}px;
+
+  ${({ theme: { colors } }) => ({
+    backgroundColor: colors.white,
+  })}
 `;
 export default SafeAreaView;

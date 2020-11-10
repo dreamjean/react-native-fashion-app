@@ -4,8 +4,9 @@ import { sub } from 'react-native-reanimated';
 import { useTransition } from 'react-native-redash/lib/module/v1';
 import styled from 'styled-components';
 
-import { HeaderBar } from '../components';
-import { BackgroundStyled, Card, CategoryBar } from '../components/outfitIdeas';
+import { HeaderBar } from '../components/main';
+import { BackgroundStyled, Card, CategoryBar } from '../components/main/outfitIdeas';
+import View from '../components/styles/View';
 import cards from '../data/cards';
 
 const step = 1 / (cards.length - 1);
@@ -15,7 +16,7 @@ const OutfitIdeasScreen = ({ navigation }) => {
   const aIndex = useTransition(currentIndex);
 
   return (
-    <Container>
+    <View container>
       <StatusBar style="dark" />
       <HeaderBar
         title="Outfit Ideas"
@@ -38,17 +39,9 @@ const OutfitIdeasScreen = ({ navigation }) => {
             )
         )}
       </Box>
-    </Container>
+    </View>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-
-  ${({ theme: { colors } }) => ({
-    backgroundColor: colors.white,
-  })}
-`;
 
 const Box = styled.View`
   flex: 1;

@@ -18,9 +18,9 @@ const IconFooter = ({ onPress }) => {
 };
 
 const Container = styled.View`
-  height: 100px;
   align-items: center;
   justify-content: center;
+  height: 100px;
 
   ${({ theme: { colors } }) => ({
     backgroundColor: colors.secondary,

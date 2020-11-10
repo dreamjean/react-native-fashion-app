@@ -17,6 +17,7 @@ const theme = {
     s: 12,
     m: 14,
     l: 15,
+    l2: 16,
     xl: 18,
     title1: 21,
     title2: 25,

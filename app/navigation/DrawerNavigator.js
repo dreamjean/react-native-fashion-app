@@ -1,10 +1,16 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 
-import { DrawerContent } from '../components/drawer';
+import { DrawerContent } from '../components/main/drawer';
 // import AuthNavigator from './AuthNavigator';
 import { calendar } from '../config';
-import { HomeScreen, OutfitIdeasScreen } from '../screens';
+import {
+  EditProfileScreen,
+  FavouriteOutfitsScreen,
+  NotificationsSettingsScreen,
+  OutfitIdeasScreen,
+  TransactionHistoryScreen,
+} from '../screens';
 
 const { DRAWER_WIDTH } = calendar;
 
@@ -16,16 +22,11 @@ const DrawerNavigator = () => (
     drawerStyle={{ width: DRAWER_WIDTH }}
     drawerContent={(props) => <DrawerContent {...props} />}
   >
-    <Drawer.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{
-        drawerLabel: () => null,
-        title: null,
-        drawerIcon: () => null,
-      }}
-    />
-    <Drawer.Screen name="OutfitIdea" component={OutfitIdeasScreen} />
+    <Drawer.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />
+    <Drawer.Screen name="FavouriteOutfits" component={FavouriteOutfitsScreen} />
+    <Drawer.Screen name="EditProfile" component={EditProfileScreen} />
+    <Drawer.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+    <Drawer.Screen name="NotificationsSettings" component={NotificationsSettingsScreen} />
     {/* <Drawer.Screen name="Auth" component={AuthNavigator} /> */}
   </Drawer.Navigator>
 );

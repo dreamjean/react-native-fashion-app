@@ -9,9 +9,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { PaginationDot, SlideFooter, SlideHeader } from '../components/boarding';
-import { calendar } from '../config';
-import slides from '../data/slides';
+import { PaginationDot, SlideFooter, SlideHeader } from '../../components/auth/boarding';
+import View from '../../components/styles/View';
+import { calendar } from '../../config';
+import slides from '../../data/slides';
 
 const { width, CELL_NUM } = calendar;
 
@@ -29,8 +30,7 @@ const BoardingScreen = ({ navigation }) => {
   });
 
   return (
-    <Container>
-      <StatusBar style="light" />
+    <View container>
       <HeaderContainer>
         <Animated.ScrollView
           ref={scroll}
@@ -96,14 +96,10 @@ const BoardingScreen = ({ navigation }) => {
           ))}
         </Animated.View>
       </FooterContainer>
-    </Container>
+      <StatusBar style="light" />
+    </View>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${({ theme: { colors } }) => colors.white};
-`;
 
 const HeaderContainer = styled.View`
   width: ${width}px;

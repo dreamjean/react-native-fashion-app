@@ -1,39 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { calendar, images } from '../../config';
-import BorderBox from '../styles/BorderBox';
-import Image from '../styles/Image';
+import { calendar, images } from '../../../config';
+import Image from '../../styles/Image';
+import View from '../../styles/View';
 
-const { CELL_NUM } = calendar;
+const { MEDIUM_HEIGHT, CELL_NUM } = calendar;
 
 const BackgroundStyled = () => {
   return (
-    <Container>
+    <View container>
       <Header />
-      <BorderBox>
-        <Image mdBorder up source={images[6]} />
-      </BorderBox>
+      <View bdBox>
+        <Image topCurve source={images[6]} />
+      </View>
       <Box>
-        <Image ratio source={images[6]} />
+        <Image medium source={images[6]} />
       </Box>
-      <BorderBox style={{ marginTop: -CELL_NUM }} />
-      <BorderBox>
-        <Image mdBorder source={images[6]} />
-      </BorderBox>
+      <View bdBox style={{ marginTop: -CELL_NUM }} />
+      <View bdBox>
+        <Image bottomCurve source={images[6]} />
+      </View>
       <Footer />
-    </Container>
+    </View>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: flex-end;
-
-  ${({ theme: { colors } }) => ({
-    backgroundColor: colors.white,
-  })}
-`;
 
 const Header = styled.View`
   flex: 1;
@@ -47,7 +38,7 @@ const Header = styled.View`
 
 const Box = styled.View`
   overflow: hidden;
-  flex: 1;
+  height: ${MEDIUM_HEIGHT}px;
 
   ${({ theme: { radii } }) => ({
     borderTopLeftRadius: radii.xl,

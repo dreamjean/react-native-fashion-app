@@ -5,8 +5,8 @@ import Animated, { add, Extrapolate, interpolateNode } from 'react-native-reanim
 import { mix, mixColor, usePanGestureHandler } from 'react-native-redash/lib/module/v1';
 import styled from 'styled-components';
 
-import runSpring from '../../animated/runSpring';
-import { calendar, colors } from '../../config';
+import runSpring from '../../../animated/runSpring';
+import { calendar, colors } from '../../../config';
 
 const { width, CARD_WIDTH, CARD_HEIGHT } = calendar;
 

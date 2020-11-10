@@ -16,24 +16,16 @@ const avatarStyle = css`
   })}
 `;
 
-const borderStyle = css`
-  width: ${width}px;
-  height: ${IMG_HEIGHT}px;
+const barCurveStyle = css`
   top: -${BAR_HEIGHT}px;
 `;
 
-const ratioStyle = css`
-  width: ${width}px;
-  height: ${IMG_HEIGHT}px;
+const topCurveStyle = css`
+  top: -${IMG_HEIGHT - CELL_NUM}px;
 `;
 
-const mdBorderStyle = css`
-  width: ${width}px;
-  height: ${IMG_HEIGHT}px;
-
-  ${({ up }) => ({
-    top: up ? -(IMG_HEIGHT - CELL_NUM) : -MEDIUM_HEIGHT,
-  })}
+const bottomCurveStyle = css`
+  top: -${MEDIUM_HEIGHT}px;
 `;
 
 const smallStyle = css`
@@ -47,10 +39,15 @@ const largeStyle = css`
 `;
 
 const Image = styled.Image`
+  width: ${width}px;
+  height: ${IMG_HEIGHT}px;
+
+  ${({ barCurve }) => barCurve && barCurveStyle};
+  ${({ bottomCurve }) => bottomCurve && bottomCurveStyle};
+  ${({ topCurve }) => topCurve && topCurveStyle};
+
+  /* picture style */
   ${({ avatar }) => avatar && avatarStyle}
-  ${({ border }) => border && borderStyle}
-  ${({ ratio }) => ratio && ratioStyle};
-  ${({ mdBorder }) => mdBorder && mdBorderStyle};
   ${({ small }) => small && smallStyle};
   ${({ large }) => large && largeStyle}
 `;

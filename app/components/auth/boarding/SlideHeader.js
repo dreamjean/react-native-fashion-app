@@ -2,9 +2,9 @@ import React from 'react';
 import Animated from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { calendar } from '../../config';
-import Image from '../styles/Image';
-import Text from '../styles/Text';
+import { calendar } from '../../../config';
+import Image from '../../styles/Image';
+import Text from '../../styles/Text';
 
 const { width, SLIDE_HEIGHT, CELL_NUM } = calendar;
 

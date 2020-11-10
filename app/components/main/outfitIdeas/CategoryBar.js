@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 
-import categories from '../../data/categories';
+import categories from '../../../data/categories';
 import Category from './Category';
 
 const CategoryBar = () => {

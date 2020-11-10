@@ -17,14 +17,15 @@ const colors = {
   purple2: '#a386f9',
 
   //bgColor
-  lightCyan: '#AFEEEE',
-  lightBlue: '#b4b4fd',
-  lightGreen: '#c1f0c1',
-  lightGrey: '#E6E6FA',
+  lightCyan: '#a6e3f2',
+  lightBlue: '#99bbff',
+  lightGreen: '#b3e6b9',
+  lightGrey: '#dbdbf0',
   lightOriange: '#fdd1b3',
-  lightPink: '#f9b8b8',
-  lightViotlet: '#d9b4fd',
-  lightYellow: '#FFFF99',
+  lightPink: '#ffb3d1',
+  lightViotlet: '#d9b3ff',
+  lightYellowGreen: '#ccff99',
+  lightBrown: '#d5c3bb',
 
   blue: '#53cff9',
   blue2: '#0099CC',

@@ -8,7 +8,7 @@ import {
   PasswordChangedScreen,
   RegisterScreen,
   WelcomeScreen,
-} from '../screens';
+} from '../screens/auth';
 
 const Stack = createStackNavigator();
 

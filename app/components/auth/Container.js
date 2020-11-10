@@ -27,7 +27,7 @@ const Container = ({
       <StatusBar style="dark" />
       <Header>
         <ImageBox {...{ imgLbr, imgRbr }}>
-          <Image ratio source={img} />
+          <Image source={img} />
           <CloseButton
             onPress={() => navigation.goBack()}
             backgroundColor={colors.white}
@@ -38,7 +38,7 @@ const Container = ({
           />
         </ImageBox>
         <Border>
-          <Image border source={img} />
+          <Image barCurve source={img} />
         </Border>
       </Header>
       <Medium {...{ ltBorder, rtBorder }}>

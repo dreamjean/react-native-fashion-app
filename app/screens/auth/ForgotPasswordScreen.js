@@ -3,9 +3,9 @@ import { Keyboard, Linking } from 'react-native';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Container, LinkFooter } from '../components/authenticate';
-import { Form, FormField, SubmitButton } from '../components/forms';
-import Text from '../components/styles/Text';
+import { Container, LinkFooter } from '../../components/auth';
+import { Form, FormField, SubmitButton } from '../../components/forms';
+import Text from '../../components/styles/Text';
 
 let validationSchema = Yup.object().shape({
   email: Yup.string().required().email('Invalid Email').label('Email'),

@@ -2,10 +2,10 @@ import { Entypo } from '@expo/vector-icons';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Icon } from '../components';
-import { Container, IconFooter } from '../components/authenticate';
-import Text from '../components/styles/Text';
-import { colors } from '../config';
+import { Button, Icon } from '../../components';
+import { Container, IconFooter } from '../../components/auth';
+import Text from '../../components/styles/Text';
+import { colors } from '../../config';
 
 const PasswordChangedScreen = ({ navigation }) => {
   return (

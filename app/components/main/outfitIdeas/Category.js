@@ -3,8 +3,8 @@ import { Pressable } from 'react-native';
 import Animated, { Extrapolate, interpolateNode } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { calendar } from '../../config';
-import Text from '../styles/Text';
+import { calendar } from '../../../config';
+import Text from '../../styles/Text';
 
 const { CTG_RADIUS } = calendar;
 
@@ -57,7 +57,7 @@ const Wrapper = styled.View`
   height: ${CTG_RADIUS * 2}px;
   justify-content: center;
   align-items: center;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: ${CTG_RADIUS}px;
 
   ${({ selected, backgroundColor, theme: { colors, space } }) => ({

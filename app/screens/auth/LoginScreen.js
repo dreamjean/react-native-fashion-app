@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Button } from '../components';
-import { Container, LinkFooter } from '../components/authenticate';
-import { Form, FormCheckbox, FormField, SubmitButton } from '../components/forms';
-import Text from '../components/styles/Text';
-import { colors } from '../config';
+import { Button } from '../../components';
+import { Container, LinkFooter } from '../../components/auth';
+import { Form, FormCheckbox, FormField, SubmitButton } from '../../components/forms';
+import Text from '../../components/styles/Text';
+import { colors } from '../../config';
 
 let validationSchema = Yup.object().shape({
   email: Yup.string().required().email('Invalid Email').label('Email'),

@@ -1,7 +1,7 @@
 import React from 'react';
 import Animated, { Extrapolate, interpolateNode } from 'react-native-reanimated';
 
-import { colors } from '../../config';
+import { colors } from '../../../config';
 
 const PaginationDot = ({ index, currentIndex }) => {
   let opacity = interpolateNode(currentIndex, {

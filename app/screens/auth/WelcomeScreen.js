@@ -2,10 +2,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../components';
-import Image from '../components/styles/Image';
-import Text from '../components/styles/Text';
-import { calendar, colors, images } from '../config';
+import { Button } from '../../components';
+import Image from '../../components/styles/Image';
+import Text from '../../components/styles/Text';
+import { calendar, colors, images } from '../../config';
 
 const { CELL_NUM, SIDEBAR_HEIGHT } = calendar;
 
@@ -24,7 +24,7 @@ const WelcomeScreen = ({ navigation }) => {
       <Medium />
       <Caption>
         <TextBox>
-          <Title title1>Let's get started</Title>
+          <Title title1>{"Let's get started"}</Title>
           <Text body center mtp>
             Login to your account below or signup for an amazing experience
           </Text>
