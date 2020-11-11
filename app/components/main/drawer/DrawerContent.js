@@ -116,7 +116,7 @@ const Logout = styled.View`
 `;
 
 const Footer = styled.View`
-  height: ${FOOTER_IMGH}PX;
+  height: ${FOOTER_IMGH}px;
   overflow: hidden;
 
   ${({ theme: { radii } }) => ({

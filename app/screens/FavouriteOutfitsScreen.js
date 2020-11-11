@@ -26,7 +26,7 @@ const FavouriteOutfitsScreen = ({ navigation }) => {
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
         right={{ icon: 'shopping', onPress: () => true }}
       />
-      <ScrollOutfits>
+      <ScrollOutfits showsVerticalScrollIndicator={false}>
         <Transitioning.View ref={list} transition={transition}>
           <Wrapper>
             <Outfits data={outfits.filter(({ id }) => id % 2 === 0)} />

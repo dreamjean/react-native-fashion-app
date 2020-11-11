@@ -1,30 +1,27 @@
+import dayjs from 'dayjs';
 import React from 'react';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
-import { lerp } from '../../../utility/lerp';
 import Text from '../../styles/Text';
 
-const Underlay = ({ dates, minY, maxY, step }) => {
-  // const minX = Math.min(...dates);
-  // const maxX = Math.max(...dates);
-
+const Underlay = ({ dates, step }) => {
   return (
     <Box>
-      {[1, 0.75, 0.5, 0.25].map((t) => (
-        <RowBar key={t}>
+      {[500, 400, 300, 200, 100, 0].map((t) => (
+        <RowBar marginTop={t === 500 ? 0 : calendar.GRAPH_HEIGHT / 5} key={t}>
           <Text
             caption
             style={{
               opacity: 0.8,
               textAlign: 'right',
               position: 'absolute',
-              top: -12,
+              bottom: -12,
               left: 0,
               marginRight: 8,
             }}
           >
-            {Math.round(lerp(minY, maxY, t))}
+            {t}
           </Text>
           <Seperator />
         </RowBar>
@@ -32,11 +29,11 @@ const Underlay = ({ dates, minY, maxY, step }) => {
 
       <Xaxis>
         {dates.map((date, index) => (
-          <MonElement key={index} style={{ width: step }}>
+          <Dates key={index} style={{ width: step }}>
             <Text caption center style={{ opacity: 0.8 }}>
-              {date}
+              {dayjs(date).format('MMM')}
             </Text>
-          </MonElement>
+          </Dates>
         ))}
       </Xaxis>
     </Box>
@@ -48,11 +45,12 @@ const Box = styled.View`
 `;
 
 const RowBar = styled.View`
-  height: ${calendar.GRAPH_HEIGHT / 4}px;
   flex-direction: row;
+  justify-content: flex-end;
 
-  ${({ theme: { space } }) => ({
+  ${({ marginTop, theme: { space } }) => ({
     marginLeft: space.m2,
+    marginTop,
   })};
 `;
 
@@ -63,7 +61,7 @@ const Seperator = styled.View`
   ${({ theme: { colors, space } }) => ({
     backgroundColor: colors.text,
     marginLeft: space.l2,
-    opacity: 0.1,
+    opacity: 0.08,
   })};
 `;
 
@@ -75,6 +73,6 @@ const Xaxis = styled.View`
   })};
 `;
 
-const MonElement = styled.View``;
+const Dates = styled.View``;
 
 export default Underlay;

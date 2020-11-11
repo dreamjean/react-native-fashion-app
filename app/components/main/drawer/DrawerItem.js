@@ -11,8 +11,11 @@ const DrawerItem = ({ label, icon, color, focused, onPress }) => {
     <Pressable
       onPress={onPress}
       style={({ pressed }) => ({
-        opacity: pressed ? 0.5 : 1,
         backgroundColor: pressed ? colors.lightCyan : 'transparent',
+        borderRadius: 10,
+        marginTop: 6,
+        opacity: pressed ? 0.5 : 1,
+        overflow: 'hidden',
       })}
     >
       <Box {...{ focused }}>
@@ -28,11 +31,10 @@ const DrawerItem = ({ label, icon, color, focused, onPress }) => {
 const Box = styled.View`
   flex-direction: row;
   align-items: center;
-  ${({ focused, theme: { space, colors, radii } }) => ({
+
+  ${({ focused, theme: { space, colors } }) => ({
     backgroundColor: focused ? colors.violet2 : colors.white,
-    borderRadius: radii.s2,
     padding: space.m1,
-    paddingTop: space.m2,
   })}
 `;
 

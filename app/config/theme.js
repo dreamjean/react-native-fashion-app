@@ -32,6 +32,7 @@ const theme = {
     l1: 24,
     l2: 32,
     xl: 40,
+    xxl: 75,
   },
   radii: {
     n: 0,

@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components';
@@ -11,14 +10,11 @@ const { GRAPH_WIDTH, GRAPH_HEIGHT } = calendar;
 
 const Graph = ({ data }) => {
   const step = GRAPH_WIDTH / data.length;
-  const values = data.map((p) => p.value);
-  const dates = data.map((p) => dayjs(p.date).format('MMM'));
-  const minY = Math.min(...values);
-  const maxY = Math.max(...values);
+  const dates = data.map((p) => p.date);
 
   return (
     <Container>
-      <Underlay {...{ dates, maxY, minY, step }} />
+      <Underlay {...{ dates, step }} />
       <Box style={{ ...StyleSheet.absoluteFill }}>
         {data.map((point, i) => {
           if (point.value === 0) {
@@ -31,11 +27,11 @@ const Graph = ({ data }) => {
               style={{
                 left: i * step,
                 width: step,
-                height: lerp(0, GRAPH_HEIGHT, point.value / maxY),
+                height: lerp(0, GRAPH_HEIGHT, point.value / 500),
               }}
             >
               <Column backgroundColor={point.color} />
-              <Dot backgroundColor={point.color} />
+              <Peak backgroundColor={point.color} />
             </ColumnWrapper>
           );
         })}
@@ -45,8 +41,10 @@ const Graph = ({ data }) => {
 };
 
 const Container = styled.View`
+  flex: 1;
+
   ${({ theme: { space } }) => ({
-    paddingBottom: space.l,
+    paddingBottom: space.xl,
     marginTop: space.xl,
     marginRight: space.m2,
   })}
@@ -81,7 +79,7 @@ const Column = styled.View`
   })}
 `;
 
-const Dot = styled.View`
+const Peak = styled.View`
   position: absolute;
   top: 0;
   width: 20px;
