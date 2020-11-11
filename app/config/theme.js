@@ -20,7 +20,7 @@ const theme = {
     l2: 16,
     xl: 18,
     title1: 21,
-    title2: 25,
+    title2: 27,
     heading: 70,
   },
   space: {

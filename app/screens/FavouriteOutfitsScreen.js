@@ -22,7 +22,7 @@ const FavouriteOutfitsScreen = ({ navigation }) => {
   return (
     <View container>
       <HeaderBar
-        title="Outfit Ideas"
+        title="Favourite Outfits"
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
         right={{ icon: 'shopping', onPress: () => true }}
       />

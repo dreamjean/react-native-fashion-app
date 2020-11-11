@@ -7,7 +7,8 @@ const headingStyle = css`
   ${({ theme: { colors, size, getFont } }) => ({
     fontFamily: getFont(0),
     fontSize: size.heading,
-    color: colors.white2,
+    color: colors.white,
+    opacity: 0.8,
   })};
 `;
 
@@ -37,7 +38,7 @@ const bodyStyle = css`
 
 const buttonStyle = css`
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   ${({ primary, theme: { colors, getFont, size } }) => ({
     color: primary ? colors.white : colors.text2,
@@ -67,6 +68,12 @@ const mtpStyle = css`
   })}
 `;
 
+const mbtStyle = css`
+  ${({ theme: { space } }) => ({
+    marginTop: space.s2,
+  })}
+`;
+
 const Text = styled.Text`
   ${({ theme: { colors, size, getFont } }) => ({
     color: colors.text2,
@@ -84,7 +91,8 @@ const Text = styled.Text`
 
   /* position style */
   ${({ center }) => center && centerStyle}
-  ${({ mtp }) => mtp && mtpStyle}
+  ${({ mtp }) => mtp && mtpStyle};
+  ${({ mbt }) => mbt && mbtStyle};
 `;
 
 export default Text;
