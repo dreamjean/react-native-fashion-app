@@ -9,9 +9,9 @@ export default [
   },
   {
     date: new Date('2019-10-01').getTime(),
-    value: 463.12,
+    value: 0,
     color: colors.blue2,
-    id: 245672,
+    id: 0,
   },
   {
     date: new Date('2019-11-01').getTime(),

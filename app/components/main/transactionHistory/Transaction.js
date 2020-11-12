@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../config';
 import Button from '../../Button';
 import Text from '../../styles/Text';
 
@@ -12,24 +11,22 @@ const Transaction = ({ color, date, id, value }) => {
       <Box>
         <NumBox>
           <Dot color={color} />
-          <Text title1>#{id}</Text>
+          <Text title1 opacity={0.8}>
+            #{id}
+          </Text>
         </NumBox>
         <TextBox>
-          <Text button style={{ opacity: 0.8 }}>
-            ${value}
-            {' - '}
-          </Text>
-          <Text button style={{ opacity: 0.8 }}>
-            {dayjs(date).format('DD MMMM,YYYY')}
+          <Text button opacity={0.6}>
+            {`$${value} - ${dayjs(date).format('DD MMMM,YYYY')}`}
           </Text>
         </TextBox>
       </Box>
       <Button
+        borderColor={color}
         label="See more"
-        width={90}
-        bgColor="transparent"
-        textStyle={{ textTransform: 'none', color: colors.text }}
+        textStyle={{ textTransform: 'none', color: color }}
         onPress={() => true}
+        width={100}
       />
     </Wrapper>
   );
@@ -40,7 +37,7 @@ const Wrapper = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    marginHorizontal: space.l2,
+    marginHorizontal: space.l1,
     paddingVertical: space.s2,
   })}
 `;
@@ -55,17 +52,17 @@ const NumBox = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    marginBottom: space.s1,
+    marginBottom: space.s2,
   })}
 `;
 
 const Dot = styled.View`
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
 
-  ${({ color, theme: { radii, space } }) => ({
+  ${({ color, theme: { space } }) => ({
     backgroundColor: color,
-    borderRadius: radii.s1,
     marginRight: space.m1,
   })}
 `;

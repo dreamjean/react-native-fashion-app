@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
@@ -15,7 +14,7 @@ const Graph = ({ data }) => {
   return (
     <Container>
       <Underlay {...{ dates, step }} />
-      <Box style={{ ...StyleSheet.absoluteFill }}>
+      <Box style={{ position: 'absolute', top: 0, right: 0 }}>
         {data.map((point, i) => {
           if (point.value === 0) {
             return null;
@@ -41,20 +40,19 @@ const Graph = ({ data }) => {
 };
 
 const Container = styled.View`
-  flex: 1;
-
   ${({ theme: { space } }) => ({
-    paddingBottom: space.xl,
-    marginTop: space.xl,
+    marginTop: space.l2,
     marginRight: space.m2,
+    height: GRAPH_HEIGHT + space.xl,
   })}
 `;
 
 const Box = styled.View`
   height: ${GRAPH_HEIGHT}px;
+  width: ${GRAPH_WIDTH}px;
 
   ${({ theme: { colors, space } }) => ({
-    backgroundColor: colors.grey,
+    backgroundColor: colors.darkGrey,
     marginLeft: space.xl,
   })}
 `;

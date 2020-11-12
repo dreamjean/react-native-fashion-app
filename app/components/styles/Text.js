@@ -82,9 +82,8 @@ const Text = styled.Text`
   })}
 
   ${({ body }) => body && bodyStyle}
-  ${({ button }) => button && buttonStyle}
-  ${({ caption }) =>
-    caption && captionStyle};
+  ${({ button }) => button && buttonStyle};
+  ${({ caption }) => caption && captionStyle};
   ${({ heading }) => heading && headingStyle}
   ${({ title1 }) => title1 && title1Style};
   ${({ title2 }) => title2 && title2Style}
@@ -93,6 +92,8 @@ const Text = styled.Text`
   ${({ center }) => center && centerStyle}
   ${({ mtp }) => mtp && mtpStyle};
   ${({ mbt }) => mbt && mbtStyle};
+
+  ${({ opacity }) => ({ opacity })};
 `;
 
 export default Text;

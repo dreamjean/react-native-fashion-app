@@ -7,18 +7,17 @@ import Text from '../../styles/Text';
 
 const Underlay = ({ dates, step }) => {
   return (
-    <Box>
+    <>
       {[500, 400, 300, 200, 100, 0].map((t) => (
-        <RowBar marginTop={t === 500 ? 0 : calendar.GRAPH_HEIGHT / 5} key={t}>
+        <RowBar height={t === 500 ? 0 : calendar.GRAPH_HEIGHT / 5} key={t}>
           <Text
             caption
             style={{
-              opacity: 0.8,
-              textAlign: 'right',
+              opacity: 0.7,
               position: 'absolute',
-              bottom: -12,
+              bottom: -14,
               left: 0,
-              marginRight: 8,
+              marginRight: 4,
             }}
           >
             {t}
@@ -30,27 +29,23 @@ const Underlay = ({ dates, step }) => {
       <Xaxis>
         {dates.map((date, index) => (
           <Dates key={index} style={{ width: step }}>
-            <Text caption center style={{ opacity: 0.8 }}>
+            <Text caption center opacity={0.7}>
               {dayjs(date).format('MMM')}
             </Text>
           </Dates>
         ))}
       </Xaxis>
-    </Box>
+    </>
   );
 };
-
-const Box = styled.View`
-  flex: 1;
-`;
 
 const RowBar = styled.View`
   flex-direction: row;
   justify-content: flex-end;
 
-  ${({ marginTop, theme: { space } }) => ({
+  ${({ height, theme: { space } }) => ({
     marginLeft: space.m2,
-    marginTop,
+    height,
   })};
 `;
 
@@ -61,18 +56,19 @@ const Seperator = styled.View`
   ${({ theme: { colors, space } }) => ({
     backgroundColor: colors.text,
     marginLeft: space.l2,
-    opacity: 0.08,
+    opacity: 0.1,
   })};
 `;
 
 const Xaxis = styled.View`
   flex-direction: row;
-
-  ${({ theme: { space } }) => ({
-    marginLeft: space.xl,
-  })};
+  position: absolute;
+  bottom: 12px;
+  right: 0;
 `;
 
-const Dates = styled.View``;
+const Dates = styled.View`
+  justify-content: center;
+`;
 
 export default Underlay;

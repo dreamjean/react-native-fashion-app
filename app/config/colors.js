@@ -5,9 +5,10 @@ const colors = {
   text2: 'rgba(15, 8, 62, 0.65)',
 
   violet: 'rgba(132, 0, 255, 0.35)',
-  violet2: 'rgba(132, 0, 255, 0.05)',
+  violet2: 'rgba(132, 0, 255, 0.08)',
   grey: 'rgba(15, 8, 62, 0.05)',
   grey2: 'rgba(15, 8, 62, 0.35)',
+  darkGrey: '#f2f2f380',
   white: '#ffffff',
   white2: 'rgba(255, 255, 255, 0.80)',
   danger: '#FF0058',

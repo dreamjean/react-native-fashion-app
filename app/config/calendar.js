@@ -18,7 +18,7 @@ const CARD_WIDTH = width * 0.7;
 const CARD_HEIGHT = width * 1.05;
 const CTG_RADIUS = 30;
 const OUTFIT_WIDTH = (width - theme.space.m2 * 3) / 2;
-const GRAPH_WIDTH = width - theme.space.l1 * 2;
+const GRAPH_WIDTH = width - theme.space.l2 * 2;
 const GRAPH_HEIGHT = GRAPH_WIDTH * 0.63;
 
 export default {

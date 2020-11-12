@@ -6,7 +6,7 @@ import Button from '../Button';
 const PressFooter = ({ height, tlBorder = true, ...rest }) => {
   return (
     <Wrapper {...{ tlBorder, height }}>
-      <Button primary space={false} width={245} {...rest} />
+      <Button primary width={245} {...rest} />
     </Wrapper>
   );
 };

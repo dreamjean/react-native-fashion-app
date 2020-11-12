@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Button } from '../components';
-import { HeaderBar } from '../components/main';
+import { HeaderBar, ImgFooter } from '../components/main';
 import { Graph, Transaction } from '../components/main/transactionHistory';
-import Image from '../components/styles/Image';
 import Text from '../components/styles/Text';
 import View from '../components/styles/View';
-import { calendar, colors, images } from '../config';
-import graphData from '../data/graphData';
+import { calendar, colors } from '../config';
+import initialData from '../data/graphData';
 
-const { CELL_NUM, FOOTER_IMGH } = calendar;
+const { CELL_NUM } = calendar;
 
 const TransactionHistoryScreen = ({ navigation }) => {
+  const [graphData, setGraphData] = useState(initialData);
+  const [buttonLabel, setButtonLabel] = useState('Filter');
+
   const converAmountFormat = () => {
     return graphData
       .map((p) => p.value)
@@ -37,32 +39,38 @@ const TransactionHistoryScreen = ({ navigation }) => {
         </Box>
         <Button
           bgColor={colors.purple}
-          label="All Time"
-          onPress={() => true}
+          label={buttonLabel}
+          onPress={() => {
+            let graphData = initialData;
+            if (buttonLabel === 'All Time') {
+              setButtonLabel('Filter');
+              setGraphData(graphData);
+            }
+            if (buttonLabel === 'Filter') {
+              setButtonLabel('All Time');
+              setGraphData(graphData.filter((item) => item.value !== 0));
+            }
+          }}
           textStyle={{ color: colors.primary }}
           width={100}
         />
       </Heading>
       <Graph data={graphData} />
 
-      <Listing>
-        {graphData.map((item, index) => (
-          <Transaction
-            key={index}
-            color={item.color}
-            date={item.date}
-            id={item.id}
-            value={item.value}
-          />
-        ))}
-      </Listing>
-
-      <View bdBox>
-        <Image topCurve source={images[6]} />
-      </View>
-      <Footer>
-        <Image source={images[6]} />
-      </Footer>
+      <Wrapper>
+        <Listing showsVerticalScrollIndicator={false}>
+          {graphData.map((item, index) => (
+            <Transaction
+              key={index}
+              color={item.color}
+              date={item.date}
+              id={item.id}
+              value={item.value}
+            />
+          ))}
+        </Listing>
+      </Wrapper>
+      <ImgFooter />
     </View>
   );
 };
@@ -89,24 +97,16 @@ const Amount = styled(Text)`
   })}
 `;
 
-const Listing = styled.ScrollView`
-  flex: 1;
-  margin-bottom: -${CELL_NUM}px;
-  overflow: hidden;
+const Listing = styled.ScrollView``;
 
-  ${({ theme: { colors, space, radii } }) => ({
+const Wrapper = styled.View`
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: -${CELL_NUM}px;
+
+  ${({ theme: { colors, radii } }) => ({
     backgroundColor: colors.white,
     borderBottomRightRadius: radii.xl,
-    paddingBottom: space.m1,
-  })}
-`;
-
-const Footer = styled.View`
-  height: ${FOOTER_IMGH}px;
-  overflow: hidden;
-
-  ${({ theme: { radii } }) => ({
-    borderTopLeftRadius: radii.xl,
   })}
 `;
 

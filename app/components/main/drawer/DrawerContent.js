@@ -2,16 +2,16 @@ import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react';
 import styled from 'styled-components';
 
-import { calendar, colors, images } from '../../../config';
+import { colors, images } from '../../../config';
 import drawerMenu from '../../../data/drawerMenu';
 import Image from '../../styles/Image';
 import Text from '../../styles/Text';
 import View from '../../styles/View';
 import HeaderBar from '../HeaderBar';
+import ImgFooter from '../ImgFooter';
 import DrawerItem from './DrawerItem';
 
-const { FOOTER_IMGH } = calendar;
-const indexNum = 5;
+const logoutIndex = 5;
 
 const DrawerContent = (props) => {
   return (
@@ -51,18 +51,13 @@ const DrawerContent = (props) => {
           <DrawerItem
             label="LogOut"
             color={colors.secondary}
-            focused={indexNum === props.state.index}
+            focused={logoutIndex === props.state.index}
             icon="logout"
             onPress={() => true}
           />
         </Logout>
       </Medium>
-      <View bdBox>
-        <Image topCurve source={images[6]} />
-      </View>
-      <Footer>
-        <Image source={images[6]} />
-      </Footer>
+      <ImgFooter />
     </View>
   );
 };
@@ -112,15 +107,6 @@ const Logout = styled.View`
 
   ${({ theme: { colors } }) => ({
     borderColor: colors.violet,
-  })}
-`;
-
-const Footer = styled.View`
-  height: ${FOOTER_IMGH}px;
-  overflow: hidden;
-
-  ${({ theme: { radii } }) => ({
-    borderTopLeftRadius: radii.xl,
   })}
 `;
 

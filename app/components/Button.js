@@ -9,13 +9,14 @@ const Button = ({
   bgColor,
   label,
   onPress,
+  opacity,
   primary,
-  space = true,
+  space = false,
   textStyle,
   width = 245,
 }) => {
   return (
-    <Container {...{ borderColor, bgColor, space, width, primary }} onPress={onPress}>
+    <Container {...{ borderColor, bgColor, space, width, primary, opacity }} onPress={onPress}>
       <Text button style={textStyle} primary={primary}>
         {label}
       </Text>
@@ -25,7 +26,7 @@ const Button = ({
 
 const borderStyle = css`
   background-color: transparent;
-  border-width: 3px;
+  border-width: 2px;
 
   ${({ borderColor }) => ({
     borderColor,
@@ -42,14 +43,15 @@ const Container = styled(RectButton)`
   justify-content: center;
   align-items: center;
 
-  ${({ bgColor, primary, width, theme: { colors, space, radii } }) => ({
+  ${({ opacity, bgColor, primary, width, theme: { colors, space, radii } }) => ({
     backgroundColor: bgColor ? bgColor : primary ? colors.primary : colors.grey,
-    borderRadius: radii.m2,
+    borderRadius: radii.m1,
     paddingVertical: space.m1,
     width: width,
+    opacity,
   })};
 
-  ${({ border }) => border && borderStyle}
+  ${({ borderColor }) => borderColor && borderStyle}
   ${({ space }) => space && spaceStyle}
 `;
 
