@@ -13,7 +13,7 @@ const Underlay = ({ dates, step }) => {
           <Text
             caption
             style={{
-              opacity: 0.7,
+              opacity: 0.6,
               position: 'absolute',
               bottom: -14,
               left: 0,
@@ -29,7 +29,7 @@ const Underlay = ({ dates, step }) => {
       <Xaxis>
         {dates.map((date, index) => (
           <Dates key={index} style={{ width: step }}>
-            <Text caption center opacity={0.7}>
+            <Text caption center opacity={0.6}>
               {dayjs(date).format('MMM')}
             </Text>
           </Dates>

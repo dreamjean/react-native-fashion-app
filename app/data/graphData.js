@@ -4,7 +4,7 @@ export default [
   {
     date: new Date('2019-09-01').getTime(),
     value: 351.89,
-    color: colors.green,
+    color: colors.orange,
     id: 245671,
   },
   {
@@ -22,7 +22,7 @@ export default [
   {
     date: new Date('2019-12-01').getTime(),
     value: 281.23,
-    color: colors.orange,
+    color: colors.green,
     id: 245674,
   },
   {

@@ -52,7 +52,7 @@ const Box = styled.View`
   width: ${GRAPH_WIDTH}px;
 
   ${({ theme: { colors, space } }) => ({
-    backgroundColor: colors.darkGrey,
+    backgroundColor: colors.lightGrey2,
     marginLeft: space.xl,
   })}
 `;

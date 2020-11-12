@@ -11,12 +11,12 @@ const Transaction = ({ color, date, id, value }) => {
       <Box>
         <NumBox>
           <Dot color={color} />
-          <Text title1 opacity={0.8}>
+          <Text title1 style={{ fontSize: 18, opacity: 0.8 }}>
             #{id}
           </Text>
         </NumBox>
         <TextBox>
-          <Text button opacity={0.6}>
+          <Text button opacity={0.35}>
             {`$${value} - ${dayjs(date).format('DD MMMM,YYYY')}`}
           </Text>
         </TextBox>
