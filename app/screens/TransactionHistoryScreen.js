@@ -1,4 +1,6 @@
+import { useFocusEffect } from '@react-navigation/native';
 import React, { useState } from 'react';
+import { useSharedValue, withTiming } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { Button } from '../components';
@@ -14,6 +16,26 @@ const { CELL_NUM } = calendar;
 const TransactionHistoryScreen = ({ navigation }) => {
   const [graphData, setGraphData] = useState(initialData);
   const [buttonLabel, setButtonLabel] = useState('Filter');
+
+  const scaleY = useSharedValue(0);
+  useFocusEffect(() => {
+    scaleY.value = withTiming(1, { duration: 650 });
+    return () => (scaleY.value = 0);
+  });
+
+  const fatchData = () => {
+    let graphData = initialData;
+
+    if (buttonLabel === 'All Time') {
+      setButtonLabel('Filter');
+      setGraphData(graphData);
+    }
+    if (buttonLabel === 'Filter') {
+      setButtonLabel('All Time');
+      graphData = graphData.filter((item) => item.value !== 0);
+      setGraphData(graphData);
+    }
+  };
 
   const converAmountFormat = () => {
     return graphData
@@ -40,22 +62,12 @@ const TransactionHistoryScreen = ({ navigation }) => {
         <Button
           bgColor={colors.purple}
           label={buttonLabel}
-          onPress={() => {
-            let graphData = initialData;
-            if (buttonLabel === 'All Time') {
-              setButtonLabel('Filter');
-              setGraphData(graphData);
-            }
-            if (buttonLabel === 'Filter') {
-              setButtonLabel('All Time');
-              setGraphData(graphData.filter((item) => item.value !== 0));
-            }
-          }}
+          onPress={fatchData}
           textStyle={{ color: colors.primary }}
           width={100}
         />
       </Heading>
-      <Graph data={graphData} />
+      <Graph data={graphData} scaleY={scaleY} />
 
       <Wrapper>
         <Listing showsVerticalScrollIndicator={false}>

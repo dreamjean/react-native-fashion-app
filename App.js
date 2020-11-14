@@ -5,9 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { Theme } from './app/components';
 import useLoadAssets from './app/hooks/useLoadAssets';
 // import AuthNavigator from './app/navigation/AuthNavigator';
-import DrawerNavigator from './app/navigation/DrawerNavigator';
+import AppNavigator from './app/navigation/AppNavigator';
 import { navigationRef } from './app/navigation/rootNavigation';
-// import AppNavigator from './app/navigation/AppNavigator';
 import cache from './app/utility/cache';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
@@ -48,7 +47,7 @@ export default function App() {
     <Theme>
       <NavigationContainer ref={navigationRef} {...{ initialState, onStateChange }}>
         {/* <AuthNavigator /> */}
-        <DrawerNavigator />
+        <AppNavigator />
       </NavigationContainer>
     </Theme>
   );

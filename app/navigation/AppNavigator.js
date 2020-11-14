@@ -1,16 +1,35 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 
-import MainNavigator from './MainNavigator';
+import { DrawerContent } from '../components/main/drawer';
+// import AuthNavigator from './AuthNavigator';
+import { calendar } from '../config';
+import {
+  EditProfileScreen,
+  FavouriteOutfitsScreen,
+  NotificationsSettingsScreen,
+  OutfitIdeasScreen,
+  TransactionHistoryScreen,
+} from '../screens';
 
-const Stack = createStackNavigator();
+const { DRAWER_WIDTH } = calendar;
 
-const AppNavigator = () => {
-  return (
-    <Stack.Navigator headerMode="none">
-      <Stack.Screen name="Main" component={MainNavigator} />
-    </Stack.Navigator>
-  );
-};
+const Drawer = createDrawerNavigator();
 
-export default AppNavigator;
+const DrawerNavigator = () => (
+  <Drawer.Navigator
+    initialRouteName="Home"
+    drawerStyle={{ width: DRAWER_WIDTH }}
+    drawerContent={(props) => <DrawerContent {...props} />}
+    screenOptions={{ headerShown: false }}
+  >
+    <Drawer.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />
+    <Drawer.Screen name="FavouriteOutfits" component={FavouriteOutfitsScreen} />
+    <Drawer.Screen name="EditProfile" component={EditProfileScreen} />
+    <Drawer.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+    <Drawer.Screen name="NotificationsSettings" component={NotificationsSettingsScreen} />
+    {/* <Drawer.Screen name="Auth" component={AuthNavigator} /> */}
+  </Drawer.Navigator>
+);
+
+export default DrawerNavigator;

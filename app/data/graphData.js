@@ -33,7 +33,7 @@ export default [
   },
   {
     date: new Date('2020-02-01').getTime(),
-    value: 198.54,
+    value: 427.54,
     color: colors.yellow2,
     id: 245676,
   },

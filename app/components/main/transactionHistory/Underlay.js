@@ -28,7 +28,7 @@ const Underlay = ({ dates, step }) => {
 
       <Xaxis>
         {dates.map((date, index) => (
-          <Dates key={index} style={{ width: step }}>
+          <Dates key={index} width={step}>
             <Text caption center opacity={0.6}>
               {dayjs(date).format('MMM')}
             </Text>
@@ -62,13 +62,13 @@ const Seperator = styled.View`
 
 const Xaxis = styled.View`
   flex-direction: row;
-  position: absolute;
-  bottom: 12px;
-  right: 0;
+  justify-content: flex-end;
 `;
 
 const Dates = styled.View`
-  justify-content: center;
+  ${({ width }) => ({
+    width,
+  })}
 `;
 
 export default Underlay;

@@ -1,20 +1,44 @@
 import React from 'react';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { calendar } from '../../../config';
+import { calendar, colors } from '../../../config';
 import { lerp } from '../../../utility/lerp';
 import Underlay from './Underlay';
 
 const { GRAPH_WIDTH, GRAPH_HEIGHT } = calendar;
 
-const Graph = ({ data }) => {
+const Graph = ({ data, scaleY }) => {
   const step = GRAPH_WIDTH / data.length;
+  const columnWith = step * 0.32;
+  const peakHeight = columnWith * 1.45;
   const dates = data.map((p) => p.date);
+
+  const stylez = useAnimatedStyle(() => {
+    const currentHeight = GRAPH_HEIGHT * scaleY.value;
+    const translateY = (GRAPH_HEIGHT - currentHeight) / 2;
+
+    return {
+      transform: [{ translateY }, { scaleY: scaleY.value }],
+    };
+  });
 
   return (
     <Container>
       <Underlay {...{ dates, step }} />
-      <Box style={{ position: 'absolute', top: 0, right: 0 }}>
+      <Animated.View
+        style={[
+          {
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            height: GRAPH_HEIGHT,
+            width: GRAPH_WIDTH,
+            backgroundColor: colors.lightGrey2,
+          },
+          stylez,
+        ]}
+      >
         {data.map((point, i) => {
           if (point.value === 0) {
             return null;
@@ -22,19 +46,25 @@ const Graph = ({ data }) => {
 
           return (
             <ColumnWrapper
-              key={point.date}
+              key={i}
               style={{
                 left: i * step,
                 width: step,
                 height: lerp(0, GRAPH_HEIGHT, point.value / 500),
               }}
             >
-              <Column backgroundColor={point.color} />
-              <Peak backgroundColor={point.color} />
+              <Column style={{ backgroundColor: point.color, width: columnWith }} />
+              <Peak
+                style={{
+                  backgroundColor: point.color,
+                  width: columnWith,
+                  height: peakHeight,
+                }}
+              />
             </ColumnWrapper>
           );
         })}
-      </Box>
+      </Animated.View>
     </Container>
   );
 };
@@ -47,16 +77,6 @@ const Container = styled.View`
   })}
 `;
 
-const Box = styled.View`
-  height: ${GRAPH_HEIGHT}px;
-  width: ${GRAPH_WIDTH}px;
-
-  ${({ theme: { colors, space } }) => ({
-    backgroundColor: colors.lightGrey2,
-    marginLeft: space.xl,
-  })}
-`;
-
 const ColumnWrapper = styled.View`
   position: absolute;
   bottom: 0;
@@ -66,11 +86,9 @@ const Column = styled.View`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 18px;
   align-self: center;
 
-  ${({ backgroundColor, theme: { radii } }) => ({
-    backgroundColor,
+  ${({ theme: { radii } }) => ({
     borderTopLeftRadius: radii.m2,
     borderTopRightRadius: radii.m2,
     opacity: 0.15,
@@ -80,12 +98,9 @@ const Column = styled.View`
 const Peak = styled.View`
   position: absolute;
   top: 0;
-  width: 20px;
-  height: 32px;
   align-self: center;
 
-  ${({ backgroundColor, theme: { radii } }) => ({
-    backgroundColor,
+  ${({ theme: { radii } }) => ({
     borderRadius: radii.m2,
   })}
 `;

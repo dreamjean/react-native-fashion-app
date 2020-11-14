@@ -12,7 +12,7 @@ import {
 
 const Stack = createStackNavigator();
 
-const AuthNavigator = () => (
+const AppNavigator = () => (
   <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
     <Stack.Screen name="Boarding" component={BoardingScreen} />
     <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -23,4 +23,4 @@ const AuthNavigator = () => (
   </Stack.Navigator>
 );
 
-export default AuthNavigator;
+export default AppNavigator;
