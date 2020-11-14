@@ -20,9 +20,19 @@ const containerStyle = css`
   })}
 `;
 
+const headingStyle = css`
+  height: 140px;
+
+  ${({ theme: { colors, radii } }) => ({
+    backgroundColor: colors.secondary,
+    borderBottomRightRadius: radii.xl,
+  })}
+`;
+
 const View = styled.View`
   ${({ bdBox }) => bdBox && bdBoxStyle}
   ${({ container }) => container && containerStyle};
+  ${({ heading }) => heading && headingStyle};
 `;
 
 export default View;

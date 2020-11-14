@@ -5,9 +5,9 @@ import { colors } from '../../config';
 import IconButton from '../IconButton';
 import Text from '../styles/Text';
 
-const HeaderBar = ({ title, left, right, dark = false, white = false }) => {
+const HeaderBar = ({ bgColor, title, left, right, dark = false, white = false }) => {
   const color = dark ? colors.white : colors.text;
-  const backgroundColor = dark ? colors.primary : colors.grey;
+  const backgroundColor = bgColor ? bgColor : dark ? colors.primary : colors.grey;
 
   return (
     <Wrapper>
@@ -22,14 +22,18 @@ const HeaderBar = ({ title, left, right, dark = false, white = false }) => {
       <Text caption upper white={white}>
         {title}
       </Text>
-      <IconButton
-        iconName={right.icon}
-        backgroundColor={backgroundColor}
-        color={color}
-        size={dark ? 32 : 36}
-        iconRatio={0.6}
-        onPress={right.onPress}
-      />
+      {right ? (
+        <IconButton
+          iconName={right.icon}
+          backgroundColor={backgroundColor}
+          color={color}
+          size={dark ? 32 : 36}
+          iconRatio={0.6}
+          onPress={right.onPress}
+        />
+      ) : (
+        <Placeholder />
+      )}
     </Wrapper>
   );
 };
@@ -41,9 +45,13 @@ const Wrapper = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    marginTop: space.l2,
+    marginTop: space.l1,
     paddingHorizontal: space.m2,
   })}
+`;
+
+const Placeholder = styled.View`
+  width: 36px;
 `;
 
 export default HeaderBar;

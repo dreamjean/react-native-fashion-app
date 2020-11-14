@@ -2,11 +2,10 @@ import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors, images } from '../../../config';
+import { colors } from '../../../config';
 import drawerMenu from '../../../data/drawerMenu';
-import Image from '../../styles/Image';
-import Text from '../../styles/Text';
 import View from '../../styles/View';
+import Avatar from '../Avatar';
 import HeaderBar from '../HeaderBar';
 import ImgFooter from '../ImgFooter';
 import DrawerItem from './DrawerItem';
@@ -16,7 +15,7 @@ const logoutIndex = 5;
 const DrawerContent = (props) => {
   return (
     <View container>
-      <Header>
+      <View heading>
         <HeaderBar
           dark
           white
@@ -24,17 +23,11 @@ const DrawerContent = (props) => {
           left={{ icon: 'chevron-left', onPress: () => props.navigation.closeDrawer() }}
           right={{ icon: 'lock-pattern', onPress: () => true }}
         />
-      </Header>
+      </View>
       <View bdBox />
 
       <Medium>
-        <AvatarContainer>
-          <Avatar>
-            <Image avatar source={images[0]} />
-          </Avatar>
-          <Text title2>Rokia</Text>
-          <Text>rokia@demo.com</Text>
-        </AvatarContainer>
+        <Avatar />
         <Menu {...props}>
           {drawerMenu.map((item, i) => (
             <DrawerItem
@@ -61,28 +54,6 @@ const DrawerContent = (props) => {
     </View>
   );
 };
-
-const Header = styled.View`
-  height: 120px;
-
-  ${({ theme: { colors, radii } }) => ({
-    backgroundColor: colors.secondary,
-    borderBottomRightRadius: radii.xl,
-  })}
-`;
-
-const Avatar = styled.View`
-  ${({ theme: { space } }) => ({
-    marginBottom: space.s,
-  })}
-`;
-
-const AvatarContainer = styled.View`
-  align-self: center;
-  align-items: center;
-  position: absolute;
-  top: -35px;
-`;
 
 const Medium = styled.View`
   flex: 1;

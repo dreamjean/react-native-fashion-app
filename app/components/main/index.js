@@ -1,3 +1,4 @@
+export { default as Avatar } from './Avatar';
 export { default as HeaderBar } from './HeaderBar';
 export { default as ImgFooter } from './ImgFooter';
 export { default as Outfits } from './Outfits';

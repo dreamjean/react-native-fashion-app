@@ -17,7 +17,6 @@ const OutfitIdeasScreen = ({ navigation }) => {
 
   return (
     <View container>
-      <StatusBar style="dark" />
       <HeaderBar
         title="Outfit Ideas"
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
@@ -39,6 +38,7 @@ const OutfitIdeasScreen = ({ navigation }) => {
             )
         )}
       </Box>
+      <StatusBar style="dark" />
     </View>
   );
 };
