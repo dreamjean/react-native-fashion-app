@@ -1,23 +1,29 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
 import {
-  // EditProfileScreen,
+  EditProfileScreen,
   FavouriteOutfitsScreen,
-  // NotificationsSettingsScreen,
+  NotificationsSettingsScreen,
   OutfitIdeasScreen,
   TransactionHistoryScreen,
 } from '../screens';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const MainNavigator = () => {
   return (
-    <Tab.Navigator headerMode="none">
-      <Tab.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />
-      <Tab.Screen name="FavouriteOutfits" component={FavouriteOutfitsScreen} />
-      <Tab.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
-    </Tab.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />
+      <Stack.Screen name="FavouriteOutfits" component={FavouriteOutfitsScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+      <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+      <Stack.Screen name="NotificationsSettings" component={NotificationsSettingsScreen} />
+    </Stack.Navigator>
   );
 };
 

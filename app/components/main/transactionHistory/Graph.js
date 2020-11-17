@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { calendar, colors } from '../../../config';
 import { lerp } from '../../../utility/lerp';
+import Text from '../../styles/Text';
 import Underlay from './Underlay';
 
 const { GRAPH_WIDTH, GRAPH_HEIGHT } = calendar;
@@ -40,6 +41,8 @@ const Graph = ({ data, scaleY }) => {
         ]}
       >
         {data.map((point, i) => {
+          const totalHeight = lerp(0, GRAPH_HEIGHT, point.value / 500);
+
           if (point.value === 0) {
             return null;
           }
@@ -50,9 +53,20 @@ const Graph = ({ data, scaleY }) => {
               style={{
                 left: i * step,
                 width: step,
-                height: lerp(0, GRAPH_HEIGHT, point.value / 500),
+                height: totalHeight,
               }}
             >
+              <Text
+                style={{
+                  opacity: 0.5,
+                  fontSize: 9,
+                  position: 'absolute',
+                  alignSelf: 'center',
+                  bottom: totalHeight + 4,
+                }}
+              >
+                {point.value}
+              </Text>
               <Column style={{ backgroundColor: point.color, width: columnWith }} />
               <Peak
                 style={{

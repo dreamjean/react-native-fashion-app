@@ -21,7 +21,7 @@ const containerStyle = css`
 `;
 
 const headingStyle = css`
-  height: 140px;
+  height: 130px;
 
   ${({ theme: { colors, radii } }) => ({
     backgroundColor: colors.secondary,

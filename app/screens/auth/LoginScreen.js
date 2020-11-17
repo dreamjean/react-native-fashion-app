@@ -65,8 +65,7 @@ const LoginScreen = ({ navigation }) => {
           <Box>
             <FormCheckbox name="remember" title="remeber me" />
             <Button
-              width={160}
-              space={false}
+              width={150}
               label="Forgot Password?"
               bgColor="transparent"
               textStyle={{ color: colors.primary, textTransform: 'capitalize' }}

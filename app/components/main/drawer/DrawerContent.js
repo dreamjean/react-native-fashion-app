@@ -1,5 +1,7 @@
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react';
+import { Alert } from 'react-native';
+import Animated, { interpolateNode } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { colors } from '../../../config';
@@ -10,9 +12,14 @@ import HeaderBar from '../HeaderBar';
 import ImgFooter from '../ImgFooter';
 import DrawerItem from './DrawerItem';
 
-const logoutIndex = 5;
+const DrawerContent = ({ progress, ...rest }) => {
+  const routeKey = rest.state.routes[0].key;
 
-const DrawerContent = (props) => {
+  const scale = interpolateNode(progress, {
+    inputRange: [0, 1],
+    outputRange: [0.5, 1],
+  });
+
   return (
     <View container>
       <View heading>
@@ -20,7 +27,7 @@ const DrawerContent = (props) => {
           dark
           white
           title="my profile"
-          left={{ icon: 'chevron-left', onPress: () => props.navigation.closeDrawer() }}
+          left={{ icon: 'chevron-left', onPress: () => rest.navigation.closeDrawer() }}
           right={{ icon: 'lock-pattern', onPress: () => true }}
         />
       </View>
@@ -28,27 +35,28 @@ const DrawerContent = (props) => {
 
       <Medium>
         <Avatar />
-        <Menu {...props}>
-          {drawerMenu.map((item, i) => (
-            <DrawerItem
-              key={i}
-              label={item.label}
-              color={item.color}
-              focused={i === props.state.index}
-              icon={item.icon}
-              onPress={() => props.navigation.navigate(item.screen)}
-            />
-          ))}
+        <Menu {...rest}>
+          <Animated.View style={{ transform: [{ scale }] }}>
+            {drawerMenu.map((item, i) => (
+              <DrawerItem
+                key={i}
+                label={item.label}
+                color={item.color}
+                focused={item.title === rest.descriptors[routeKey].options.headerTitle}
+                icon={item.icon}
+                onPress={() => rest.navigation.navigate(item.screen)}
+              />
+            ))}
+            <Logout>
+              <DrawerItem
+                label="LogOut"
+                color={colors.secondary}
+                icon="logout"
+                onPress={() => Alert}
+              />
+            </Logout>
+          </Animated.View>
         </Menu>
-        <Logout>
-          <DrawerItem
-            label="LogOut"
-            color={colors.secondary}
-            focused={logoutIndex === props.state.index}
-            icon="logout"
-            onPress={() => true}
-          />
-        </Logout>
       </Medium>
       <ImgFooter />
     </View>
@@ -76,8 +84,9 @@ const Menu = styled(DrawerContentScrollView)`
 const Logout = styled.View`
   border-top-width: 1px;
 
-  ${({ theme: { colors } }) => ({
+  ${({ theme: { colors, space } }) => ({
     borderColor: colors.violet,
+    marginTop: space.l1,
   })}
 `;
 

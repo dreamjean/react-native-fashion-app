@@ -19,7 +19,7 @@ const TransactionHistoryScreen = ({ navigation }) => {
 
   const scaleY = useSharedValue(0);
   useFocusEffect(() => {
-    scaleY.value = withTiming(1, { duration: 650 });
+    scaleY.value = withTiming(1, { duration: 750 });
     return () => (scaleY.value = 0);
   });
 

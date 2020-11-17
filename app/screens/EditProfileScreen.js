@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FocusAwareStatusBar } from '../components';
 import { Avatar, HeaderBar } from '../components/main';
 import View from '../components/styles/View';
 
@@ -20,6 +21,7 @@ const EditProfileScreen = ({ navigation }) => {
       <Medium>
         <Avatar />
       </Medium>
+      <FocusAwareStatusBar style="light" />
     </View>
   );
 };

@@ -13,7 +13,7 @@ const SlideFooter = ({ title, description, ...rest }) => {
           {description}
         </Text>
       </TextContainer>
-      <Button {...rest} />
+      <Button space {...rest} />
     </Footer>
   );
 };
