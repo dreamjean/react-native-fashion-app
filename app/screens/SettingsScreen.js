@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ImgUnderFill } from '../components';
-import { HeaderBar } from '../components/main';
-import { Notification } from '../components/main/notifications';
+import { HeaderBar, Notification } from '../components/main';
 import notifications from '../data/notifications';
 
 const SettingsScreen = ({ navigation }) => {

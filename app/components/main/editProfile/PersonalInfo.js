@@ -88,7 +88,7 @@ const Box = styled.ScrollView`
 
 const ButtonBox = styled.View`
   ${({ theme: { space } }) => ({
-    paddingHorizontal: space.l2,
+    paddingHorizontal: space.xl,
   })}
 `;
 

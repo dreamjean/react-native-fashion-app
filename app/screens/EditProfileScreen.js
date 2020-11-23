@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FocusAwareStatusBar } from '../components';
-import { Avatar, HeaderBar } from '../components/main';
-import { Configuration, PersonalInfo, Tabs } from '../components/main/editProfile';
+import { Avatar, Configuration, HeaderBar, PersonalInfo, Tabs } from '../components/main';
 import View from '../components/styles/View';
 
 const tabs = [

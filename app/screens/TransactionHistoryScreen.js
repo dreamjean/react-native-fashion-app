@@ -4,8 +4,7 @@ import { useSharedValue, withTiming } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { Button, Content } from '../components';
-import { HeaderBar } from '../components/main';
-import { Graph, Transaction } from '../components/main/transactionHistory';
+import { Graph, HeaderBar, Transaction } from '../components/main';
 import Text from '../components/styles/Text';
 import { calendar, colors } from '../config';
 import initialData from '../data/graphData';

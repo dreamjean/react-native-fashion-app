@@ -9,7 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { PaginationDot, SlideFooter, SlideHeader } from '../../components/auth/boarding';
+import { PaginationDot, SlideFooter, SlideHeader } from '../../components/auth';
 import View from '../../components/styles/View';
 import { calendar } from '../../config';
 import slides from '../../data/slides';

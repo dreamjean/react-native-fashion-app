@@ -16,6 +16,7 @@ const MainNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        gestureEnabled: false,
       }}
     >
       <Stack.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />

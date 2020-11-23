@@ -8,7 +8,7 @@ const avatarStyle = css`
   height: 70px;
   width: 70px;
   border-radius: 35px;
-  border-width: 3px;
+  border-width: 2px;
 
   ${({ theme: { colors, space } }) => ({
     borderColor: colors.violet,

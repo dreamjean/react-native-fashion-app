@@ -4,8 +4,7 @@ import { sub } from 'react-native-reanimated';
 import { useTransition } from 'react-native-redash/lib/module/v1';
 import styled from 'styled-components';
 
-import { HeaderBar } from '../components/main';
-import { BackgroundStyled, Card, CategoryBar } from '../components/main/outfitIdeas';
+import { BackgroundStyled, Card, CategoryBar, HeaderBar } from '../components/main';
 import View from '../components/styles/View';
 import cards from '../data/cards';
 

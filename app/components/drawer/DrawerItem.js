@@ -2,9 +2,9 @@ import React from 'react';
 import { Pressable } from 'react-native';
 import styled from 'styled-components';
 
-import { colors } from '../../../config';
-import Icon from '../../Icon';
-import Text from '../../styles/Text';
+import { colors } from '../../config';
+import Icon from '../Icon';
+import Text from '../styles/Text';
 
 const DrawerItem = ({ label, icon, color, focused, onPress }) => {
   return (

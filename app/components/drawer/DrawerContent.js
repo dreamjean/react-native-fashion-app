@@ -1,14 +1,13 @@
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react';
 import { Alert } from 'react-native';
-import Animated, { interpolateNode } from 'react-native-reanimated';
+import Animated, { Extrapolate, interpolateNode } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { colors } from '../../../config';
-import drawerMenu from '../../../data/drawerMenu';
-import View from '../../styles/View';
-import Avatar from '../Avatar';
-import HeaderBar from '../HeaderBar';
+import { colors } from '../../config';
+import drawerMenu from '../../data/drawerMenu';
+import { Avatar, HeaderBar } from '../main';
+import View from '../styles/View';
 import DrawerItem from './DrawerItem';
 import ImgFooter from './ImgFooter';
 
@@ -18,6 +17,7 @@ const DrawerContent = ({ progress, ...rest }) => {
   const scale = interpolateNode(progress, {
     inputRange: [0, 1],
     outputRange: [0.5, 1],
+    extrapolate: Extrapolate.CLAMP,
   });
 
   return (
@@ -28,7 +28,7 @@ const DrawerContent = ({ progress, ...rest }) => {
           white
           title="my profile"
           left={{ icon: 'chevron-left', onPress: () => rest.navigation.closeDrawer() }}
-          right={{ icon: 'lock-pattern', onPress: () => true }}
+          right={{ icon: 'lock-pattern', onPress: () => rest.navigation.navigate('Cart') }}
         />
       </View>
       <View bdBox />
@@ -92,7 +92,7 @@ const Logout = styled.View`
 
   ${({ theme: { colors, space } }) => ({
     borderColor: colors.violet,
-    marginTop: space.l1,
+    marginTop: space.m2,
   })}
 `;
 

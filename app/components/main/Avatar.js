@@ -11,7 +11,7 @@ const Avatar = () => {
       <Box>
         <Image avatar source={images[0]} />
       </Box>
-      <Text title2>Rokia</Text>
+      <Text title1>Rokia</Text>
       <Text>rokia@demo.com</Text>
     </Container>
   );
@@ -26,7 +26,7 @@ const Container = styled.View`
 
 const Box = styled.View`
   ${({ theme: { space } }) => ({
-    marginBottom: space.s,
+    marginBottom: space.s1,
   })}
 `;
 

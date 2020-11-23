@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { calendar, images } from '../../../config';
-import Image from '../../styles/Image';
-import View from '../../styles/View';
+import { calendar, images } from '../../config';
+import Image from '../styles/Image';
+import View from '../styles/View';
 
 const { FOOTER_IMGH } = calendar;
 
