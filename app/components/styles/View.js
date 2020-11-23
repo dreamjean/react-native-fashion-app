@@ -1,8 +1,9 @@
+import { StyleSheet } from 'react-native';
 import styled, { css } from 'styled-components';
 
 import { calendar } from '../../config';
 
-const bdBoxStyle = css`
+const borderStyle = css`
   height: ${calendar.CELL_NUM}px;
   overflow: hidden;
   z-index: -1;
@@ -20,6 +21,28 @@ const containerStyle = css`
   })}
 `;
 
+const footerStyle = css`
+  ${StyleSheet.absoluteFillObject}
+  justify-content: flex-end;
+`;
+
+const pickerBoxStyle = css`
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  ${({ theme: { space } }) => ({
+    marginTop: space.m1,
+    marginBottom: space.s2,
+  })}
+`;
+
+const pkSpaceStyle = css`
+  ${({ theme: { space } }) => ({
+    marginRight: space.s2,
+    marginBottom: space.m1,
+  })}
+`;
+
 const headingStyle = css`
   height: 130px;
 
@@ -30,8 +53,11 @@ const headingStyle = css`
 `;
 
 const View = styled.View`
-  ${({ bdBox }) => bdBox && bdBoxStyle}
+  ${({ bdBox }) => bdBox && borderStyle}
   ${({ container }) => container && containerStyle};
+  ${({ footer }) => footer && footerStyle};
+  ${({ pickerBox }) => pickerBox && pickerBoxStyle};
+  ${({ pkSpace }) => pkSpace && pkSpaceStyle};
   ${({ heading }) => heading && headingStyle};
 `;
 

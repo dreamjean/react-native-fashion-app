@@ -9,7 +9,7 @@ const SLIDE_HEIGHT = height * 0.61;
 const SIDEBAR_HEIGHT = height * 0.56;
 const IMG_HEIGHT = width * aspectRatio;
 const BAR_HEIGHT = IMG_HEIGHT * 0.5;
-const FOOTER_IMGH = IMG_HEIGHT * 0.3;
+const FOOTER_IMGH = IMG_HEIGHT * 0.37;
 const FOOTER_HEIGHT = height * 0.15;
 const MEDIUM_HEIGHT = IMG_HEIGHT * 0.68;
 const CELL_NUM = 75;
@@ -20,6 +20,8 @@ const CTG_RADIUS = 30;
 const OUTFIT_WIDTH = (width - theme.space.m2 * 3) / 2;
 const GRAPH_WIDTH = width - theme.space.l2 * 2;
 const GRAPH_HEIGHT = GRAPH_WIDTH * 0.63;
+const TAB_WIDTH = (width - theme.space.l1 * 2) / 2;
+const ROUND_PICKER = 20;
 
 export default {
   height,
@@ -37,6 +39,8 @@ export default {
   IMG_HEIGHT,
   MEDIUM_HEIGHT,
   OUTFIT_WIDTH,
+  ROUND_PICKER,
   SIDEBAR_HEIGHT,
   SLIDE_HEIGHT,
+  TAB_WIDTH,
 };

@@ -9,8 +9,8 @@ import drawerMenu from '../../../data/drawerMenu';
 import View from '../../styles/View';
 import Avatar from '../Avatar';
 import HeaderBar from '../HeaderBar';
-import ImgFooter from '../ImgFooter';
 import DrawerItem from './DrawerItem';
+import ImgFooter from './ImgFooter';
 
 const DrawerContent = ({ progress, ...rest }) => {
   const routeKey = rest.state.routes[0].key;
@@ -35,7 +35,7 @@ const DrawerContent = ({ progress, ...rest }) => {
 
       <Medium>
         <Avatar />
-        <Menu {...rest}>
+        <Menu {...rest} showsVerticalScrollIndicator={false}>
           <Animated.View style={{ transform: [{ scale }] }}>
             {drawerMenu.map((item, i) => (
               <DrawerItem
@@ -73,12 +73,18 @@ const Medium = styled.View`
     borderTopLeftRadius: radii.xl,
     borderBottomRightRadius: radii.xl,
     padding: space.l1,
+    paddingBottom: space.n,
   })};
 `;
 
 const Menu = styled(DrawerContentScrollView)`
   margin-top: 50px;
   flex: 1;
+  overflow: hidden;
+
+  ${({ theme: { radii } }) => ({
+    borderBottomRightRadius: radii.xl,
+  })}
 `;
 
 const Logout = styled.View`

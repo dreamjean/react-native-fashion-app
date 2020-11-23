@@ -11,6 +11,7 @@ const SubmitButton = ({ label }) => {
       label={label}
       primary
       space
+      paddingHorizontal={40}
       textStyle={{ textTransform: 'none' }}
       onPress={handleSubmit}
     />

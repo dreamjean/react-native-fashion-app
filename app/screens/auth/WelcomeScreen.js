@@ -29,8 +29,19 @@ const WelcomeScreen = ({ navigation }) => {
             Login to your account below or signup for an amazing experience
           </Text>
         </TextBox>
-        <Button primary space label="LogIn" onPress={() => navigation.navigate('Login')} />
-        <Button space label="Register" onPress={() => navigation.navigate('Register')} />
+        <Button
+          primary
+          space
+          paddingHorizontal={80}
+          label="LogIn"
+          onPress={() => navigation.navigate('Login')}
+        />
+        <Button
+          paddingHorizontal={70}
+          space
+          label="Register"
+          onPress={() => navigation.navigate('Register')}
+        />
         <Button
           bgColor="transparent"
           textStyle={{ color: colors.primary, textTransform: 'capitalize' }}

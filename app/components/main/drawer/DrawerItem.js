@@ -13,7 +13,7 @@ const DrawerItem = ({ label, icon, color, focused, onPress }) => {
       style={({ pressed }) => ({
         backgroundColor: pressed ? colors.lightCyan : 'transparent',
         borderRadius: 10,
-        marginTop: 6,
+        marginTop: 5,
         opacity: pressed ? 0.5 : 1,
         overflow: 'hidden',
       })}

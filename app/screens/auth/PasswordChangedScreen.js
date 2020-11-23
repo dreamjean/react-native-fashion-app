@@ -27,7 +27,13 @@ const PasswordChangedScreen = ({ navigation }) => {
             close this window and login again
           </Text>
         </TextBox>
-        <Button primary label="Back to Login" onPress={() => navigation.navigate('Login')} />
+        <Button
+          space
+          primary
+          paddingHorizontal={60}
+          label="Back to Login"
+          onPress={() => navigation.navigate('Login')}
+        />
       </Container>
       <IconFooter onPress={() => navigation.navigate('Welcome')} />
     </>

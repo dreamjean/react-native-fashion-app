@@ -43,6 +43,7 @@ const Box = styled.View`
   ${({ theme: { radii } }) => ({
     borderTopLeftRadius: radii.xl,
     borderBottomRightRadius: radii.xl,
+    marginTop: -0.15,
   })}
 `;
 

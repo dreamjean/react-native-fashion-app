@@ -6,7 +6,7 @@ const colors = {
 
   violet: 'rgba(132, 0, 255, 0.35)',
   violet2: 'rgba(132, 0, 255, 0.08)',
-  grey: 'rgba(15, 8, 62, 0.05)',
+  grey: 'rgba(15, 8, 62, 0.08)',
   grey2: 'rgba(15, 8, 62, 0.35)',
   white: '#ffffff',
   danger: '#FF0058',
@@ -29,7 +29,9 @@ const colors = {
 
   blue: '#53cff9',
   blue2: '#0099CC',
+  dark: '#0c0d34',
   green: '#009966',
+  green2: '#00d99a',
   orange: '#FF6600',
   pink: '#f14173',
   purple3: '#7c53f9',

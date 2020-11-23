@@ -4,8 +4,8 @@ import React from 'react';
 import {
   EditProfileScreen,
   FavouriteOutfitsScreen,
-  NotificationsSettingsScreen,
   OutfitIdeasScreen,
+  SettingsScreen,
   TransactionHistoryScreen,
 } from '../screens';
 
@@ -22,7 +22,7 @@ const MainNavigator = () => {
       <Stack.Screen name="FavouriteOutfits" component={FavouriteOutfitsScreen} />
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
-      <Stack.Screen name="NotificationsSettings" component={NotificationsSettingsScreen} />
+      <Stack.Screen name="NotificationsSettings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };

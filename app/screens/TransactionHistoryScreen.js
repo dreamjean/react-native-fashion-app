@@ -3,11 +3,10 @@ import React, { useState } from 'react';
 import { useSharedValue, withTiming } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { Button } from '../components';
-import { HeaderBar, ImgFooter } from '../components/main';
+import { Button, Content } from '../components';
+import { HeaderBar } from '../components/main';
 import { Graph, Transaction } from '../components/main/transactionHistory';
 import Text from '../components/styles/Text';
-import View from '../components/styles/View';
 import { calendar, colors } from '../config';
 import initialData from '../data/graphData';
 
@@ -46,7 +45,7 @@ const TransactionHistoryScreen = ({ navigation }) => {
   };
 
   return (
-    <View container>
+    <Content>
       <HeaderBar
         title="Transaction History"
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
@@ -64,7 +63,6 @@ const TransactionHistoryScreen = ({ navigation }) => {
           label={buttonLabel}
           onPress={fatchData}
           textStyle={{ color: colors.primary }}
-          width={100}
         />
       </Heading>
       <Graph data={graphData} scaleY={scaleY} />
@@ -82,8 +80,7 @@ const TransactionHistoryScreen = ({ navigation }) => {
           ))}
         </Listing>
       </Wrapper>
-      <ImgFooter />
-    </View>
+    </Content>
   );
 };
 

@@ -6,7 +6,7 @@ import Button from '../Button';
 const PressFooter = ({ height, tlBorder = true, ...rest }) => {
   return (
     <Wrapper {...{ tlBorder, height }}>
-      <Button primary width={245} {...rest} />
+      <Button primary paddingHorizontal={40} {...rest} />
     </Wrapper>
   );
 };

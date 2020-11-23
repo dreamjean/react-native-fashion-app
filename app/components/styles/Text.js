@@ -28,6 +28,14 @@ const title2Style = css`
   })};
 `;
 
+const title3Style = css`
+  ${({ theme: { colors, size, getFont } }) => ({
+    fontFamily: getFont(1),
+    fontSize: size.xl,
+    color: colors.text,
+  })};
+`;
+
 const bodyStyle = css`
   line-height: 20px;
 
@@ -87,9 +95,11 @@ const Text = styled.Text`
   ${({ heading }) => heading && headingStyle}
   ${({ title1 }) => title1 && title1Style};
   ${({ title2 }) => title2 && title2Style}
+  ${({ title3 }) => title3 && title3Style}
 
   /* position style */
-  ${({ center }) => center && centerStyle}
+  ${({ center }) =>
+    center && centerStyle}
   ${({ mtp }) => mtp && mtpStyle};
   ${({ mbt }) => mbt && mbtStyle};
 
