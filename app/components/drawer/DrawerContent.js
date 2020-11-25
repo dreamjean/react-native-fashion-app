@@ -35,28 +35,26 @@ const DrawerContent = ({ progress, ...rest }) => {
 
       <Medium>
         <Avatar />
-        <Menu {...rest} showsVerticalScrollIndicator={false}>
-          <Animated.View style={{ transform: [{ scale }] }}>
-            {drawerMenu.map((item, i) => (
-              <DrawerItem
-                key={i}
-                label={item.label}
-                color={item.color}
-                focused={item.title === rest.descriptors[routeKey].options.headerTitle}
-                icon={item.icon}
-                onPress={() => rest.navigation.navigate(item.screen)}
-              />
-            ))}
-            <Logout>
-              <DrawerItem
-                label="LogOut"
-                color={colors.secondary}
-                icon="logout"
-                onPress={() => Alert}
-              />
-            </Logout>
-          </Animated.View>
+        <Menu>
+          <DrawerContentScrollView {...rest} showsVerticalScrollIndicator={false}>
+            <Animated.View style={{ transform: [{ scale }] }}>
+              {drawerMenu.map((item, i) => (
+                <DrawerItem
+                  key={i}
+                  label={item.label}
+                  color={item.color}
+                  focused={item.title === rest.descriptors[routeKey].options.headerTitle}
+                  icon={item.icon}
+                  onPress={() => rest.navigation.navigate(item.screen)}
+                />
+              ))}
+            </Animated.View>
+          </DrawerContentScrollView>
         </Menu>
+        <Seperator />
+        <Logout>
+          <DrawerItem label="LogOut" color={colors.secondary} icon="logout" onPress={() => Alert} />
+        </Logout>
       </Medium>
       <ImgFooter />
     </View>
@@ -77,22 +75,29 @@ const Medium = styled.View`
   })};
 `;
 
-const Menu = styled(DrawerContentScrollView)`
-  margin-top: 50px;
+const Menu = styled.View`
+  margin-top: 45px;
   flex: 1;
-  overflow: hidden;
+`;
 
-  ${({ theme: { radii } }) => ({
-    borderBottomRightRadius: radii.xl,
+const Seperator = styled.View`
+  height: 2px;
+
+  ${({ theme: { colors, space } }) => ({
+    backgroundColor: colors.violet,
+    marginBottom: space.s1,
+    marginHorizontal: space.s2,
   })}
 `;
 
 const Logout = styled.View`
   border-top-width: 1px;
+  overflow: hidden;
 
-  ${({ theme: { colors, space } }) => ({
+  ${({ theme: { colors, space, radii } }) => ({
     borderColor: colors.violet,
-    marginTop: space.m2,
+    borderRadius: radii.m2,
+    marginBottom: space.m1,
   })}
 `;
 

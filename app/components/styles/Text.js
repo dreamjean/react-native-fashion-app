@@ -29,10 +29,10 @@ const title2Style = css`
 `;
 
 const title3Style = css`
-  ${({ theme: { colors, size, getFont } }) => ({
+  ${({ white, theme: { colors, size, getFont } }) => ({
     fontFamily: getFont(1),
     fontSize: size.xl,
-    color: colors.text,
+    color: white ? colors.white : colors.text,
   })};
 `;
 
@@ -78,7 +78,7 @@ const mtpStyle = css`
 
 const mbtStyle = css`
   ${({ theme: { space } }) => ({
-    marginTop: space.s2,
+    marginBottom: space.s1,
   })}
 `;
 

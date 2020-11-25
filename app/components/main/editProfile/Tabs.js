@@ -1,8 +1,8 @@
 import React, { Children } from 'react';
+import { Pressable } from 'react-native';
 import Animated, {
   Extrapolate,
   interpolate,
-  useAnimatedRef,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
@@ -10,14 +10,13 @@ import Animated, {
 } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { calendar, colors } from '../../../config';
-import Button from '../../Button';
+import { calendar, theme } from '../../../config';
 
 const { width, TAB_WIDTH } = calendar;
+const { colors, getFont, size, space } = theme;
 
 const Tabs = ({ tabs, children }) => {
   const activeIndex = useSharedValue(0);
-  const aref = useAnimatedRef();
 
   const indicatorPosition = useDerivedValue(() => {
     return withTiming(activeIndex.value * TAB_WIDTH + TAB_WIDTH / 2);
@@ -44,34 +43,60 @@ const Tabs = ({ tabs, children }) => {
     <>
       <Wrapper>
         {tabs.map((tab, index) => {
-          const isActive = activeIndex.value === index;
-          const textOpacity = interpolate(isActive, [0, 1, 1], [0.4, 1, 0.4], Extrapolate.CLAMP);
+          const position = TAB_WIDTH * index + TAB_WIDTH / 2;
+          const stylet = useAnimatedStyle(() => {
+            const visibility = interpolate(
+              indicatorPosition.value,
+              [
+                position - width / 4,
+                position - width / 8,
+                position + width / 8,
+                position + width / 4,
+              ],
+              [0.5, 1, 1, 0.5],
+              Extrapolate.CLAMP
+            );
+            return {
+              opacity: visibility,
+            };
+          });
 
           return (
             <Box key={tab.id}>
-              <Button
-                bgColor="transparent"
-                label={tab.label}
-                textStyle={[
+              <Pressable
+                onPress={() => {
+                  activeIndex.value = index;
+                }}
+                style={({ pressed }) => [
                   {
-                    fontSize: 18,
-                    color: colors.text,
-                    opacity: textOpacity,
+                    backgroundColor: pressed ? colors.lightGreen : colors.white,
+                    opacity: pressed ? 0.35 : 1,
+                    padding: space.s2,
                   },
                 ]}
-                width={TAB_WIDTH}
-                onPress={() => (activeIndex.value = index)}
-              />
+              >
+                <Animated.Text
+                  style={[
+                    {
+                      fontFamily: getFont(1),
+                      fontSize: size.xl,
+                      color: colors.text,
+                    },
+                    stylet,
+                  ]}
+                >
+                  {tab.label}
+                </Animated.Text>
+              </Pressable>
             </Box>
           );
         })}
         <Animated.View
-          ref={aref}
           style={[
             {
               position: 'absolute',
               left: -5,
-              bottom: 4,
+              bottom: -4,
               backgroundColor: colors.primary,
               width: 10,
               height: 10,
@@ -82,7 +107,7 @@ const Tabs = ({ tabs, children }) => {
       </Wrapper>
       <Animated.View
         style={[
-          { flex: 1, width: width * tabs.length, flexDirection: 'row', marginTop: 12 },
+          { flex: 1, width: width * tabs.length, flexDirection: 'row', marginTop: space.m2 },
           stylec,
         ]}
       >

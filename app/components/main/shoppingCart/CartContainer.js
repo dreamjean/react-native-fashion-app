@@ -8,13 +8,14 @@ import Animated, {
 } from 'react-native-reanimated';
 import styled from 'styled-components';
 
-import { calendar, colors } from '../../config';
+import { calendar, colors } from '../../../config';
+import FocusAwareStatusBar from '../../FocusAwareStatusBar';
 
-const { CELL_NUM, CART_HEIGHT, CART_MIN_HEIGHT } = calendar;
+const { CELL_NUM, CART_HEIGHT, CART_MIN_HEIGHT, width } = calendar;
 
 const snapPoints = [-(CART_HEIGHT - CART_MIN_HEIGHT), 0];
 
-const Cart = () => {
+const CartContainer = ({ children }) => {
   const translateY = useSharedValue(0);
 
   const gestureHandler = useAnimatedGestureHandler({
@@ -64,8 +65,12 @@ const Cart = () => {
             },
             stylez,
           ]}
-        ></Animated.View>
+        >
+          {children}
+          <Knob />
+        </Animated.View>
       </PanGestureHandler>
+      <FocusAwareStatusBar style="light" />
     </Container>
   );
 };
@@ -78,4 +83,18 @@ const Container = styled.View`
   })}
 `;
 
-export default Cart;
+const Knob = styled.View`
+  align-self: center;
+  justify-content: flex-end;
+  position: absolute;
+  width: ${width * 0.18}px;
+  height: 5px;
+
+  ${({ theme: { colors, space, radii } }) => ({
+    backgroundColor: colors.grey,
+    borderRadius: radii.s1,
+    bottom: space.m2,
+  })}
+`;
+
+export default CartContainer;

@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
 import {
+  CartScreen,
   EditProfileScreen,
   FavouriteOutfitsScreen,
   OutfitIdeasScreen,
@@ -24,6 +25,7 @@ const MainNavigator = () => {
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
       <Stack.Screen name="NotificationsSettings" component={SettingsScreen} />
+      <Stack.Screen name="Cart" component={CartScreen} />
     </Stack.Navigator>
   );
 };

@@ -2,7 +2,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import React from 'react';
 
-import { Cart, DrawerContent } from '../components';
+import { DrawerContent } from '../components';
 import { calendar } from '../config';
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
@@ -42,7 +42,6 @@ const DrawerNavigator = () => (
         headerTitle: getHeaderTitle(route),
       })}
     />
-    <Drawer.Screen name="Cart" component={Cart} />
     <Drawer.Screen name="Auth" component={AuthNavigator} />
   </Drawer.Navigator>
 );

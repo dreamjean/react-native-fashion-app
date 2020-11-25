@@ -10,4 +10,3 @@ export { default as TextInput } from './TextInput';
 export { default as Theme } from './Theme';
 
 export { default as DrawerContent } from './drawer/DrawerContent';
-export { default as Cart } from './drawer/Cart';

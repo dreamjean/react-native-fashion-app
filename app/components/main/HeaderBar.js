@@ -45,7 +45,7 @@ const Wrapper = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    marginTop: space.l1,
+    marginTop: space.l1 + space.s1,
     paddingHorizontal: space.m2,
   })}
 `;

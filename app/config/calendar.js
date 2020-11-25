@@ -22,8 +22,10 @@ const GRAPH_WIDTH = width - theme.space.l2 * 2;
 const GRAPH_HEIGHT = GRAPH_WIDTH * 0.63;
 const TAB_WIDTH = (width - theme.space.l1 * 2) / 2;
 const ROUND_PICKER = 20;
-const CART_HEIGHT = height * 0.8;
-const CART_MIN_HEIGHT = height * 0.3;
+const CART_BAR_HEIGHT = height * 0.15;
+const CART_HEIGHT = height * 0.85;
+const CART_MIN_HEIGHT = height * 0.25;
+const LIST_CARD = (CART_HEIGHT - CART_BAR_HEIGHT) * 0.19;
 
 export default {
   height,
@@ -31,6 +33,7 @@ export default {
   BAR_HEIGHT,
   CARD_WIDTH,
   CARD_HEIGHT,
+  CART_BAR_HEIGHT,
   CART_MIN_HEIGHT,
   CART_HEIGHT,
   CELL_NUM,
@@ -41,6 +44,7 @@ export default {
   GRAPH_WIDTH,
   GRAPH_HEIGHT,
   IMG_HEIGHT,
+  LIST_CARD,
   MEDIUM_HEIGHT,
   OUTFIT_WIDTH,
   ROUND_PICKER,
