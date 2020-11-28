@@ -6,6 +6,7 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
+import { clamp, snapPoint } from 'react-native-redash';
 import styled from 'styled-components';
 
 import { calendar, colors } from '../../../config';
@@ -23,19 +24,9 @@ const CartContainer = ({ children }) => {
       ctx.startY = translateY.value;
     },
     onActive: (event, ctx) => {
-      const clamp = (value, min, max) => {
-        return Math.min(Math.max(value, min), max);
-      };
       translateY.value = clamp(ctx.startY + event.translationY, snapPoints[0], snapPoints[1]);
     },
     onEnd: (event) => {
-      const snapPoint = (value, velocity, points) => {
-        'worklet';
-        const point = value + 0.2 * velocity;
-        const deltas = points.map((p) => Math.abs(point - p));
-        const minDelta = Math.min.apply(null, deltas);
-        return points.filter((p) => Math.abs(point - p) === minDelta)[0];
-      };
       const dest = snapPoint(translateY.value, event.velocityY, snapPoints);
 
       translateY.value = withSpring(dest, { velocity: event.velocityY });

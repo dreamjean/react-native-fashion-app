@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 import { calendar } from '../../../config';
 import Text from '../../styles/Text';
-import SwipeableRow from './SwipeableRow';
+// import SwipeableRow from './SwipeableRow';
+import Swipeable from './Swipeable';
 
 const { LIST_CARD } = calendar;
 
-const ListItem = ({ onDelete, item }) => {
+const ListItem = ({ item, onRemove }) => {
   return (
-    <SwipeableRow onRemoveItem={onDelete}>
+    <Swipeable onRemove={onRemove}>
       <Container>
         <Picture />
         <Info>
@@ -28,7 +29,7 @@ const ListItem = ({ onDelete, item }) => {
           </Text>
         </Circle>
       </Container>
-    </SwipeableRow>
+    </Swipeable>
   );
 };
 
@@ -38,6 +39,7 @@ const Container = styled.View`
 
   ${({ theme: { space } }) => ({
     paddingHorizontal: space.l1,
+    marginTop: space.m2,
   })}
 `;
 

@@ -22,6 +22,7 @@ const ImgFooter = () => {
 
 const Footer = styled.View`
   overflow: hidden;
+  margin-top: -0.15px;
 
   ${({ theme: { radii } }) => ({
     borderTopLeftRadius: radii.xl,

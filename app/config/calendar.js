@@ -26,6 +26,8 @@ const CART_BAR_HEIGHT = height * 0.15;
 const CART_HEIGHT = height * 0.85;
 const CART_MIN_HEIGHT = height * 0.25;
 const LIST_CARD = (CART_HEIGHT - CART_BAR_HEIGHT) * 0.19;
+const RIGHT_ACTION_WIDTH = 80;
+const LEFT_ACTION_WIDTH = 130;
 
 export default {
   height,
@@ -44,9 +46,11 @@ export default {
   GRAPH_WIDTH,
   GRAPH_HEIGHT,
   IMG_HEIGHT,
+  LEFT_ACTION_WIDTH,
   LIST_CARD,
   MEDIUM_HEIGHT,
   OUTFIT_WIDTH,
+  RIGHT_ACTION_WIDTH,
   ROUND_PICKER,
   SIDEBAR_HEIGHT,
   SLIDE_HEIGHT,

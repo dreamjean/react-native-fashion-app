@@ -53,7 +53,12 @@ const DrawerContent = ({ progress, ...rest }) => {
         </Menu>
         <Seperator />
         <Logout>
-          <DrawerItem label="LogOut" color={colors.secondary} icon="logout" onPress={() => Alert} />
+          <DrawerItem
+            label="LogOut"
+            color={colors.secondary}
+            icon="logout"
+            onPress={() => Alert.alert('Logout')}
+          />
         </Logout>
       </Medium>
       <ImgFooter />
@@ -81,12 +86,12 @@ const Menu = styled.View`
 `;
 
 const Seperator = styled.View`
-  height: 2px;
+  height: 1px;
 
   ${({ theme: { colors, space } }) => ({
     backgroundColor: colors.violet,
     marginBottom: space.s1,
-    marginHorizontal: space.s2,
+    marginHorizontal: space.m1,
   })}
 `;
 

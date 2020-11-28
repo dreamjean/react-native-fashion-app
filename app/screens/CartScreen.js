@@ -47,7 +47,7 @@ const CartScreen = ({ navigation }) => {
         dark
         white
         title="Shopping Cart"
-        left={{ icon: 'backspace-outline', onPress: () => navigation.goBack() }}
+        left={{ icon: 'backspace-outline', onPress: () => navigation.toggleDrawer() }}
         right={{ icon: 'cart', onPress: () => true }}
       />
       <Text title3 center white style={{ marginTop: 6 }}>
@@ -59,7 +59,7 @@ const CartScreen = ({ navigation }) => {
           data={items}
           keyExtractor={(list) => list.id.toString()}
           contentContainerStyle={{ paddingVertical: 20 }}
-          renderItem={({ item }) => <ListItem item={item} onDelete={() => handleDelete(item)} />}
+          renderItem={({ item }) => <ListItem item={item} onRemove={handleDelete} />}
           showsVerticalScrollIndicator={false}
         />
       </Wrapper>
@@ -70,9 +70,12 @@ const CartScreen = ({ navigation }) => {
 const Wrapper = styled.View`
   flex: 1;
   z-index: -1;
+  overflow: hidden;
 
-  ${({ theme: { space } }) => ({
-    marginBottom: space.xl,
+  ${({ theme: { space, radii } }) => ({
+    borderBottomRightRadius: radii.xl,
+    borderBottomLeftRadius: radii.xl,
+    paddingBottom: space.xl + space.s1,
   })}
 `;
 
