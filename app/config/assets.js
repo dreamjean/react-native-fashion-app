@@ -5,9 +5,13 @@ export const images = [
   require('../assets/timg3.jpg'),
   require('../assets/timg4.jpg'),
   require('../assets/timg5.png'),
+  // background 6~8
   require('../assets/bg1.png'),
   require('../assets/bg2.png'),
   require('../assets/bg3.png'),
+  // creditCards 9~10
+  require('../assets/Visa_logo.png'),
+  require('../assets/MasterCard_logo.png'),
 ];
 
 export const fonts = {

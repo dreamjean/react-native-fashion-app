@@ -28,6 +28,14 @@ const bottomCurveStyle = css`
   top: -${MEDIUM_HEIGHT}px;
 `;
 
+const logoStyle = css`
+  ${({ primary, theme: { space } }) => ({
+    width: primary ? 60 : 55,
+    height: primary ? 20 : 30,
+    margin: primary ? space.s1 : space.n,
+  })}
+`;
+
 const smallStyle = css`
   width: 260px;
   height: 360px;
@@ -50,6 +58,7 @@ const Image = styled.Image`
   ${({ avatar }) => avatar && avatarStyle}
   ${({ small }) => small && smallStyle};
   ${({ large }) => large && largeStyle}
+  ${({ logo }) => logo && logoStyle}
 `;
 
 export default Image;

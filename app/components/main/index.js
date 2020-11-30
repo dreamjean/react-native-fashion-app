@@ -17,6 +17,7 @@ export { default as BackgroundStyled } from './outfitIdeas/BackgroundStyled';
 export { default as Card } from './outfitIdeas/Card';
 export { default as CategoryBar } from './outfitIdeas/CategoryBar';
 
-export { default as TopContent } from './shoppingCart/TopContent';
 export { default as CartContainer } from './shoppingCart/CartContainer';
+export { default as CheckOut } from './shoppingCart/CheckOut';
 export { default as ListItem } from './shoppingCart/ListItem';
+export { default as TopContent } from './shoppingCart/TopContent';

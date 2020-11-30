@@ -3,14 +3,13 @@ import styled from 'styled-components';
 
 import { calendar } from '../../../config';
 import Text from '../../styles/Text';
-// import SwipeableRow from './SwipeableRow';
-import Swipeable from './Swipeable';
+import SwipeableRow from './swipeable/SwipeableRow';
 
 const { LIST_CARD } = calendar;
 
 const ListItem = ({ item, onRemove }) => {
   return (
-    <Swipeable onRemove={onRemove}>
+    <SwipeableRow onRemove={onRemove}>
       <Container>
         <Picture />
         <Info>
@@ -20,7 +19,7 @@ const ListItem = ({ item, onRemove }) => {
               {item.size}
             </ColorText>
           </Text>
-          <Title mbt>No Broken Hearts Shirt</Title>
+          <Title mbt>No Broken{'\n'}Hearts Shirt</Title>
           <ColorText title3>${item.price}</ColorText>
         </Info>
         <Circle>
@@ -29,7 +28,7 @@ const ListItem = ({ item, onRemove }) => {
           </Text>
         </Circle>
       </Container>
-    </Swipeable>
+    </SwipeableRow>
   );
 };
 
@@ -38,7 +37,7 @@ const Container = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    paddingHorizontal: space.l1,
+    paddingHorizontal: space.m2,
     marginTop: space.m2,
   })}
 `;

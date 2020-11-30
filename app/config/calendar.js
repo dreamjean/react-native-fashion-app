@@ -28,6 +28,8 @@ const CART_MIN_HEIGHT = height * 0.25;
 const LIST_CARD = (CART_HEIGHT - CART_BAR_HEIGHT) * 0.19;
 const RIGHT_ACTION_WIDTH = 80;
 const LEFT_ACTION_WIDTH = 130;
+const CDCARD_WIDTH = width * 0.35;
+const CDCARD_HEIGHT = CDCARD_WIDTH * 1.25;
 
 export default {
   height,
@@ -38,6 +40,8 @@ export default {
   CART_BAR_HEIGHT,
   CART_MIN_HEIGHT,
   CART_HEIGHT,
+  CDCARD_WIDTH,
+  CDCARD_HEIGHT,
   CELL_NUM,
   CTG_RADIUS,
   DRAWER_WIDTH,

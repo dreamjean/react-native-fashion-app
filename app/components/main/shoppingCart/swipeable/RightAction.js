@@ -3,8 +3,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components';
 
-import { colors } from '../../../config';
-import IconButton from '../../IconButton';
+import { colors } from '../../../../config';
+import IconButton from '../../../IconButton';
 
 const RightAction = ({ onPlus, onMinus }) => {
   return (

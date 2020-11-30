@@ -9,6 +9,7 @@ const colors = {
   grey: 'rgba(15, 8, 62, 0.08)',
   grey2: 'rgba(15, 8, 62, 0.35)',
   white: '#ffffff',
+  white2: 'rgba(255, 255, 255, 0.05)',
   danger: '#FF0058',
   danger2: 'rgba(255, 0, 88, 0.1)',
   //card

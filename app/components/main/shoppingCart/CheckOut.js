@@ -1,0 +1,86 @@
+import React from 'react';
+import styled from 'styled-components';
+
+import { colors } from '../../../config';
+import { creditCards } from '../../../data/creditCards';
+import Button from '../../Button';
+import Text from '../../styles/Text';
+import CombinationButton from '../CombinationButton';
+import CreditCardInputList from './creditCards/CreditCardInputList';
+
+const CheckOut = ({ topHeight }) => {
+  return (
+    <Container {...{ topHeight }}>
+      <CreditCardInputList cards={creditCards} />
+      <Box>
+        <Info>Delivery address</Info>
+        <InfoBox>
+          <Info mtp caption opacity={0.55}>
+            Unit 15,YorkFarmBusiness Centre,{'\n'}Watling St.Towceter
+          </Info>
+          <Button
+            label="Change"
+            bgColor="transparent"
+            paddingHorizontal={0}
+            textStyle={{ color: colors.lightGrey2 }}
+            onPress={() => true}
+          />
+        </InfoBox>
+        <InfoBox>
+          <Info mtp>
+            Total Items <Text style={{ color: colors.lightGrey2 }}>(6)</Text>
+          </Info>
+          <Price mtp>$189.94</Price>
+        </InfoBox>
+        <InfoBox>
+          <Info>Standard Delivery</Info>
+          <Price>$12.00</Price>
+        </InfoBox>
+        <InfoBox>
+          <Info>Total Payment</Info>
+          <Price>$201.84</Price>
+        </InfoBox>
+        <CombinationButton label="Swipe to Pay $201.84" />
+      </Box>
+    </Container>
+  );
+};
+
+const Container = styled.View`
+  flex: 1;
+
+  ${({ topHeight, theme: { colors } }) => ({
+    backgroundColor: colors.secondary,
+    paddingTop: topHeight,
+  })}
+`;
+
+const Box = styled.View`
+  ${({ theme: { space } }) => ({
+    padding: space.l1,
+  })}
+`;
+
+const InfoBox = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  ${({ theme: { space } }) => ({
+    marginVertical: space.s2,
+  })}
+`;
+
+const Info = styled(Text)`
+  ${({ theme: { colors } }) => ({
+    color: colors.white,
+  })}
+`;
+
+const Price = styled(Text)`
+  ${({ theme: { colors } }) => ({
+    color: colors.primary,
+  })}
+`;
+
+export default CheckOut;

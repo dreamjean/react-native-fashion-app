@@ -11,7 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { snapPoint } from 'react-native-redash';
 
-import { calendar, theme } from '../../../config';
+import { calendar, theme } from '../../../../config';
 import LeftAction from './LeftAction';
 import RightAction from './RightAction';
 
@@ -40,7 +40,7 @@ const timingConfig = {
   easing: Easing.bezier(0.25, 0.1, 0.25, 1),
 };
 
-const Swipeable = ({ children, onRemove }) => {
+const SwipeableRow = ({ children, onRemove }) => {
   const isRemoving = useSharedValue(false);
   const translateX = useSharedValue(0);
 
@@ -133,4 +133,4 @@ const Swipeable = ({ children, onRemove }) => {
   );
 };
 
-export default Swipeable;
+export default SwipeableRow;

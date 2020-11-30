@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components';
 
-import { calendar, colors } from '../../../config';
-import Text from '../../styles/Text';
+import { calendar, colors } from '../../../../config';
+import Text from '../../../styles/Text';
 
 const { width, LEFT_ACTION_WIDTH } = calendar;
 

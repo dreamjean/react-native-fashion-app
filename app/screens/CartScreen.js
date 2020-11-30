@@ -1,46 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { CartContainer, HeaderBar, ListItem, TopContent } from '../components/main';
+import { CartContainer, CheckOut, HeaderBar, ListItem, TopContent } from '../components/main';
 import Text from '../components/styles/Text';
-
-const listing = [
-  {
-    id: 1,
-    size: 'M',
-    price: '29.99',
-  },
-  {
-    id: 2,
-    size: 'M',
-    price: '29.99',
-  },
-  {
-    id: 3,
-    size: 'M',
-    price: '29.99',
-  },
-  {
-    id: 4,
-    size: 'M',
-    price: '29.99',
-  },
-  {
-    id: 5,
-    size: 'M',
-    price: '29.99',
-  },
-];
+import cartItems from '../data/cartItems';
 
 const CartScreen = ({ navigation }) => {
-  const [items, setItems] = useState(listing);
+  const [items, setItems] = useState(cartItems);
 
   const handleDelete = (item) => {
     setItems(items.filter((i) => i !== item));
   };
 
   return (
-    <CartContainer>
+    <CartContainer CheckOutComponent={CheckOut}>
       <TopContent />
 
       <HeaderBar

@@ -16,7 +16,7 @@ const { CELL_NUM, CART_HEIGHT, CART_MIN_HEIGHT, width } = calendar;
 
 const snapPoints = [-(CART_HEIGHT - CART_MIN_HEIGHT), 0];
 
-const CartContainer = ({ children }) => {
+const CartContainer = ({ children, CheckOutComponent }) => {
   const translateY = useSharedValue(0);
 
   const gestureHandler = useAnimatedGestureHandler({
@@ -41,6 +41,7 @@ const CartContainer = ({ children }) => {
 
   return (
     <Container>
+      <CheckOutComponent topHeight={CART_MIN_HEIGHT} />
       <PanGestureHandler onGestureEvent={gestureHandler}>
         <Animated.View
           style={[
@@ -68,10 +69,6 @@ const CartContainer = ({ children }) => {
 
 const Container = styled.View`
   flex: 1;
-
-  ${({ theme: { colors } }) => ({
-    backgroundColor: colors.secondary,
-  })}
 `;
 
 const Knob = styled.View`
