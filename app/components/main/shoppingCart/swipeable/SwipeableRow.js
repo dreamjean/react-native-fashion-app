@@ -10,6 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { snapPoint } from 'react-native-redash';
+import styled from 'styled-components';
 
 import { calendar, theme } from '../../../../config';
 import LeftAction from './LeftAction';
@@ -98,39 +99,41 @@ const SwipeableRow = ({ children, onRemove }) => {
     <View style={{ overflow: 'hidden' }}>
       <PanGestureHandler activeOffsetX={[-10, 10]} onGestureEvent={gestureHandler}>
         <Animated.View style={[{ backgroundColor: colors.white }, styles]}>
-          <View
-            style={[
-              {
-                position: 'absolute',
-                top: 0,
-                bottom: 0,
-                right: width,
-                width: width,
-                marginTop: space.m2,
-              },
-            ]}
-          >
+          <LeftBox>
             <LeftAction onPress={handleRemovePress} />
-          </View>
-          <View
-            style={[
-              {
-                position: 'absolute',
-                top: 0,
-                bottom: 0,
-                left: width,
-                width: RIGHT_ACTION_WIDTH,
-                marginTop: space.m2,
-              },
-            ]}
-          >
+          </LeftBox>
+          <RightBox>
             <RightAction />
-          </View>
+          </RightBox>
           {children}
         </Animated.View>
       </PanGestureHandler>
     </View>
   );
 };
+
+const LeftBox = styled.View`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: ${width}px;
+  width: ${width}px;
+
+  ${({ theme: { space } }) => ({
+    marginTop: space.m2,
+  })}
+`;
+
+const RightBox = styled.View`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: ${width}px;
+  width: ${RIGHT_ACTION_WIDTH}px;
+
+  ${({ theme: { space } }) => ({
+    marginTop: space.m2,
+  })}
+`;
 
 export default SwipeableRow;

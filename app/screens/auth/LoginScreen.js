@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
         <Form
           initialValues={{ email: '', password: '', remember: false }}
           validationSchema={validationSchema}
-          onSubmit={() => navigation.navigate('Home')}
+          onSubmit={() => navigation.navigate('Main', { name: 'OutfitIdeas' })}
         >
           <FormField
             allowFontScaling={false}

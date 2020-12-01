@@ -14,8 +14,8 @@ const { CELL_NUM } = calendar;
 const TransactionHistoryScreen = ({ navigation }) => {
   const [graphData, setGraphData] = useState(initialData);
   const [buttonLabel, setButtonLabel] = useState('Filter');
-
   const scaleY = useSharedValue(0);
+
   useFocusEffect(() => {
     scaleY.value = withTiming(1, { duration: 750 });
     return () => (scaleY.value = 0);

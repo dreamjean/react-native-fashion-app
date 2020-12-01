@@ -22,8 +22,7 @@ const Icons = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    paddingVertical: space.m1,
-    marginBottom: space.s1,
+    paddingVertical: space.m2,
   })}
 `;
 

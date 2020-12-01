@@ -16,7 +16,9 @@ const ForgotPasswordScreen = ({ navigation }) => {
     <>
       <Container pattern={8} ltBorder rtBorder>
         <TextBox>
-          <Text title2>Forgot password?</Text>
+          <Text title2 mbt>
+            Forgot password?
+          </Text>
           <Text body center mtp>
             Enter the email address associated with your account
           </Text>
