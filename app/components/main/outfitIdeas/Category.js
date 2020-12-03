@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Pressable } from 'react-native';
-import Animated, { Extrapolate, interpolateNode } from 'react-native-reanimated';
+import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
@@ -11,10 +11,12 @@ const { CTG_RADIUS } = calendar;
 const Category = ({ backgroundColor, title }) => {
   const [selected, setSelected] = useState(false);
 
-  const scale = interpolateNode(selected, {
-    inputRange: [0, 1, 1],
-    outputRange: [1, 0.8, 1],
-    extrapolate: Extrapolate.CLAMP,
+  const style = useAnimatedStyle(() => {
+    const scale = interpolate(selected, [0, 1, 1], [1, 0.8, 1], Extrapolate.CLAMP);
+
+    return {
+      transform: [{ scale }],
+    };
   });
 
   return (
@@ -27,13 +29,15 @@ const Category = ({ backgroundColor, title }) => {
       <Container>
         <Wrapper {...{ selected, backgroundColor }}>
           <Animated.View
-            style={{
-              backgroundColor,
-              width: CTG_RADIUS * 2,
-              height: CTG_RADIUS * 2,
-              borderRadius: CTG_RADIUS,
-              transform: [{ scale }],
-            }}
+            style={[
+              {
+                backgroundColor,
+                width: CTG_RADIUS * 2,
+                height: CTG_RADIUS * 2,
+                borderRadius: CTG_RADIUS,
+              },
+              style,
+            ]}
           />
         </Wrapper>
         <Text caption>{title}</Text>

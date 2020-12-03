@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { sub } from 'react-native-reanimated';
-import { useTransition } from 'react-native-redash/lib/module/v1';
+import { useDerivedValue } from 'react-native-reanimated';
+import { useTiming } from 'react-native-redash';
 import styled from 'styled-components';
 
 import { BackgroundStyled, Card, CategoryBar, HeaderBar } from '../components/main';
@@ -12,7 +12,7 @@ const step = 1 / (cards.length - 1);
 
 const OutfitIdeasScreen = ({ navigation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const aIndex = useTransition(currentIndex);
+  const aIndex = useTiming(currentIndex);
 
   return (
     <View container>
@@ -25,17 +25,21 @@ const OutfitIdeasScreen = ({ navigation }) => {
       <CategoryBar />
       <Box>
         <BackgroundStyled />
-        {cards.map(
-          ({ index, image }) =>
+        {cards.map(({ image, index }) => {
+          const position = useDerivedValue(() => index * step - aIndex.value);
+
+          return (
             currentIndex < index * step + step && (
               <Card
                 key={index}
-                position={sub(index * step, aIndex)}
+                position={position}
+                image={image}
+                step={step}
                 onSwipe={() => setCurrentIndex((prev) => prev + step)}
-                {...{ image, step }}
               />
             )
-        )}
+          );
+        })}
       </Box>
       <StatusBar style="dark" />
     </View>

@@ -30,12 +30,12 @@ const Tabs = ({ tabs, children }) => {
   });
 
   const childPosition = useDerivedValue(() => {
-    return withTiming(activeIndex.value * width);
+    return withTiming(-activeIndex.value * width);
   });
 
   const stylec = useAnimatedStyle(() => {
     return {
-      transform: [{ translateX: -childPosition.value }],
+      transform: [{ translateX: childPosition.value }],
     };
   });
 

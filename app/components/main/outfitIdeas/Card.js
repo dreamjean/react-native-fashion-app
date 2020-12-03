@@ -1,68 +1,131 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
-import Animated, { add, Extrapolate, interpolateNode } from 'react-native-reanimated';
-import { mix, mixColor, usePanGestureHandler } from 'react-native-redash/lib/module/v1';
+import Animated, {
+  Easing,
+  Extrapolate,
+  interpolate,
+  useAnimatedGestureHandler,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
+import { mix, mixColor, snapPoint } from 'react-native-redash';
 import styled from 'styled-components';
 
-import runSpring from '../../../animated/runSpring';
 import { calendar, colors } from '../../../config';
 
 const { width, CARD_WIDTH, CARD_HEIGHT } = calendar;
+const snapPoints = [-width, width];
+const timingConfig = {
+  duration: 240,
+  easing: Easing.bezier(0.33, 0.01, 0, 1),
+};
 
-const Card = ({ position, onSwipe, image, step }) => {
-  const { gestureHandler, translation, velocity, state } = usePanGestureHandler();
+const Card = ({ image, step, onSwipe, position }) => {
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const scale = useSharedValue(1);
+  const imgOpacity = useSharedValue(1);
 
-  const backgroundColor = mixColor(position, colors.purple, colors.purple2);
+  const onGestureEvent = useAnimatedGestureHandler({
+    onStart: (_, ctx) => {
+      ctx.x = translateX.value;
+      ctx.y = translateY.value;
+    },
+    onActive: ({ translationX, translationY }, ctx) => {
+      translateX.value = ctx.x + translationX;
+      translateY.value = ctx.y + translationY;
 
-  const scale = mix(position, 1, 0.88);
-  const imageScale = interpolateNode(position, {
-    inputRange: [0, step],
-    outputRange: [1, 0.75],
-    extrapolate: Extrapolate.CLAMP,
+      scale.value = interpolate(
+        translateY.value,
+        [-200, 0, 200],
+        [0.65, 1, 0.65],
+        Extrapolate.CLAMP
+      );
+
+      imgOpacity.value = interpolate(
+        translateY.value,
+        [-100, 0, 100],
+        [0.6, 1, 0.6],
+        Extrapolate.CLAMP
+      );
+    },
+    onEnd: ({ velocityX, velocityY }) => {
+      if (Math.abs(translateX.value) < 180) {
+        translateX.value = 0;
+        translateY.value = 0;
+
+        imgOpacity.value = withTiming(1, timingConfig);
+      } else {
+        translateY.value = withSpring(0, { velocity: velocityY });
+        const dest = snapPoint(translateX.value, velocityX, snapPoints);
+        translateX.value = withSpring(
+          dest,
+          {
+            overshootClamping: true,
+            restSpeedThreshold: 100,
+            restDisplacementThreshold: 100,
+          },
+          () => onSwipe()
+        );
+
+        imgOpacity.value = withTiming(0.6, timingConfig);
+      }
+      scale.value = withTiming(1, timingConfig);
+    },
   });
-  const translateYOffset = mix(position, 0, -50);
 
-  const translateX = runSpring({
-    value: translation.x,
-    velocity: velocity.x,
-    state,
-    snapPoints: [-width, 0, width],
-    onSnap: ([x]) => x !== 0 && onSwipe(),
+  const cardStyle = useAnimatedStyle(() => {
+    const backgroundColor = mixColor(position.value, colors.purple2, colors.purple);
+
+    return {
+      backgroundColor,
+      opacity: imgOpacity.value,
+      transform: [
+        { translateX: translateX.value },
+        { translateY: position.value === 0 ? translateY.value : mix(position.value, 0, -44) },
+        { scale: position.value === 0 ? scale.value : mix(position.value, 1, 0.9) },
+      ],
+    };
   });
 
-  const translateY = add(
-    translateYOffset,
-    runSpring({
-      value: translation.y,
-      velocity: velocity.y,
-      state,
-      snapPoints: [0],
-    })
-  );
+  const stylei = useAnimatedStyle(() => {
+    const scale = interpolate(position.value, [0, step], [1, 0.75], Extrapolate.CLAMP);
+    return {
+      transform: [
+        {
+          scale,
+        },
+      ],
+    };
+  });
 
   return (
     <Wrapper>
-      <PanGestureHandler {...gestureHandler}>
+      <PanGestureHandler onGestureEvent={onGestureEvent}>
         <Animated.View
           style={[
             {
-              backgroundColor,
               borderRadius: 24,
               height: CARD_HEIGHT,
               width: CARD_WIDTH,
+              // backgroundColor: colors.purple2,
               alignItems: 'center',
               justifyContent: 'flex-end',
-              transform: [{ translateY }, { translateX }, { scale }],
             },
+            cardStyle,
           ]}
         >
           <Animated.Image
-            style={{
-              width: 260,
-              height: 360,
-              transform: [{ scale: imageScale }],
-            }}
+            style={[
+              {
+                width: 260,
+                height: 360,
+              },
+              stylei,
+            ]}
             source={image}
           />
         </Animated.View>

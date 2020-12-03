@@ -35,7 +35,6 @@ const DrawerNavigator = () => (
     drawerStyle={{ width: DRAWER_WIDTH }}
     screenOptions={{ headerShown: false }}
   >
-    <Drawer.Screen name="Auth" component={AuthNavigator} />
     <Drawer.Screen
       name="Main"
       component={MainNavigator}
@@ -43,6 +42,7 @@ const DrawerNavigator = () => (
         headerTitle: getHeaderTitle(route),
       })}
     />
+    <Drawer.Screen name="Auth" component={AuthNavigator} />
   </Drawer.Navigator>
 );
 
