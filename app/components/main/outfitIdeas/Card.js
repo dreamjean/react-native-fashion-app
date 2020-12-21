@@ -84,7 +84,7 @@ const Card = ({ image, step, onSwipe, position }) => {
       backgroundColor,
       opacity: imgOpacity.value,
       transform: [
-        { translateX: translateX.value },
+        { translateX: position.value === 0 ? translateX.value : 0 },
         { translateY: position.value === 0 ? translateY.value : mix(position.value, 0, -44) },
         { scale: position.value === 0 ? scale.value : mix(position.value, 1, 0.9) },
       ],

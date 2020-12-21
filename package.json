@@ -41,7 +41,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
     "react-native-gesture-handler": "~1.7.0",
     "react-native-keyboard-aware-scrollview": "^2.1.0",
-    "react-native-reanimated": "2.0.0-alpha.6.1",
+    "react-native-reanimated": "2.0.0-rc.0",
     "react-native-redash": "^15.11.1",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
@@ -53,7 +53,6 @@
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-eslint": "^10.1.0",
-    "babel-plugin-emotion": "^10.0.33",
     "babel-plugin-styled-components": "^1.11.1",
     "babel-preset-expo": "^8.3.0",
     "eslint": "^7.8.1",
