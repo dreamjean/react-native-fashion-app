@@ -5,6 +5,7 @@ import Animated, {
   Easing,
   Extrapolate,
   interpolate,
+  runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
@@ -68,7 +69,7 @@ const Card = ({ image, step, onSwipe, position }) => {
             restSpeedThreshold: 100,
             restDisplacementThreshold: 100,
           },
-          () => onSwipe()
+          runOnJS(onSwipe)()
         );
 
         imgOpacity.value = withTiming(0.6, timingConfig);
@@ -78,7 +79,7 @@ const Card = ({ image, step, onSwipe, position }) => {
   });
 
   const cardStyle = useAnimatedStyle(() => {
-    const backgroundColor = mixColor(position.value, colors.purple2, colors.purple);
+    const backgroundColor = mixColor(position.value, colors.purple, colors.purple2);
 
     return {
       backgroundColor,

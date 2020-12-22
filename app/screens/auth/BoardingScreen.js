@@ -3,12 +3,12 @@ import React, { useRef } from 'react';
 import Animated, {
   Extrapolate,
   interpolate,
+  interpolateColor,
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
 } from 'react-native-reanimated';
-import { interpolateColor } from 'react-native-redash';
 import styled from 'styled-components';
 
 import { PaginationDot, SlideFooter, SlideHeading, SlideImage } from '../../components/auth';
