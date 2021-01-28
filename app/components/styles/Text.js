@@ -98,8 +98,7 @@ const Text = styled.Text`
   ${({ title3 }) => title3 && title3Style}
 
   /* position style */
-  ${({ center }) =>
-    center && centerStyle}
+  ${({ center }) => center && centerStyle}
   ${({ mtp }) => mtp && mtpStyle};
   ${({ mbt }) => mbt && mbtStyle};
 

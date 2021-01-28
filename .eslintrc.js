@@ -25,14 +25,15 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react', 'simple-import-sort'],
+  plugins: ['react', 'simple-import-sort', 'prettier'],
   rules: {
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'prettier/prettier': ['error', { endOfLine: 'auto' }, { usePrettierrc: true }],
     'jsx-a11y/anchor-is-valid': ['error'],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 0,
     'react/display-name': 0,
+    'react/jsx-sort-props': 0,
   },
 };

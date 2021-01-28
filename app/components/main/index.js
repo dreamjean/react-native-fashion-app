@@ -1,23 +1,18 @@
 export { default as Avatar } from './Avatar';
-export { default as HeaderBar } from './HeaderBar';
-export { default as Outfits } from './Outfits';
-export { default as PressFooter } from './PressFooter';
-export { default as TopCurve } from './TopCurve';
-
 export { default as Configuration } from './editProfile/Configuration';
 export { default as PersonalInfo } from './editProfile/PersonalInfo';
 export { default as Tabs } from './editProfile/Tabs';
-
+export { default as HeaderBar } from './HeaderBar';
 export { default as Notification } from './notifications/Notification';
-
-export { default as Graph } from './transactionHistory/Graph';
-export { default as Transaction } from './transactionHistory/Transaction';
-
 export { default as BackgroundStyled } from './outfitIdeas/BackgroundStyled';
 export { default as Card } from './outfitIdeas/Card';
 export { default as CategoryBar } from './outfitIdeas/CategoryBar';
-
+export { default as Outfits } from './Outfits';
+export { default as PressFooter } from './PressFooter';
 export { default as CartContainer } from './shoppingCart/CartContainer';
 export { default as CheckOut } from './shoppingCart/CheckOut';
 export { default as ListItem } from './shoppingCart/ListItem';
 export { default as TopContent } from './shoppingCart/TopContent';
+export { default as TopCurve } from './TopCurve';
+export { default as Graph } from './transactionHistory/Graph';
+export { default as Transaction } from './transactionHistory/Transaction';

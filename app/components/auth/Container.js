@@ -23,36 +23,37 @@ const Container = ({
   const img = images[pattern];
 
   return (
-    <Box>
-      <StatusBar style="dark" />
-      <Header>
-        <ImageBox {...{ imgLbr, imgRbr }}>
-          <Image source={img} />
-          <CloseButton
-            onPress={() => navigation.goBack()}
-            backgroundColor={colors.white}
-            color={colors.primary}
-            iconRatio={0.8}
-            iconName="arrow-left-bold-outline"
-            size={40}
-          />
-        </ImageBox>
-        <Border>
-          <Image barCurve source={img} />
-        </Border>
-      </Header>
-      <Medium {...{ ltBorder, rtBorder }}>
-        <KeyboardAwareScrollView
-          enableOnAndroid
-          enableAutoAutomaticScrol={isIos}
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="always"
-          showsVerticalScrollIndicator={false}
-        >
+    <KeyboardAwareScrollView
+      enableOnAndroid
+      enableAutoAutomaticScrol={isIos}
+      extraScrollHeight={100}
+      contentContainerStyle={{ flexGrow: 1 }}
+      keyboardShouldPersistTaps="always"
+      showsVerticalScrollIndicator={false}
+    >
+      <Box>
+        <StatusBar style="dark" />
+        <Header>
+          <ImageBox {...{ imgLbr, imgRbr }}>
+            <Image source={img} />
+            <CloseButton
+              onPress={() => navigation.goBack()}
+              backgroundColor={colors.white}
+              color={colors.primary}
+              iconRatio={0.8}
+              iconName="arrow-left-bold-outline"
+              size={40}
+            />
+          </ImageBox>
+          <Border>
+            <Image barCurve source={img} />
+          </Border>
+        </Header>
+        <Medium {...{ ltBorder, rtBorder }}>
           <MediumBox>{children}</MediumBox>
-        </KeyboardAwareScrollView>
-      </Medium>
-    </Box>
+        </Medium>
+      </Box>
+    </KeyboardAwareScrollView>
   );
 };
 

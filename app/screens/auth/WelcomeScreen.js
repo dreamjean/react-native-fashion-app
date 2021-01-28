@@ -14,8 +14,8 @@ const WelcomeScreen = ({ navigation }) => {
     <Container>
       <BorderContainer>
         <Border
-          start={{ x: 1, y: 0.6 }}
-          locations={[0.1, 0.3, 0.6, 0.9]}
+          start={[0.9, 0.2]}
+          locations={[0.05, 0.3, 0.6, 0.95]}
           colors={[colors.purple3, colors.blue, colors.yellow, colors.pink]}
         >
           <Image small resizeMode="contain" source={images[5]} />

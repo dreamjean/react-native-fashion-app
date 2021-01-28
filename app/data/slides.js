@@ -12,7 +12,7 @@ export default [
   },
   {
     heading: 'Playful',
-    color: colors.lightYellowGreen,
+    color: colors.lightGreen,
     picture: images[2],
     title: 'Hear it First, Wear it First',
     description: 'Hating the clothes in your wardrobe? Explore hundreds of outfit ideas',

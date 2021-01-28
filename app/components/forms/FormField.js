@@ -4,8 +4,15 @@ import React from 'react';
 import TextInput from '../TextInput';
 import ErrorMessage from './ErrorMessage';
 
-const FormField = ({ name, ...rest }) => {
-  const { setFieldValue, setFieldTouched, errors, touched, values } = useFormikContext();
+const FormField = ({ name, onSubmitEditing, onRef, ...rest }) => {
+  const {
+    setFieldValue,
+    setFieldTouched,
+    errors,
+    touched,
+    values,
+    handleSubmit,
+  } = useFormikContext();
 
   return (
     <>
@@ -13,6 +20,8 @@ const FormField = ({ name, ...rest }) => {
         error={errors[name]}
         onBlur={() => setFieldTouched(name)}
         onChangeText={(text) => setFieldValue(name, text)}
+        onSubmitEditing={onSubmitEditing ? onSubmitEditing : handleSubmit}
+        ref={onRef}
         touched={touched[name]}
         value={values[name]}
         {...rest}

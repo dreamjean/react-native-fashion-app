@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -23,6 +23,9 @@ let validationSchema = Yup.object().shape({
 });
 
 const RegisterScreen = ({ navigation }) => {
+  const [inputs] = useState([]);
+  const focusNextField = (nextField) => inputs[nextField].focus();
+
   return (
     <>
       <Container pattern={7} imgRbr ltBorder>
@@ -42,11 +45,13 @@ const RegisterScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="name"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="account-circle"
             keyboardAppearance="default"
             keyboardType="default"
             name="name"
             numberOfLines={1}
+            onSubmitEditing={() => focusNextField('email')}
             placeholder="Name"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -57,11 +62,14 @@ const RegisterScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="email"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="email"
             keyboardAppearance="default"
             keyboardType="email-address"
             name="email"
             numberOfLines={1}
+            onRef={(input) => (inputs['email'] = input)}
+            onSubmitEditing={() => focusNextField('password')}
             placeholder="Email"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -73,12 +81,15 @@ const RegisterScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="password"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="lock"
             keyboardAppearance="default"
             keyboardType="default"
             maxLength={50}
             name="password"
             numberOfLines={1}
+            onRef={(input) => (inputs['password'] = input)}
+            onSubmitEditing={() => focusNextField('confirmPassword')}
             placeholder="Password"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -90,12 +101,14 @@ const RegisterScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="password"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="lock"
             keyboardAppearance="default"
             keyboardType="default"
             maxLength={50}
             name="confirmPassword"
             numberOfLines={1}
+            onRef={(input) => (inputs['confirmPassword'] = input)}
             placeholder="Confirm Password"
             returnKeyLabel="go"
             returnKeyType="go"

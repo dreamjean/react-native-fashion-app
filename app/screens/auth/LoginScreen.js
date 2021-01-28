@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -15,6 +15,9 @@ let validationSchema = Yup.object().shape({
 });
 
 const LoginScreen = ({ navigation }) => {
+  const [inputs] = useState([]);
+  const focusNextField = (nextField) => inputs[nextField].focus();
+
   return (
     <>
       <Container pattern={6} imgLbr rtBorder>
@@ -34,28 +37,31 @@ const LoginScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="email"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="email"
             keyboardAppearance="default"
             keyboardType="email-address"
             name="email"
             numberOfLines={1}
+            onSubmitEditing={() => focusNextField('password')}
             placeholder="Enter email"
             returnKeyLabel="next"
             returnKeyType="next"
             textContentType="emailAddress"
           />
-
           <FormField
             allowFontScaling={false}
             autoCapitalize="none"
             autoCompleteType="password"
             autoCorrect={false}
+            blurOnSubmit={false}
             icon="lock"
             keyboardAppearance="default"
             keyboardType="default"
             maxLength={50}
             name="password"
             numberOfLines={1}
+            onRef={(input) => (inputs['password'] = input)}
             placeholder="Enter password"
             returnKeyLabel="go"
             returnKeyType="go"
