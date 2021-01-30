@@ -41,7 +41,7 @@ const CheckOut = ({ topHeight }) => {
           <Price>$201.84</Price>
         </InfoBox>
         <Wrapper>
-          <CombinationButton label="Swipe to Pay $201.84" />
+          <CombinationButton label="Swipe to Pay $201.84" onPay={() => true} />
         </Wrapper>
       </Box>
     </Container>

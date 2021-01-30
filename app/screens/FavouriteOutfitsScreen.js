@@ -24,7 +24,7 @@ const FavouriteOutfitsScreen = ({ navigation }) => {
       <HeaderBar
         title="Favourite Outfits"
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-        right={{ icon: 'shopping', onPress: () => true }}
+        right={{ icon: 'shopping', onPress: () => navigation.navigate('Cart') }}
       />
       <ScrollOutfits showsVerticalScrollIndicator={false}>
         <Transitioning.View ref={list} transition={transition}>

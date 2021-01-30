@@ -28,7 +28,7 @@ const DrawerContent = ({ progress, ...rest }) => {
           white
           title="my profile"
           left={{ icon: 'chevron-left', onPress: () => rest.navigation.closeDrawer() }}
-          right={{ icon: 'lock-pattern', onPress: () => rest.navigation.navigate('Cart') }}
+          right={{ icon: 'lock-pattern', onPress: () => true }}
         />
       </View>
       <View bdBox />

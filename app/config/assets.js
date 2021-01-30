@@ -17,6 +17,9 @@ export const images = [
   require('../assets/images/timg12.png'),
   require('../assets/images/timg13.png'),
   require('../assets/images/timg14.png'),
+  // icon 15~16
+  require('../assets/images/cart.png'),
+  require('../assets/images/gift-bag.png'),
 ];
 
 export const fonts = {
