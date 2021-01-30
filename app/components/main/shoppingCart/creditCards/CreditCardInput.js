@@ -52,7 +52,7 @@ const CreditCardInput = ({ card, primary, onAddCard, onChangeCard }) => {
           </PlusBox>
         )}
       </Pressable>
-      {selected && <Dot {...{ primary }} />}
+      {selected && card && <Dot {...{ primary }} />}
     </Container>
   );
 };

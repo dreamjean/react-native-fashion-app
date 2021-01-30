@@ -30,6 +30,8 @@ const RIGHT_ACTION_WIDTH = 80;
 const LEFT_ACTION_WIDTH = 130;
 const CDCARD_WIDTH = width * 0.35;
 const CDCARD_HEIGHT = CDCARD_WIDTH * 1.25;
+const KNOB_SIZE = 50;
+const KNOB_SLIDE_WIDTH = 300;
 
 export default {
   height,
@@ -50,6 +52,8 @@ export default {
   GRAPH_WIDTH,
   GRAPH_HEIGHT,
   IMG_HEIGHT,
+  KNOB_SIZE,
+  KNOB_SLIDE_WIDTH,
   LEFT_ACTION_WIDTH,
   LIST_CARD,
   MEDIUM_HEIGHT,

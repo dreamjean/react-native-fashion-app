@@ -112,14 +112,14 @@ const Card = ({ image, step, onSwipe, position }) => {
               borderRadius: 24,
               height: CARD_HEIGHT,
               width: CARD_WIDTH,
-              // backgroundColor: colors.purple2,
               alignItems: 'center',
-              justifyContent: 'flex-end',
+              justifyContent: 'center',
             },
             cardStyle,
           ]}
         >
           <Animated.Image
+            resizeMode="contain"
             style={[
               {
                 width: 260,

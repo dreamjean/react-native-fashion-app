@@ -8,7 +8,7 @@ const headingStyle = css`
     fontFamily: getFont(0),
     fontSize: size.heading,
     color: colors.white,
-    opacity: 0.8,
+    opacity: 0.9,
   })};
 `;
 

@@ -1,17 +1,22 @@
 export const images = [
-  require('../assets/avatar.jpeg'),
-  require('../assets/timg1.jpg'),
-  require('../assets/timg2.jpg'),
-  require('../assets/timg3.jpg'),
-  require('../assets/timg4.jpg'),
-  require('../assets/timg5.png'),
+  require('../assets/images/avatar.jpeg'),
+  require('../assets/images/timg1.jpg'),
+  require('../assets/images/timg2.jpg'),
+  require('../assets/images/timg3.jpg'),
+  require('../assets/images/timg4.jpg'),
+  require('../assets/images/timg5.png'),
   // background 6~8
-  require('../assets/bg1.png'),
-  require('../assets/bg2.png'),
-  require('../assets/bg3.png'),
+  require('../assets/images/bg1.png'),
+  require('../assets/images/bg2.png'),
+  require('../assets/images/bg3.png'),
   // creditCards 9~10
-  require('../assets/Visa_logo.png'),
-  require('../assets/MasterCard_logo.png'),
+  require('../assets/images/Visa_logo.png'),
+  require('../assets/images/MasterCard_logo.png'),
+  //cards
+  require('../assets/images/timg11.png'),
+  require('../assets/images/timg12.png'),
+  require('../assets/images/timg13.png'),
+  require('../assets/images/timg14.png'),
 ];
 
 export const fonts = {

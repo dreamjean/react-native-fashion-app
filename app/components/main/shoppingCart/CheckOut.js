@@ -40,7 +40,9 @@ const CheckOut = ({ topHeight }) => {
           <Info>Total Payment</Info>
           <Price>$201.84</Price>
         </InfoBox>
-        <CombinationButton label="Swipe to Pay $201.84" />
+        <Wrapper>
+          <CombinationButton label="Swipe to Pay $201.84" />
+        </Wrapper>
       </Box>
     </Container>
   );
@@ -55,9 +57,10 @@ const Container = styled.View`
   })}
 `;
 
-const Box = styled.View`
+const Box = styled.ScrollView`
   ${({ theme: { space } }) => ({
-    padding: space.l1,
+    paddingHorizontal: space.l1,
+    paddingVertical: space.m1,
   })}
 `;
 
@@ -80,6 +83,14 @@ const Info = styled(Text)`
 const Price = styled(Text)`
   ${({ theme: { colors } }) => ({
     color: colors.primary,
+  })}
+`;
+
+const Wrapper = styled.View`
+  align-items: center;
+
+  ${({ theme: { space } }) => ({
+    padding: space.m2,
   })}
 `;
 

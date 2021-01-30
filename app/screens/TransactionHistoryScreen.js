@@ -58,7 +58,7 @@ const TransactionHistoryScreen = ({ navigation }) => {
           <Text title2>${converAmountFormat()}</Text>
         </Box>
         <Button
-          bgColor={colors.purple}
+          bgColor={colors.lightCyan}
           label={buttonLabel}
           onPress={fatchData}
           textStyle={{ color: colors.primary }}

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Apple from '../../assets/logos/apple.svg';
-import Facebook from '../../assets/logos/facebook-3.svg';
-import Google from '../../assets/logos/google-icon.svg';
+import Apple from '../../assets/svglogos/apple.svg';
+import Facebook from '../../assets/svglogos/facebook-3.svg';
+import Google from '../../assets/svglogos/google-icon.svg';
 import SvgIcon from '../SvgIcon';
 
 const SocialLogin = () => {

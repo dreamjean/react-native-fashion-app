@@ -23,14 +23,14 @@ export default [
     color: colors.blue2,
   },
   {
-    icon: 'note-multiple-outline',
+    icon: 'file-document',
     label: 'Transaction History',
     title: 'My TransactionHistory',
     screen: 'TransactionHistory',
     color: colors.orange,
   },
   {
-    icon: 'settings',
+    icon: 'cog',
     label: 'Notifications Settings',
     title: 'Settings',
     screen: 'NotificationsSettings',

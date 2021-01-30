@@ -15,11 +15,13 @@ const Button = ({
   textStyle,
 }) => {
   return (
-    <Container {...{ borderColor, bgColor, space, paddingHorizontal, primary }} onPress={onPress}>
-      <Text button style={textStyle} primary={primary}>
-        {label}
-      </Text>
-    </Container>
+    <Touchable {...{ onPress, space }}>
+      <Container {...{ borderColor, bgColor, paddingHorizontal, primary }}>
+        <Text button style={textStyle} primary={primary}>
+          {label}
+        </Text>
+      </Container>
+    </Touchable>
   );
 };
 
@@ -38,9 +40,10 @@ const spaceStyle = css`
   })}
 `;
 
-const Container = styled(RectButton)`
+const Container = styled.View`
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   ${({ bgColor, primary, paddingHorizontal, theme: { colors, space, radii } }) => ({
     backgroundColor: bgColor ? bgColor : primary ? colors.primary : colors.grey,
@@ -50,6 +53,13 @@ const Container = styled(RectButton)`
   })};
 
   ${({ borderColor }) => borderColor && borderStyle}
+`;
+
+const Touchable = styled(RectButton)`
+  ${({ theme: { radii } }) => ({
+    borderRadius: radii.m1,
+  })};
+
   ${({ space }) => space && spaceStyle}
 `;
 

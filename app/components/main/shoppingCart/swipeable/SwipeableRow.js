@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, View } from 'react-native';
+import { Alert } from 'react-native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import Animated, {
   Easing,
@@ -96,7 +96,7 @@ const SwipeableRow = ({ children, onRemove }) => {
   });
 
   return (
-    <View style={{ overflow: 'hidden' }}>
+    <Wrapper>
       <PanGestureHandler activeOffsetX={[-10, 10]} onGestureEvent={gestureHandler}>
         <Animated.View style={[{ backgroundColor: colors.white }, styles]}>
           <LeftBox>
@@ -108,9 +108,13 @@ const SwipeableRow = ({ children, onRemove }) => {
           {children}
         </Animated.View>
       </PanGestureHandler>
-    </View>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.View`
+  overflow: hidden;
+`;
 
 const LeftBox = styled.View`
   position: absolute;
