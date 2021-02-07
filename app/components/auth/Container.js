@@ -5,7 +5,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import styled from 'styled-components';
 
 import { calendar, colors, images } from '../../config';
-import { isIos } from '../../config/theme';
 import IconButton from '../IconButton';
 import Image from '../styles/Image';
 
@@ -25,7 +24,7 @@ const Container = ({
   return (
     <KeyboardAwareScrollView
       enableOnAndroid
-      enableAutoAutomaticScrol={isIos}
+      enableAutomaticScroll
       extraScrollHeight={100}
       contentContainerStyle={{ flexGrow: 1 }}
       keyboardShouldPersistTaps="always"
