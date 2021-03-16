@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import { Button, Icon } from '../../components';
 import { Container, IconFooter } from '../../components/auth';
-import Text from '../../components/styles/Text';
 import { colors } from '../../config';
+import { Text } from '../../styles';
 
 const PasswordChangedScreen = ({ navigation }) => {
   return (

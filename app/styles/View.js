@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import styled, { css } from 'styled-components';
 
-import { calendar } from '../../config';
+import { calendar } from '../config';
 
 const borderStyle = css`
   height: ${calendar.CELL_NUM}px;

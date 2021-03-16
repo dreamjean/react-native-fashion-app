@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../config';
+import { Text } from '../../styles';
 import IconButton from '../IconButton';
-import Text from '../styles/Text';
 
 const HeaderBar = ({ bgColor, title, left, right, dark = false, white = false }) => {
   const color = dark ? colors.white : colors.text;

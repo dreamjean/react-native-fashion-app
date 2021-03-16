@@ -3,9 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from '../../components';
-import Image from '../../components/styles/Image';
-import Text from '../../components/styles/Text';
 import { calendar, colors, images } from '../../config';
+import { Image, Text } from '../../styles';
 
 const { CELL_NUM, SIDEBAR_HEIGHT } = calendar;
 

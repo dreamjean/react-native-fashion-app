@@ -5,8 +5,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import styled from 'styled-components';
 
 import { calendar, colors, images } from '../../config';
+import { Image } from '../../styles';
 import IconButton from '../IconButton';
-import Image from '../styles/Image';
 
 const { BAR_HEIGHT, IMG_HEIGHT } = calendar;
 

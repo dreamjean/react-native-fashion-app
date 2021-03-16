@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { FocusAwareStatusBar } from '../components';
 import { Avatar, Configuration, HeaderBar, PersonalInfo, Tabs } from '../components/main';
-import View from '../components/styles/View';
+import { View } from '../styles';
 
 const tabs = [
   { id: 'configuration', label: 'Configuration' },

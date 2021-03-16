@@ -4,8 +4,7 @@ import { Pressable } from 'react-native';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
-import Text from '../../styles/Text';
-import View from '../../styles/View';
+import { Text, View } from '../../../styles';
 
 const { ROUND_PICKER } = calendar;
 const wpRadius = ROUND_PICKER + 6;

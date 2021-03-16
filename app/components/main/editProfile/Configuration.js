@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import * as options from '../../../data/options';
-import Text from '../../styles/Text';
+import { Text } from '../../../styles';
 import PickerGroup from './PickerGroup';
 import RoundPickerGroup from './RoundPickerGroup';
 

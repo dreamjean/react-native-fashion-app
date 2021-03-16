@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { colors } from '../../../config';
 import { creditCards } from '../../../data/creditCards';
+import { Text } from '../../../styles';
 import Button from '../../Button';
-import Text from '../../styles/Text';
 import CombinationButton from '../CombinationButton';
 import CreditCardInputList from './creditCards/CreditCardInputList';
 

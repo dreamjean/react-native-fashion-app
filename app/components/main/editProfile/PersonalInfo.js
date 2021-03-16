@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
+import { Text } from '../../../styles';
 import { Form, FormField, SubmitButton } from '../../forms';
-import Text from '../../styles/Text';
 import PickerGroup from './PickerGroup';
 
 const genders = [

@@ -2,7 +2,7 @@ import React from 'react';
 import { RectButton } from 'react-native-gesture-handler';
 import styled, { css } from 'styled-components';
 
-import Text from './styles/Text';
+import { Text } from '../styles';
 
 const Button = ({
   borderColor,

@@ -3,7 +3,7 @@ import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { calendar, colors } from '../../../config';
-import Text from '../../styles/Text';
+import { Text } from '../../../styles';
 import Underlay from './Underlay';
 
 // linear interpolation 线性插值

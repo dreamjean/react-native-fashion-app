@@ -2,8 +2,7 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
 import { calendar, colors, images } from '../config';
-import Image from './styles/Image';
-import View from './styles/View';
+import { Image, View } from '../styles';
 
 const { width, CELL_NUM } = calendar;
 const x = width;

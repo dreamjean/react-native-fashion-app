@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { CartContainer, CheckOut, HeaderBar, ListItem, TopContent } from '../components/main';
-import Text from '../components/styles/Text';
 import cartItems from '../data/cartItems';
+import { Text } from '../styles';
 
 const CartScreen = ({ navigation }) => {
   const [items, setItems] = useState(cartItems);

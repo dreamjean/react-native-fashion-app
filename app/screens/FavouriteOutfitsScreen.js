@@ -3,9 +3,9 @@ import { Transition, Transitioning } from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { HeaderBar, Outfits, PressFooter, TopCurve } from '../components/main';
-import View from '../components/styles/View';
 import { calendar } from '../config';
 import initialOutfits from '../data/outfits';
+import { View } from '../styles';
 
 const { FOOTER_HEIGHT } = calendar;
 

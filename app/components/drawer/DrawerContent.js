@@ -6,8 +6,8 @@ import styled from 'styled-components';
 
 import { colors } from '../../config';
 import drawerMenu from '../../data/drawerMenu';
+import { View } from '../../styles';
 import { Avatar, HeaderBar } from '../main';
-import View from '../styles/View';
 import DrawerItem from './DrawerItem';
 import ImgFooter from './ImgFooter';
 

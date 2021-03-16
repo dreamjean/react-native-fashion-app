@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
-import Text from '../../styles/Text';
+import { Text } from '../../../styles';
 
 const Underlay = ({ dates, step }) => {
   return (

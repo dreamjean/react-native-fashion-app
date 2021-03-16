@@ -4,7 +4,7 @@ import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-nati
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
-import Text from '../../styles/Text';
+import { Text } from '../../../styles';
 
 const { CTG_RADIUS } = calendar;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { calendar } from '../../../config';
-import Text from '../../styles/Text';
+import { Text } from '../../../styles';
 import SwipeableRow from './swipeable/SwipeableRow';
 
 const { LIST_CARD } = calendar;

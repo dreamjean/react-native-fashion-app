@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import React from 'react';
 import styled from 'styled-components';
 
+import { Text } from '../../../styles';
 import Button from '../../Button';
-import Text from '../../styles/Text';
 
 const Transaction = ({ color, date, id, value }) => {
   return (

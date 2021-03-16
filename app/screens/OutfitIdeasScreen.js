@@ -5,8 +5,8 @@ import { useTiming } from 'react-native-redash';
 import styled from 'styled-components';
 
 import { BackgroundStyled, Card, CategoryBar, HeaderBar } from '../components/main';
-import View from '../components/styles/View';
 import cards from '../data/cards';
+import { View } from '../styles';
 
 const step = 1 / (cards.length - 1);
 

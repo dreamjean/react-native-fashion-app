@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { calendar } from '../../config';
+import { calendar } from '../config';
 
 const { width, BAR_HEIGHT, IMG_HEIGHT, CELL_NUM, MEDIUM_HEIGHT } = calendar;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
-import Text from '../styles/Text';
+import { Text } from '../../styles';
 import SocialLogin from './SocialLogin';
 
 const LinkFooter = ({ title, action, onPress }) => {

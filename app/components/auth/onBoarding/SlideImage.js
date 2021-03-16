@@ -1,7 +1,7 @@
 import React from 'react';
 import Animated from 'react-native-reanimated';
 
-import Image from '../../styles/Image';
+import { Image } from '../../../styles';
 
 const SlideImage = ({ image, opacityStyle }) => {
   return (

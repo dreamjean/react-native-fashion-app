@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { Container, LinkFooter } from '../../components/auth';
 import { Form, FormField, SubmitButton } from '../../components/forms';
-import Text from '../../components/styles/Text';
+import { Text } from '../../styles';
 
 let validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),

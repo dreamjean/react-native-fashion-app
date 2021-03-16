@@ -11,7 +11,7 @@ import Animated, {
 import { snapPoint } from 'react-native-redash';
 
 import { calendar, colors, images } from '../../config';
-import Text from '../styles/Text';
+import { Text } from '../../styles';
 
 const { KNOB_WIDTH, KNOB_SLIDE_WIDTH } = calendar;
 const sliderRange = KNOB_SLIDE_WIDTH - KNOB_WIDTH;

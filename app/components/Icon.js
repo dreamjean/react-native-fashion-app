@@ -23,11 +23,11 @@ const Box = styled.View`
   align-items: center;
   justify-content: center;
 
-  ${({ round, size, backgroundColor, borderColor, theme: { space } }) => ({
+  ${({ round, size, backgroundColor, borderColor, theme: { radii } }) => ({
     backgroundColor,
     borderColor,
     borderWidth: borderColor ? 1 : 0,
-    borderRadius: round ? size / 2 : space.s1,
+    borderRadius: round ? size / 2 : radii.s1,
     height: size,
     width: size,
   })}

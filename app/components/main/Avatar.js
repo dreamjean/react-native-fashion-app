@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { images } from '../../config';
-import Image from '../styles/Image';
-import Text from '../styles/Text';
+import { Image, Text } from '../../styles';
 
 const Avatar = () => {
   return (

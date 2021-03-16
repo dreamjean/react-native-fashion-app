@@ -4,8 +4,7 @@ import { Pressable } from 'react-native';
 import styled from 'styled-components';
 
 import { calendar, colors, images } from '../../../../config';
-import Image from '../../../styles/Image';
-import Text from '../../../styles/Text';
+import { Image, Text } from '../../../../styles';
 
 const { CDCARD_WIDTH, CDCARD_HEIGHT } = calendar;
 const plusBoxWidth = CDCARD_WIDTH * 0.75;

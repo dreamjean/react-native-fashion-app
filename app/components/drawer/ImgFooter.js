@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { calendar, images } from '../../config';
-import Image from '../styles/Image';
-import View from '../styles/View';
+import { Image, View } from '../../styles';
 
 const { FOOTER_IMGH } = calendar;
 

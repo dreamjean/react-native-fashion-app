@@ -5,9 +5,9 @@ import styled from 'styled-components';
 
 import { Button, Content } from '../components';
 import { Graph, HeaderBar, Transaction } from '../components/main';
-import Text from '../components/styles/Text';
 import { calendar, colors } from '../config';
 import initialData from '../data/graphData';
+import { Text } from '../styles';
 
 const { CELL_NUM } = calendar;
 
@@ -67,7 +67,10 @@ const TransactionHistoryScreen = ({ navigation }) => {
       <Graph data={graphData} scaleY={scaleY} />
 
       <Wrapper>
-        <Listing showsVerticalScrollIndicator={false}>
+        <Listing
+          contentContainerStyle={{ paddingBottom: CELL_NUM }}
+          showsVerticalScrollIndicator={false}
+        >
           {graphData.map((item, index) => (
             <Transaction
               key={index}
@@ -110,7 +113,6 @@ const Listing = styled.ScrollView``;
 const Wrapper = styled.View`
   flex: 1;
   overflow: hidden;
-  margin-bottom: -${CELL_NUM}px;
 
   ${({ theme: { colors, radii } }) => ({
     backgroundColor: colors.white,

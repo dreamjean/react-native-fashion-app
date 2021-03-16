@@ -12,13 +12,13 @@ import Animated, {
 import styled from 'styled-components';
 
 import { PaginationDot, SlideFooter, SlideHeading, SlideImage } from '../../components/auth';
-import View from '../../components/styles/View';
 import { calendar } from '../../config';
 import slides from '../../data/slides';
+import { View } from '../../styles';
 
 const { width, CELL_NUM, SLIDE_HEIGHT } = calendar;
 
-const BoardingScreen = ({ navigation }) => {
+const OnBoardingScreen = ({ navigation }) => {
   const scroll = useRef();
   const x = useSharedValue(0);
 
@@ -134,4 +134,4 @@ const FooterContainer = styled.View`
   })}
 `;
 
-export default BoardingScreen;
+export default OnBoardingScreen;
