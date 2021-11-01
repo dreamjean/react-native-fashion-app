@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Outfit from './Outfit';
+import Outfit from "./Outfit";
 
 const Outfits = ({ data }) => {
   return (

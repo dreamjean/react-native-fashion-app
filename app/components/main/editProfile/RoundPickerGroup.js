@@ -1,12 +1,12 @@
-import { Feather } from '@expo/vector-icons';
-import React, { useState } from 'react';
-import { Pressable } from 'react-native';
-import styled from 'styled-components';
+import { Feather } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Pressable } from "react-native";
+import styled from "styled-components";
 
-import { calendar } from '../../../config';
-import { Text, View } from '../../../styles';
+import { constants } from "../../../config";
+import { Text, View } from "../../../styles";
 
-const { ROUND_PICKER } = calendar;
+const { ROUND_PICKER } = constants;
 const wpRadius = ROUND_PICKER + 6;
 
 const RoundPickerGroup = ({ data, valueIsColor }) => {
@@ -37,7 +37,9 @@ const RoundPickerGroup = ({ data, valueIsColor }) => {
                       {value}
                     </Text>
                   )}
-                  {valueIsColor && isSelected && <Feather name="check" size={20} color="white" />}
+                  {valueIsColor && isSelected && (
+                    <Feather name="check" size={20} color="white" />
+                  )}
                 </Box>
               </Wrapper>
             </Pressable>
@@ -70,7 +72,11 @@ const Box = styled.View`
   align-items: center;
 
   ${({ isSelected, valueIsColor, value, theme: { colors } }) => ({
-    backgroundColor: valueIsColor ? value : isSelected ? colors.primary : colors.grey,
+    backgroundColor: valueIsColor
+      ? value
+      : isSelected
+      ? colors.primary
+      : colors.grey,
   })}
 `;
 

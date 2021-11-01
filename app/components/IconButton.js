@@ -1,7 +1,7 @@
-import React from 'react';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import React from "react";
+import { BorderlessButton } from "react-native-gesture-handler";
 
-import Icon from './Icon';
+import Icon from "./Icon";
 
 const IconButton = ({ onPress, style, ...rest }) => {
   return (

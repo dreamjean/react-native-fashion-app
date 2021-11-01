@@ -1,29 +1,30 @@
-import React from 'react';
-import { Alert } from 'react-native';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import React from "react";
+import { Alert } from "react-native";
+import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   Easing,
+  runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
-import { snapPoint } from 'react-native-redash';
-import styled from 'styled-components';
+} from "react-native-reanimated";
+import { snapPoint } from "react-native-redash";
+import styled from "styled-components";
 
-import { calendar, theme } from '../../../../config';
-import LeftAction from './LeftAction';
-import RightAction from './RightAction';
+import { constants, theme } from "../../../../config";
+import LeftAction from "./LeftAction";
+import RightAction from "./RightAction";
 
-const { width, LIST_CARD, RIGHT_ACTION_WIDTH, LEFT_ACTION_WIDTH } = calendar;
+const { width, LIST_CARD, RIGHT_ACTION_WIDTH, LEFT_ACTION_WIDTH } = constants;
 const { colors, space } = theme;
 
 const rightTranslate = -RIGHT_ACTION_WIDTH;
 const snapPoints = [rightTranslate, 0, LEFT_ACTION_WIDTH];
 
 const springConfig = (velocity) => {
-  'worklet';
+  "worklet";
 
   return {
     stiffness: 100,
@@ -45,6 +46,23 @@ const SwipeableRow = ({ children, onRemove }) => {
   const isRemoving = useSharedValue(false);
   const translateX = useSharedValue(0);
 
+  const handleRemovePress = () => {
+    Alert.alert("Remove Item", "Are you share you want to remove this item?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+        onPress: () => (translateX.value = withTiming(0, timingConfig)),
+      },
+      {
+        text: "Yes",
+        onPress: () => {
+          isRemoving.value = true;
+          onRemove();
+        },
+      },
+    ]);
+  };
+
   const gestureHandler = useAnimatedGestureHandler({
     onStart: (_, ctx) => {
       ctx.x = translateX.value;
@@ -54,29 +72,17 @@ const SwipeableRow = ({ children, onRemove }) => {
     },
     onEnd: ({ velocityX }) => {
       const dest = snapPoint(translateX.value, velocityX, snapPoints);
-
       translateX.value = withSpring(dest, springConfig);
+
+      if (translateX.value > RIGHT_ACTION_WIDTH * 3)
+        runOnJS(handleRemovePress)();
     },
   });
-
-  const handleRemovePress = () => {
-    Alert.alert('Remove Item', 'Are you share you want to remove this item?', [
-      {
-        text: 'Cancel',
-        style: 'cancel',
-        onPress: () => (translateX.value = withTiming(0, timingConfig)),
-      },
-      {
-        text: 'Yes',
-        onPress: () => (isRemoving.value = true),
-      },
-    ]);
-  };
 
   const styles = useAnimatedStyle(() => {
     if (isRemoving.value) {
       return {
-        height: withTiming(0, timingConfig, onRemove),
+        height: withTiming(0, timingConfig),
         transform: [
           {
             translateX: withTiming(width, timingConfig),
@@ -97,7 +103,10 @@ const SwipeableRow = ({ children, onRemove }) => {
 
   return (
     <Wrapper>
-      <PanGestureHandler activeOffsetX={[-10, 10]} onGestureEvent={gestureHandler}>
+      <PanGestureHandler
+        activeOffsetX={[-10, 10]}
+        onGestureEvent={gestureHandler}
+      >
         <Animated.View style={[{ backgroundColor: colors.white }, styles]}>
           <LeftBox>
             <LeftAction onPress={handleRemovePress} />

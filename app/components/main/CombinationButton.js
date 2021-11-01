@@ -1,19 +1,19 @@
-import React from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import React from "react";
+import { Alert, StyleSheet, View } from "react-native";
+import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-} from 'react-native-reanimated';
-import { snapPoint } from 'react-native-redash';
+} from "react-native-reanimated";
+import { snapPoint } from "react-native-redash";
 
-import { calendar, colors, images } from '../../config';
-import { Text } from '../../styles';
+import { colors, constants, images } from "../../config";
+import { Text } from "../../styles";
 
-const { KNOB_WIDTH, KNOB_SLIDE_WIDTH } = calendar;
+const { KNOB_WIDTH, KNOB_SLIDE_WIDTH } = constants;
 const sliderRange = KNOB_SLIDE_WIDTH - KNOB_WIDTH;
 const snapPoints = [0, sliderRange];
 
@@ -22,9 +22,9 @@ const CombinationButton = ({ label, onPay }) => {
   const paySuccess = useSharedValue(false);
 
   const onDraggedSuccss = () => {
-    Alert.alert('Success!', 'Payment Completed', [
+    Alert.alert("Success!", "Payment Completed", [
       {
-        text: 'OK',
+        text: "OK",
         onPress: () => {
           onPay();
           translateX.value = 0;
@@ -90,8 +90,14 @@ const CombinationButton = ({ label, onPay }) => {
         <PanGestureHandler onGestureEvent={gestureHandler}>
           <Animated.View style={[styles.knob, knobStyle]}>
             <View style={styles.wrapper}>
-              <Animated.Image style={[styles.image, cartStyle]} source={images[15]} />
-              <Animated.Image style={[styles.image, bagStyle]} source={images[16]} />
+              <Animated.Image
+                style={[styles.image, cartStyle]}
+                source={images[15]}
+              />
+              <Animated.Image
+                style={[styles.image, bagStyle]}
+                source={images[16]}
+              />
             </View>
           </Animated.View>
         </PanGestureHandler>
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
     width: KNOB_SLIDE_WIDTH,
     height: KNOB_WIDTH,
     borderRadius: KNOB_WIDTH / 2,
-    justifyContent: 'center',
+    justifyContent: "center",
     backgroundColor: colors.lightGrey,
   },
   progress: {
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
   image: {
     width: KNOB_WIDTH - 12,
     height: KNOB_WIDTH - 12,
-    position: 'absolute',
+    position: "absolute",
     top: 3,
     left: 3,
   },

@@ -1,7 +1,11 @@
-import React from 'react';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import React from "react";
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 
-import { colors } from '../../../config';
+import { colors } from "../../config";
 
 const PaginationDot = ({ index, currentIndex }) => {
   const style = useAnimatedStyle(() => {

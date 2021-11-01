@@ -1,10 +1,10 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
 
-import { calendar, colors, images } from '../config';
-import { Image, View } from '../styles';
+import { colors, constants, images } from "../config";
+import { Image, View } from "../styles";
 
-const { width, CELL_NUM } = calendar;
+const { width, CELL_NUM } = constants;
 const x = width;
 const y = CELL_NUM * 2;
 

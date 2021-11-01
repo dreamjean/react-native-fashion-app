@@ -1,11 +1,10 @@
-import { Entypo } from '@expo/vector-icons';
-import React from 'react';
-import styled from 'styled-components';
+import { Entypo } from "@expo/vector-icons";
+import React from "react";
+import styled from "styled-components";
 
-import { Button, Icon } from '../../components';
-import { Container, IconFooter } from '../../components/auth';
-import { colors } from '../../config';
-import { Text } from '../../styles';
+import { Button, Container, Icon, IconFooter } from "../../components";
+import { colors } from "../../config";
+import { Text } from "../../styles";
 
 const PasswordChangedScreen = ({ navigation }) => {
   return (
@@ -32,10 +31,10 @@ const PasswordChangedScreen = ({ navigation }) => {
           primary
           paddingHorizontal={60}
           label="Back to Login"
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate("Login")}
         />
       </Container>
-      <IconFooter onPress={() => navigation.navigate('Welcome')} />
+      <IconFooter onPress={() => navigation.navigate("Welcome")} />
     </>
   );
 };

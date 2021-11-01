@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import * as options from '../../../data/options';
-import { Text } from '../../../styles';
-import PickerGroup from './PickerGroup';
-import RoundPickerGroup from './RoundPickerGroup';
+import * as options from "../../../data/options";
+import { Text } from "../../../styles";
+import PickerGroup from "./PickerGroup";
+import RoundPickerGroup from "./RoundPickerGroup";
 
 const Configuration = () => {
   return (

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Pressable } from 'react-native';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import { Pressable } from "react-native";
+import styled from "styled-components";
 
-import { calendar, colors } from '../../config';
-import IconButton from '../IconButton';
+import { colors, constants } from "../../config";
+import IconButton from "../IconButton";
 
-const { OUTFIT_WIDTH } = calendar;
+const { OUTFIT_WIDTH } = constants;
 
 const Outfit = ({ item }) => {
   const [selected, setSelected] = useState(false);

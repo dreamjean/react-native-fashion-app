@@ -1,9 +1,9 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
 
-import { calendar, colors } from '../../../config';
+import { colors, constants } from "../../../config";
 
-const { width, CELL_NUM, CART_BAR_HEIGHT } = calendar;
+const { width, CELL_NUM, CART_BAR_HEIGHT } = constants;
 const x = width;
 const y = CELL_NUM + CART_BAR_HEIGHT;
 
@@ -20,8 +20,12 @@ const d = `M 0 0 H ${x} V ${y} A ${radius} ${radius} 0 0 0 ${midX2} ${midY2} H $
 
 const TopContent = () => {
   return (
-    <Svg width="100%" height={y} style={{ position: 'absolute', Top: 0, left: 0, right: 0 }}>
-      <Path d={d} fill={colors.primary} style={{ overflow: 'hidden' }} />
+    <Svg
+      width="100%"
+      height={y}
+      style={{ position: "absolute", Top: 0, left: 0, right: 0 }}
+    >
+      <Path d={d} fill={colors.primary} style={{ overflow: "hidden" }} />
     </Svg>
   );
 };

@@ -1,13 +1,13 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
-import styled from 'styled-components';
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { StyleSheet } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
+import styled from "styled-components";
 
-import { calendar, colors } from '../../../../config';
-import { Text } from '../../../../styles';
+import { colors, constants } from "../../../../config";
+import { Text } from "../../../../styles";
 
-const { width, LEFT_ACTION_WIDTH } = calendar;
+const { width, LEFT_ACTION_WIDTH } = constants;
 
 const LeftAction = ({ onPress }) => {
   return (

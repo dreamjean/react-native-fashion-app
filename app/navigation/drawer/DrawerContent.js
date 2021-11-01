@@ -1,18 +1,25 @@
-import { DrawerContentScrollView } from '@react-navigation/drawer';
-import React from 'react';
-import { Alert } from 'react-native';
-import Animated, { Extrapolate, interpolateNode } from 'react-native-reanimated';
-import styled from 'styled-components';
+import {
+  DrawerContentScrollView,
+  useDrawerProgress,
+} from "@react-navigation/drawer";
+import React from "react";
+import { Alert } from "react-native";
+import Animated, {
+  Extrapolate,
+  interpolateNode,
+} from "react-native-reanimated";
+import styled from "styled-components";
 
-import { colors } from '../../config';
-import drawerMenu from '../../data/drawerMenu';
-import { View } from '../../styles';
-import { Avatar, HeaderBar } from '../main';
-import DrawerItem from './DrawerItem';
-import ImgFooter from './ImgFooter';
+import { Avatar, HeaderBar } from "../../components/main";
+import { colors } from "../../config";
+import drawerMenu from "../../data/drawerMenu";
+import { View } from "../../styles";
+import DrawerItem from "./DrawerItem";
+import ImgFooter from "./ImgFooter";
 
-const DrawerContent = ({ progress, ...rest }) => {
-  const routeKey = rest.state.routes[0].key;
+const DrawerContent = (props) => {
+  const progress = useDrawerProgress();
+  const routeKey = props.state.routes[1].key;
 
   const scale = interpolateNode(progress, {
     inputRange: [0, 1],
@@ -27,8 +34,11 @@ const DrawerContent = ({ progress, ...rest }) => {
           dark
           white
           title="my profile"
-          left={{ icon: 'chevron-left', onPress: () => rest.navigation.closeDrawer() }}
-          right={{ icon: 'lock-pattern', onPress: () => true }}
+          left={{
+            icon: "chevron-left",
+            onPress: () => props.navigation.closeDrawer(),
+          }}
+          right={{ icon: "lock-pattern", onPress: () => true }}
         />
       </View>
       <View bdBox />
@@ -36,16 +46,22 @@ const DrawerContent = ({ progress, ...rest }) => {
       <Medium>
         <Avatar />
         <Menu>
-          <DrawerContentScrollView {...rest} showsVerticalScrollIndicator={false}>
+          <DrawerContentScrollView
+            {...props}
+            showsVerticalScrollIndicator={false}
+          >
             <Animated.View style={{ transform: [{ scale }] }}>
               {drawerMenu.map((item, i) => (
                 <DrawerItem
                   key={i}
                   label={item.label}
                   color={item.color}
-                  focused={item.title === rest.descriptors[routeKey].options.headerTitle}
+                  focused={
+                    item.title ===
+                    props.descriptors[routeKey].options.headerTitle
+                  }
                   icon={item.icon}
-                  onPress={() => rest.navigation.navigate(item.screen)}
+                  onPress={() => props.navigation.navigate(item.screen)}
                 />
               ))}
             </Animated.View>
@@ -57,7 +73,7 @@ const DrawerContent = ({ progress, ...rest }) => {
             label="LogOut"
             color={colors.secondary}
             icon="logout"
-            onPress={() => Alert.alert('Logout')}
+            onPress={() => Alert.alert("Logout")}
           />
         </Logout>
       </Medium>
@@ -102,7 +118,7 @@ const Logout = styled.View`
   ${({ theme: { colors, space, radii } }) => ({
     borderColor: colors.violet,
     borderRadius: radii.m2,
-    marginBottom: space.m1,
+    marginBottom: space.s2,
   })}
 `;
 

@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { calendar } from '../../../config';
-import { Text } from '../../../styles';
+import { constants } from "../../config";
+import { Text } from "../../styles";
 
-const { width, SLIDE_HEIGHT, CELL_NUM } = calendar;
+const { width, SLIDE_HEIGHT, CELL_NUM } = constants;
 
 const containerHeight = SLIDE_HEIGHT + CELL_NUM;
 
@@ -12,7 +12,7 @@ const SlideHeading = ({ header, right }) => {
   const transform = [
     { translateY: (SLIDE_HEIGHT - 100) / 2 },
     { translateX: right ? width / 2 - 50 : -width / 2 + 50 },
-    { rotate: right ? '-90deg' : '90deg' },
+    { rotate: right ? "-90deg" : "90deg" },
   ];
 
   return (

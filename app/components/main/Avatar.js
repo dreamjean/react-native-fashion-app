@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { images } from '../../config';
-import { Image, Text } from '../../styles';
+import { images } from "../../config";
+import { Image, Text } from "../../styles";
 
 const Avatar = () => {
   return (

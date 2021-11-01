@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   Easing,
   Extrapolate,
@@ -11,13 +11,13 @@ import Animated, {
   useSharedValue,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
-import { mix, mixColor, snapPoint } from 'react-native-redash';
-import styled from 'styled-components';
+} from "react-native-reanimated";
+import { mix, mixColor, snapPoint } from "react-native-redash";
+import styled from "styled-components";
 
-import { calendar, colors } from '../../../config';
+import { colors, constants } from "../../../config";
 
-const { width, CARD_WIDTH, CARD_HEIGHT } = calendar;
+const { width, CARD_WIDTH, CARD_HEIGHT } = constants;
 const snapPoints = [-width, width];
 const timingConfig = {
   duration: 240,
@@ -54,7 +54,7 @@ const Card = ({ image, step, onSwipe, position }) => {
       );
     },
     onEnd: ({ velocityX, velocityY }) => {
-      if (Math.abs(translateX.value) < 180) {
+      if (Math.abs(translateX.value) < 150) {
         translateX.value = 0;
         translateY.value = 0;
 
@@ -79,21 +79,38 @@ const Card = ({ image, step, onSwipe, position }) => {
   });
 
   const cardStyle = useAnimatedStyle(() => {
-    const backgroundColor = mixColor(position.value, colors.purple, colors.purple2);
+    const backgroundColor = mixColor(
+      position.value,
+      colors.purple,
+      colors.purple2
+    );
 
     return {
       backgroundColor,
       opacity: imgOpacity.value,
       transform: [
         { translateX: position.value === 0 ? translateX.value : 0 },
-        { translateY: position.value === 0 ? translateY.value : mix(position.value, 0, -44) },
-        { scale: position.value === 0 ? scale.value : mix(position.value, 1, 0.9) },
+        {
+          translateY:
+            position.value === 0
+              ? translateY.value
+              : mix(position.value, 0, -44),
+        },
+        {
+          scale:
+            position.value === 0 ? scale.value : mix(position.value, 1, 0.9),
+        },
       ],
     };
   });
 
   const stylei = useAnimatedStyle(() => {
-    const scale = interpolate(position.value, [0, step], [1, 0.75], Extrapolate.CLAMP);
+    const scale = interpolate(
+      position.value,
+      [0, step],
+      [1, 0.75],
+      Extrapolate.CLAMP
+    );
     return {
       transform: [
         {
@@ -112,8 +129,8 @@ const Card = ({ image, step, onSwipe, position }) => {
               borderRadius: 24,
               height: CARD_HEIGHT,
               width: CARD_WIDTH,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
             },
             cardStyle,
           ]}
@@ -137,8 +154,8 @@ const Card = ({ image, step, onSwipe, position }) => {
 
 const Wrapper = styled.View({
   ...StyleSheet.absoluteFill,
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 export default Card;

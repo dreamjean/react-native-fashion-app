@@ -1,10 +1,10 @@
-import React from 'react';
-import Svg, { ClipPath, Defs, Image, Path } from 'react-native-svg';
+import React from "react";
+import Svg, { ClipPath, Defs, Image, Path } from "react-native-svg";
 
-import { calendar, colors, images } from '../config';
-import { View } from '../styles';
+import { colors, constants, images } from "../config";
+import { View } from "../styles";
 
-const { width, CELL_NUM } = calendar;
+const { width, CELL_NUM } = constants;
 const x = width;
 const y = CELL_NUM * 2;
 
@@ -24,11 +24,11 @@ const Content = ({ children, image = images[6] }) => {
       <Svg
         width="100%"
         height={CELL_NUM * 2}
-        style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}
+        style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}
       >
         <Defs>
           <ClipPath id="clip">
-            <Path d={d} fill={colors.primary} style={{ overflow: 'hidden' }} />
+            <Path d={d} fill={colors.primary} style={{ overflow: "hidden" }} />
           </ClipPath>
         </Defs>
 

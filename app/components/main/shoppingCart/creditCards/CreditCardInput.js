@@ -1,12 +1,12 @@
-import { Feather } from '@expo/vector-icons';
-import React, { useState } from 'react';
-import { Pressable } from 'react-native';
-import styled from 'styled-components';
+import { Feather } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Pressable } from "react-native";
+import styled from "styled-components";
 
-import { calendar, colors, images } from '../../../../config';
-import { Image, Text } from '../../../../styles';
+import { colors, constants, images } from "../../../../config";
+import { Image, Text } from "../../../../styles";
 
-const { CDCARD_WIDTH, CDCARD_HEIGHT } = calendar;
+const { CDCARD_WIDTH, CDCARD_HEIGHT } = constants;
 const plusBoxWidth = CDCARD_WIDTH * 0.75;
 const plusBoxHeight = CDCARD_HEIGHT * 0.7;
 
@@ -22,13 +22,16 @@ const CreditCardInput = ({ card, primary, onAddCard, onChangeCard }) => {
 
   return (
     <Container>
-      <Pressable style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })} onPress={handlePress}>
+      <Pressable
+        style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
+        onPress={handlePress}
+      >
         {card && (
           <Box {...{ primary, selected }}>
             <Image
               logo
               {...{ primary }}
-              resizeMode={primary ? 'contain' : 'cover'}
+              resizeMode={primary ? "contain" : "cover"}
               source={primary ? images[9] : images[10]}
             />
 

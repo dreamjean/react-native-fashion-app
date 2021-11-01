@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { ImgUnderFill } from '../components';
-import { HeaderBar, Notification } from '../components/main';
-import notifications from '../data/notifications';
+import { ImgUnderFill } from "../components";
+import { HeaderBar, Notification } from "../components/main";
+import notifications from "../data/notifications";
 
 const SettingsScreen = ({ navigation }) => {
   return (
@@ -11,8 +11,7 @@ const SettingsScreen = ({ navigation }) => {
       <Medium>
         <HeaderBar
           title="Notifications"
-          left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-          right={{ icon: 'shopping', onPress: () => true }}
+          left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
         />
         <Listing
           data={notifications}

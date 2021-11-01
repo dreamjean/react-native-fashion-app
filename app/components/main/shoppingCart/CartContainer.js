@@ -1,18 +1,18 @@
-import React from 'react';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import React from "react";
+import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-} from 'react-native-reanimated';
-import { clamp, snapPoint } from 'react-native-redash';
-import styled from 'styled-components';
+} from "react-native-reanimated";
+import { clamp, snapPoint } from "react-native-redash";
+import styled from "styled-components";
 
-import { calendar, colors } from '../../../config';
-import FocusAwareStatusBar from '../../FocusAwareStatusBar';
+import { colors, constants } from "../../../config";
+import FocusAwareStatusBar from "../../FocusAwareStatusBar";
 
-const { CELL_NUM, CART_HEIGHT, CART_MIN_HEIGHT, width } = calendar;
+const { CELL_NUM, CART_HEIGHT, CART_MIN_HEIGHT, width } = constants;
 
 const snapPoints = [-(CART_HEIGHT - CART_MIN_HEIGHT), 0];
 
@@ -24,7 +24,11 @@ const CartContainer = ({ children, CheckOutComponent }) => {
       ctx.startY = translateY.value;
     },
     onActive: (event, ctx) => {
-      translateY.value = clamp(ctx.startY + event.translationY, snapPoints[0], snapPoints[1]);
+      translateY.value = clamp(
+        ctx.startY + event.translationY,
+        snapPoints[0],
+        snapPoints[1]
+      );
     },
     onEnd: (event) => {
       const dest = snapPoint(translateY.value, event.velocityY, snapPoints);
@@ -49,7 +53,7 @@ const CartContainer = ({ children, CheckOutComponent }) => {
               backgroundColor: colors.white,
               borderBottomLeftRadius: CELL_NUM,
               borderBottomRightRadius: CELL_NUM,
-              position: 'absolute',
+              position: "absolute",
               left: 0,
               right: 0,
               height: CART_HEIGHT,

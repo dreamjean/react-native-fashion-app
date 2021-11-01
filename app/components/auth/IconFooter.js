@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { colors } from '../../config';
-import IconButton from '../IconButton';
+import { colors } from "../../config";
+import IconButton from "../IconButton";
 
 const IconFooter = ({ onPress }) => {
   return (

@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { calendar, images } from '../../../config';
-import { Image, View } from '../../../styles';
+import { constants, images } from "../../../config";
+import { Image, View } from "../../../styles";
 
-const { MEDIUM_HEIGHT, CELL_NUM } = calendar;
+const { MEDIUM_HEIGHT, CELL_NUM } = constants;
 
 const BackgroundStyled = () => {
   return (

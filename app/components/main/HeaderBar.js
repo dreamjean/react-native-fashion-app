@@ -1,13 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { colors } from '../../config';
-import { Text } from '../../styles';
-import IconButton from '../IconButton';
+import { colors } from "../../config";
+import { Text } from "../../styles";
+import IconButton from "../IconButton";
 
-const HeaderBar = ({ bgColor, title, left, right, dark = false, white = false }) => {
+const HeaderBar = ({
+  bgColor,
+  title,
+  left,
+  right,
+  dark = false,
+  white = false,
+}) => {
   const color = dark ? colors.white : colors.text;
-  const backgroundColor = bgColor ? bgColor : dark ? colors.primary : colors.grey;
+  const backgroundColor = bgColor
+    ? bgColor
+    : dark
+    ? colors.primary
+    : colors.grey;
 
   return (
     <Wrapper>

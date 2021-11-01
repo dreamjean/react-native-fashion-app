@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { colors } from '../config';
-import { Text } from '../styles';
-import Icon from './Icon';
+import { colors } from "../config";
+import { Text } from "../styles";
+import Icon from "./Icon";
 
 const Checkbox = ({ checked, title, onPress }) => {
   return (

@@ -1,6 +1,6 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 const SvgIcon = ({ IconName, width, height, color, onPress }) => {
   return (

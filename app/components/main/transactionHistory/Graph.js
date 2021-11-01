@@ -1,16 +1,16 @@
-import React from 'react';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
-import styled from 'styled-components';
+import React from "react";
+import Animated, { useAnimatedStyle } from "react-native-reanimated";
+import styled from "styled-components";
 
-import { calendar, colors } from '../../../config';
-import { Text } from '../../../styles';
-import Underlay from './Underlay';
+import { colors, constants } from "../../../config";
+import { Text } from "../../../styles";
+import Underlay from "./Underlay";
 
 // linear interpolation 线性插值
 // 两个向量之间的线形插值。当t为0时返回的是v0  t为1时 返回的是v1  所以第三个参数应该是取一个 0~1的渐变值
 const lerp = (v0, v1, t) => (1 - t) * v0 + t * v1;
 
-const { GRAPH_WIDTH, GRAPH_HEIGHT } = calendar;
+const { GRAPH_WIDTH, GRAPH_HEIGHT } = constants;
 
 const Graph = ({ data, scaleY }) => {
   const step = GRAPH_WIDTH / data.length;
@@ -33,7 +33,7 @@ const Graph = ({ data, scaleY }) => {
       <Animated.View
         style={[
           {
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             right: 0,
             height: GRAPH_HEIGHT,
@@ -63,14 +63,16 @@ const Graph = ({ data, scaleY }) => {
                 style={{
                   opacity: 0.5,
                   fontSize: 9,
-                  position: 'absolute',
-                  alignSelf: 'center',
+                  position: "absolute",
+                  alignSelf: "center",
                   bottom: totalHeight + 4,
                 }}
               >
                 {point.value}
               </Text>
-              <Column style={{ backgroundColor: point.color, width: columnWith }} />
+              <Column
+                style={{ backgroundColor: point.color, width: columnWith }}
+              />
               <Peak
                 style={{
                   backgroundColor: point.color,

@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { colors } from '../../../config';
-import { creditCards } from '../../../data/creditCards';
-import { Text } from '../../../styles';
-import Button from '../../Button';
-import CombinationButton from '../CombinationButton';
-import CreditCardInputList from './creditCards/CreditCardInputList';
+import { colors } from "../../../config";
+import { creditCards } from "../../../data/creditCards";
+import { Text } from "../../../styles";
+import Button from "../../Button";
+import CombinationButton from "../CombinationButton";
+import CreditCardInputList from "./creditCards/CreditCardInputList";
 
 const CheckOut = ({ topHeight }) => {
   return (
@@ -16,7 +16,7 @@ const CheckOut = ({ topHeight }) => {
         <Info>Delivery address</Info>
         <InfoBox>
           <Info mtp caption opacity={0.55}>
-            Unit 15,YorkFarmBusiness Centre,{'\n'}Watling St.Towceter
+            Unit 15,YorkFarmBusiness Centre,{"\n"}Watling St.Towceter
           </Info>
           <Button
             label="Change"

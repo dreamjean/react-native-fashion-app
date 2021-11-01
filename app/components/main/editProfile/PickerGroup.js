@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { View } from '../../../styles';
-import Button from '../../Button';
+import { View } from "../../../styles";
+import Button from "../../Button";
 
 const PickerGroup = ({ data, radio }) => {
   const [selectedValues, setSelectedValues] = useState([]);

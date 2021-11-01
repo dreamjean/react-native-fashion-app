@@ -13,11 +13,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./app/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
       "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
@@ -39,8 +45,7 @@
         "svg"
       ]
     },
-    "experiments": {
-      "turboModules": true
-    }
+    "description": "animated tabbar",
+    "githubUrl": "https://github.com/dreamjean/react-native-animated-tabbar"
   }
 }

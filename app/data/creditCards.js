@@ -1,14 +1,14 @@
 export const creditCards = [
   {
     id: 1,
-    type: 'VISA',
+    type: "VISA",
     last4Digits: 5467,
-    expiration: '05/24',
+    expiration: "05/24",
   },
   {
     id: 2,
-    type: 'MASTER',
+    type: "MASTER",
     last4Digits: 2620,
-    expiration: '05/24',
+    expiration: "05/24",
   },
 ];

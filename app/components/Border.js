@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { calendar } from '../config';
+import { constants } from "../config";
 
 const Border = ({ style, blBorder, brBorder }) => {
   return (
@@ -12,7 +12,7 @@ const Border = ({ style, blBorder, brBorder }) => {
 };
 
 const Background = styled.View`
-  height: ${calendar.CELL_NUM}px;
+  height: ${constants.CELL_NUM}px;
   width: 100%;
 
   ${({ blBorder, brBorder, theme: { colors, radii } }) => ({

@@ -1,7 +1,7 @@
-import { useFormikContext } from 'formik';
-import React from 'react';
+import { useFormikContext } from "formik";
+import React from "react";
 
-import Button from '../Button';
+import Button from "../Button";
 
 const SubmitButton = ({ label }) => {
   const { handleSubmit } = useFormikContext();
@@ -12,7 +12,7 @@ const SubmitButton = ({ label }) => {
       primary
       space
       paddingHorizontal={40}
-      textStyle={{ textTransform: 'none' }}
+      textStyle={{ textTransform: "none" }}
       onPress={handleSubmit}
     />
   );

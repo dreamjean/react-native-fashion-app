@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { useDerivedValue } from 'react-native-reanimated';
-import { useTiming } from 'react-native-redash';
-import styled from 'styled-components';
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import { useDerivedValue } from "react-native-reanimated";
+import { useTiming } from "react-native-redash";
+import styled from "styled-components";
 
-import { BackgroundStyled, Card, CategoryBar, HeaderBar } from '../components/main';
-import cards from '../data/cards';
-import { View } from '../styles';
+import {
+  BackgroundStyled,
+  Card,
+  CategoryBar,
+  HeaderBar,
+} from "../components/main";
+import cards from "../data/cards";
+import { View } from "../styles";
 
 const step = 1 / (cards.length - 1);
 
@@ -18,8 +23,8 @@ const OutfitIdeasScreen = ({ navigation }) => {
     <View container>
       <HeaderBar
         title="Outfit Ideas"
-        left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-        right={{ icon: 'shopping', onPress: () => true }}
+        left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
+        right={{ icon: "shopping", onPress: () => navigation.navigate("Cart") }}
       />
 
       <CategoryBar />

@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { calendar, images } from '../../config';
-import { Image, View } from '../../styles';
+import { constants, images } from "../../config";
+import { Image, View } from "../../styles";
 
-const { FOOTER_IMGH } = calendar;
+const { FOOTER_IMGH } = constants;
 
 const ImgFooter = () => {
   return (

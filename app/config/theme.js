@@ -1,14 +1,14 @@
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
-import colors from './colors';
+import colors from "./colors";
 
-export const isIos = Platform.OS === 'ios';
+export const isIos = Platform.OS === "ios";
 
 const getFont = (n) => (isIos ? fonts.ios[n] : fonts.android[n]);
 
 const fonts = {
-  ios: ['Proxima-Nova-Bold', 'Proxima-Nova-Sbold', 'Proxima-Nova-Reg'],
-  android: ['Montserrat-Bold', 'Montserrat-SemiBold', 'Montserrat-Regular'],
+  ios: ["Proxima-Nova-Bold", "Proxima-Nova-Sbold", "Proxima-Nova-Reg"],
+  android: ["Montserrat-Bold", "Montserrat-SemiBold", "Montserrat-Regular"],
 };
 
 const theme = {

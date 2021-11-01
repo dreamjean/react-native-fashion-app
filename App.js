@@ -1,15 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
-import React, { useEffect, useState } from 'react';
+import "react-native-gesture-handler";
 
-import { Theme } from './app/components';
-import useLoadAssets from './app/hooks/useLoadAssets';
+import { NavigationContainer } from "@react-navigation/native";
+import AppLoading from "expo-app-loading";
+import React, { useEffect, useState } from "react";
+
+import { Theme } from "./app/components";
+import useLoadAssets from "./app/hooks/useLoadAssets";
 // import AuthNavigator from './app/navigation/AuthNavigator';
-import AppNavigator from './app/navigation/AppNavigator';
-import { navigationRef } from './app/navigation/rootNavigation';
-import cache from './app/utility/cache';
+import AppNavigator from "./app/navigation/AppNavigator";
+import { navigationRef } from "./app/navigation/rootNavigation";
+import cache from "./app/utility/cache";
 
-const PERSISTENCE_KEY = 'NAVIGATION_STATE';
+const PERSISTENCE_KEY = "NAVIGATION_STATE";
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -32,7 +34,8 @@ export default function App() {
     restoreState();
   }, [isReady]);
 
-  const onStateChange = (PERSISTENCE_KEY, state) => cache.store(PERSISTENCE_KEY, state);
+  const onStateChange = (PERSISTENCE_KEY, state) =>
+    cache.store(PERSISTENCE_KEY, state);
 
   if (!assetsLoaded || !isReady)
     return (
@@ -45,7 +48,10 @@ export default function App() {
 
   return (
     <Theme>
-      <NavigationContainer ref={navigationRef} {...{ initialState, onStateChange }}>
+      <NavigationContainer
+        ref={navigationRef}
+        {...{ initialState, onStateChange }}
+      >
         {/* <AuthNavigator /> */}
         <AppNavigator />
       </NavigationContainer>

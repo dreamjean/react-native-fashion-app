@@ -1,9 +1,9 @@
-import dayjs from 'dayjs';
-import React from 'react';
-import styled from 'styled-components';
+import dayjs from "dayjs";
+import React from "react";
+import styled from "styled-components";
 
-import { Text } from '../../../styles';
-import Button from '../../Button';
+import { Text } from "../../../styles";
+import Button from "../../Button";
 
 const Transaction = ({ color, date, id, value }) => {
   return (
@@ -17,14 +17,14 @@ const Transaction = ({ color, date, id, value }) => {
         </NumBox>
         <TextBox>
           <Text button opacity={0.35}>
-            {`$${value} - ${dayjs(date).format('DD MMMM,YYYY')}`}
+            {`$${value} - ${dayjs(date).format("DD MMMM,YYYY")}`}
           </Text>
         </TextBox>
       </Box>
       <Button
         borderColor={color}
         label="See more"
-        textStyle={{ textTransform: 'none', color: color }}
+        textStyle={{ textTransform: "none", color: color }}
         onPress={() => true}
         width={100}
       />

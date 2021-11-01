@@ -1,8 +1,7 @@
-import React from 'react';
-import { RectButton } from 'react-native-gesture-handler';
-import styled, { css } from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 
-import { Text } from '../styles';
+import { Text } from "../styles";
 
 const Button = ({
   borderColor,
@@ -15,7 +14,7 @@ const Button = ({
   textStyle,
 }) => {
   return (
-    <Touchable {...{ onPress, space }}>
+    <Touchable activeOpacity={0.5} {...{ onPress, space }}>
       <Container {...{ borderColor, bgColor, paddingHorizontal, primary }}>
         <Text button style={textStyle} primary={primary}>
           {label}
@@ -24,6 +23,20 @@ const Button = ({
     </Touchable>
   );
 };
+
+const spaceStyle = css`
+  ${({ theme: { space } }) => ({
+    marginTop: space.m2,
+  })}
+`;
+
+const Touchable = styled.TouchableOpacity`
+  ${({ theme: { radii } }) => ({
+    borderRadius: radii.m1,
+  })};
+
+  ${({ space }) => space && spaceStyle}
+`;
 
 const borderStyle = css`
   background-color: transparent;
@@ -34,18 +47,17 @@ const borderStyle = css`
   })}
 `;
 
-const spaceStyle = css`
-  ${({ theme: { space } }) => ({
-    marginTop: space.m2,
-  })}
-`;
-
 const Container = styled.View`
   justify-content: center;
   align-items: center;
   overflow: hidden;
 
-  ${({ bgColor, primary, paddingHorizontal, theme: { colors, space, radii } }) => ({
+  ${({
+    bgColor,
+    primary,
+    paddingHorizontal,
+    theme: { colors, space, radii },
+  }) => ({
     backgroundColor: bgColor ? bgColor : primary ? colors.primary : colors.grey,
     borderRadius: radii.m1,
     paddingVertical: space.m1,
@@ -53,14 +65,6 @@ const Container = styled.View`
   })};
 
   ${({ borderColor }) => borderColor && borderStyle}
-`;
-
-const Touchable = styled(RectButton)`
-  ${({ theme: { radii } }) => ({
-    borderRadius: radii.m1,
-  })};
-
-  ${({ space }) => space && spaceStyle}
 `;
 
 export default Button;

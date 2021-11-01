@@ -1,13 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { FocusAwareStatusBar } from '../components';
-import { Avatar, Configuration, HeaderBar, PersonalInfo, Tabs } from '../components/main';
-import { View } from '../styles';
+import { FocusAwareStatusBar } from "../components";
+import {
+  Avatar,
+  Configuration,
+  HeaderBar,
+  PersonalInfo,
+  Tabs,
+} from "../components/main";
+import { View } from "../styles";
 
 const tabs = [
-  { id: 'configuration', label: 'Configuration' },
-  { id: 'info', label: 'Personal Info' },
+  { id: "configuration", label: "Configuration" },
+  { id: "info", label: "Personal Info" },
 ];
 
 const EditProfileScreen = ({ navigation }) => {
@@ -19,7 +25,7 @@ const EditProfileScreen = ({ navigation }) => {
           white
           title="Edit Profile"
           bgColor="transparent"
-          left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
+          left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
         />
       </View>
       <View bdBox />

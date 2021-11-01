@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import * as Yup from 'yup';
+import React, { useState } from "react";
+import styled from "styled-components";
+import * as Yup from "yup";
 
-import { Button } from '../../components';
-import { Container, LinkFooter } from '../../components/auth';
-import { Form, FormCheckbox, FormField, SubmitButton } from '../../components/forms';
-import { colors } from '../../config';
-import { Text } from '../../styles';
+import { Button, Container, LinkFooter } from "../../components";
+import {
+  Form,
+  FormCheckbox,
+  FormField,
+  SubmitButton,
+} from "../../components/forms";
+import { colors } from "../../config";
+import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
-  email: Yup.string().required().email('Invalid Email').label('Email'),
-  password: Yup.string().required().min(5).max(50).label('Password'),
+  email: Yup.string().required().email("Invalid Email").label("Email"),
+  password: Yup.string().required().min(5).max(50).label("Password"),
   remember: Yup.boolean(),
 });
 
@@ -28,9 +32,9 @@ const LoginScreen = ({ navigation }) => {
           </Text>
         </TextBox>
         <Form
-          initialValues={{ email: '', password: '', remember: false }}
+          initialValues={{ email: "", password: "", remember: false }}
           validationSchema={validationSchema}
-          onSubmit={() => navigation.navigate('Main', { name: 'OutfitIdeas' })}
+          onSubmit={() => navigation.navigate("Main", { name: "OutfitIdeas" })}
         >
           <FormField
             allowFontScaling={false}
@@ -43,7 +47,7 @@ const LoginScreen = ({ navigation }) => {
             keyboardType="email-address"
             name="email"
             numberOfLines={1}
-            onSubmitEditing={() => focusNextField('password')}
+            onSubmitEditing={() => focusNextField("password")}
             placeholder="Enter email"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -61,7 +65,7 @@ const LoginScreen = ({ navigation }) => {
             maxLength={50}
             name="password"
             numberOfLines={1}
-            onRef={(input) => (inputs['password'] = input)}
+            onRef={(input) => (inputs["password"] = input)}
             placeholder="Enter password"
             returnKeyLabel="go"
             returnKeyType="go"
@@ -74,8 +78,8 @@ const LoginScreen = ({ navigation }) => {
               width={150}
               label="Forgot Password?"
               bgColor="transparent"
-              textStyle={{ color: colors.primary, textTransform: 'capitalize' }}
-              onPress={() => navigation.navigate('ForgotPassword')}
+              textStyle={{ color: colors.primary, textTransform: "capitalize" }}
+              onPress={() => navigation.navigate("ForgotPassword")}
             />
           </Box>
           <SubmitButton label="Log into your account" />
@@ -84,7 +88,7 @@ const LoginScreen = ({ navigation }) => {
       <LinkFooter
         title="Don't have an account?"
         action="Sign Up here"
-        onPress={() => navigation.navigate('Register')}
+        onPress={() => navigation.navigate("Register")}
       />
     </>
   );

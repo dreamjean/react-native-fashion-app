@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import * as Yup from 'yup';
+import React, { useState } from "react";
+import styled from "styled-components";
+import * as Yup from "yup";
 
-import { Container, LinkFooter } from '../../components/auth';
-import { Form, FormField, SubmitButton } from '../../components/forms';
-import { Text } from '../../styles';
+import { Container, LinkFooter } from "../../components";
+import { Form, FormField, SubmitButton } from "../../components/forms";
+import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
-  name: Yup.string().required().label('Name'),
-  email: Yup.string().required().email('Invalid Email').label('Email'),
+  name: Yup.string().required().label("Name"),
+  email: Yup.string().required().email("Invalid Email").label("Email"),
   password: Yup.string()
     .required()
     .min(5)
     .max(50)
-    .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-    .matches(/\d/, 'Password must have a number')
-    .label('Password'),
+    .matches(/\w*[a-z]\w*/, "Password must have a small letter")
+    .matches(/\d/, "Password must have a number")
+    .label("Password"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords do not match')
+    .oneOf([Yup.ref("password")], "Passwords do not match")
     .required()
-    .label('Confirm password'),
+    .label("Confirm password"),
 });
 
 const RegisterScreen = ({ navigation }) => {
@@ -36,7 +36,12 @@ const RegisterScreen = ({ navigation }) => {
           </Text>
         </TextBox>
         <Form
-          initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
+          initialValues={{
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          }}
           validationSchema={validationSchema}
           onSubmit={(values) => console.log(values)}
         >
@@ -51,7 +56,7 @@ const RegisterScreen = ({ navigation }) => {
             keyboardType="default"
             name="name"
             numberOfLines={1}
-            onSubmitEditing={() => focusNextField('email')}
+            onSubmitEditing={() => focusNextField("email")}
             placeholder="Name"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -68,8 +73,8 @@ const RegisterScreen = ({ navigation }) => {
             keyboardType="email-address"
             name="email"
             numberOfLines={1}
-            onRef={(input) => (inputs['email'] = input)}
-            onSubmitEditing={() => focusNextField('password')}
+            onRef={(input) => (inputs["email"] = input)}
+            onSubmitEditing={() => focusNextField("password")}
             placeholder="Email"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -88,8 +93,8 @@ const RegisterScreen = ({ navigation }) => {
             maxLength={50}
             name="password"
             numberOfLines={1}
-            onRef={(input) => (inputs['password'] = input)}
-            onSubmitEditing={() => focusNextField('confirmPassword')}
+            onRef={(input) => (inputs["password"] = input)}
+            onSubmitEditing={() => focusNextField("confirmPassword")}
             placeholder="Password"
             returnKeyLabel="next"
             returnKeyType="next"
@@ -108,7 +113,7 @@ const RegisterScreen = ({ navigation }) => {
             maxLength={50}
             name="confirmPassword"
             numberOfLines={1}
-            onRef={(input) => (inputs['confirmPassword'] = input)}
+            onRef={(input) => (inputs["confirmPassword"] = input)}
             placeholder="Confirm Password"
             returnKeyLabel="go"
             returnKeyType="go"
@@ -121,7 +126,7 @@ const RegisterScreen = ({ navigation }) => {
       <LinkFooter
         title="Already have an account?"
         action="Sign In here"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate("Login")}
       />
     </>
   );

@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useRef } from 'react';
+import { StatusBar } from "expo-status-bar";
+import React, { useRef } from "react";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -8,15 +8,20 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-} from 'react-native-reanimated';
-import styled from 'styled-components';
+} from "react-native-reanimated";
+import styled from "styled-components";
 
-import { PaginationDot, SlideFooter, SlideHeading, SlideImage } from '../../components/auth';
-import { calendar } from '../../config';
-import slides from '../../data/slides';
-import { View } from '../../styles';
+import {
+  PaginationDot,
+  SlideFooter,
+  SlideHeading,
+  SlideImage,
+} from "../../components";
+import { constants } from "../../config";
+import slides from "../../data/slides";
+import { View } from "../../styles";
 
-const { width, CELL_NUM, SLIDE_HEIGHT } = calendar;
+const { width, CELL_NUM, SLIDE_HEIGHT } = constants;
 
 const OnBoardingScreen = ({ navigation }) => {
   const scroll = useRef();
@@ -36,9 +41,13 @@ const OnBoardingScreen = ({ navigation }) => {
     )
   );
 
-  const styleb1 = useAnimatedStyle(() => ({ backgroundColor: backgroundColor.value }));
+  const styleb1 = useAnimatedStyle(() => ({
+    backgroundColor: backgroundColor.value,
+  }));
 
-  const styleb2 = useAnimatedStyle(() => ({ backgroundColor: backgroundColor.value }));
+  const styleb2 = useAnimatedStyle(() => ({
+    backgroundColor: backgroundColor.value,
+  }));
 
   const activeIndex = useDerivedValue(() => x.value / width);
 
@@ -49,7 +58,14 @@ const OnBoardingScreen = ({ navigation }) => {
   return (
     <View container>
       <Animated.View
-        style={[{ width: width, height: SLIDE_HEIGHT, borderBottomRightRadius: CELL_NUM }, styleb1]}
+        style={[
+          {
+            width: width,
+            height: SLIDE_HEIGHT,
+            borderBottomRightRadius: CELL_NUM,
+          },
+          styleb1,
+        ]}
       >
         {slides.map(({ picture }, index) => {
           const style = useAnimatedStyle(() => ({
@@ -60,7 +76,9 @@ const OnBoardingScreen = ({ navigation }) => {
               Extrapolate.CLAMP
             ),
           }));
-          return <SlideImage key={index} image={picture} opacityStyle={style} />;
+          return (
+            <SlideImage key={index} image={picture} opacityStyle={style} />
+          );
         })}
         <Animated.ScrollView
           ref={scroll}
@@ -80,13 +98,17 @@ const OnBoardingScreen = ({ navigation }) => {
       <FooterContainer>
         <Dots>
           {slides.map((_, index) => (
-            <PaginationDot key={index} index={index} currentIndex={activeIndex} />
+            <PaginationDot
+              key={index}
+              index={index}
+              currentIndex={activeIndex}
+            />
           ))}
         </Dots>
         <Animated.View
           style={[
             {
-              flexDirection: 'row',
+              flexDirection: "row",
               width: width * slides.length,
             },
             footerStyle,
@@ -98,12 +120,15 @@ const OnBoardingScreen = ({ navigation }) => {
               title={slide.title}
               description={slide.description}
               label={slide.btLabel}
-              primary={slide.btLabel !== 'next'}
+              primary={slide.btLabel !== "next"}
               onPress={() => {
                 const last = index === slides.length - 1;
-                if (last) navigation.navigate('Welcome');
+                if (last) navigation.navigate("Welcome");
 
-                scroll.current.scrollTo({ x: width * (index + 1), animated: true });
+                scroll.current.scrollTo({
+                  x: width * (index + 1),
+                  animated: true,
+                });
               }}
             />
           ))}

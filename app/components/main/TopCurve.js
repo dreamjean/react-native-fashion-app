@@ -1,9 +1,9 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
 
-import { calendar, colors } from '../../config';
+import { colors, constants } from "../../config";
 
-const { CELL_NUM, FOOTER_HEIGHT } = calendar;
+const { CELL_NUM, FOOTER_HEIGHT } = constants;
 
 const TopCurve = () => {
   return (
@@ -11,7 +11,7 @@ const TopCurve = () => {
       width={CELL_NUM}
       height={CELL_NUM}
       style={{
-        position: 'absolute',
+        position: "absolute",
         bottom: FOOTER_HEIGHT,
         right: 0,
       }}

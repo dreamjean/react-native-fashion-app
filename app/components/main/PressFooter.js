@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Button from '../Button';
+import Button from "../Button";
 
 const PressFooter = ({ height, tlBorder = true, ...rest }) => {
   return (

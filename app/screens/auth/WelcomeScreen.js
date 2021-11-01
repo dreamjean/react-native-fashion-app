@@ -1,25 +1,26 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import styled from 'styled-components';
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import styled from "styled-components";
 
-import { Button } from '../../components';
-import { calendar, colors, images } from '../../config';
-import { Image, Text } from '../../styles';
+import { Button } from "../../components";
+import { colors, constants, images } from "../../config";
+import { Image, Text } from "../../styles";
 
-const { CELL_NUM, SIDEBAR_HEIGHT } = calendar;
+const { CELL_NUM, SIDEBAR_HEIGHT } = constants;
 
 const WelcomeScreen = ({ navigation }) => {
   return (
     <Container>
-      <BorderContainer>
-        <Border
-          start={[0.9, 0.2]}
-          locations={[0.05, 0.3, 0.6, 0.95]}
+      <TopContainer>
+        <Background
+          start={[0.8, 0.2]}
+          end={[0.1, 0.9]}
+          locations={[0.1, 0.3, 0.7, 0.9]}
           colors={[colors.purple3, colors.blue, colors.yellow, colors.pink]}
         >
           <Image small resizeMode="contain" source={images[5]} />
-        </Border>
-      </BorderContainer>
+        </Background>
+      </TopContainer>
       <Medium />
       <Caption>
         <TextBox>
@@ -33,19 +34,19 @@ const WelcomeScreen = ({ navigation }) => {
           space
           paddingHorizontal={80}
           label="LogIn"
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate("Login")}
         />
         <Button
           paddingHorizontal={70}
           space
           label="Register"
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => navigation.navigate("Register")}
         />
         <Button
           bgColor="transparent"
-          textStyle={{ color: colors.primary, textTransform: 'capitalize' }}
+          textStyle={{ color: colors.primary, textTransform: "capitalize" }}
           label="Forgot password?"
-          onPress={() => navigation.navigate('ForgotPassword')}
+          onPress={() => navigation.navigate("ForgotPassword")}
         />
       </Caption>
     </Container>
@@ -60,7 +61,7 @@ const Container = styled.View`
   })}; ;
 `;
 
-const BorderContainer = styled.View`
+const TopContainer = styled.View`
   overflow: hidden;
 
   ${({ theme: { radii } }) => ({
@@ -68,7 +69,7 @@ const BorderContainer = styled.View`
   })}
 `;
 
-const Border = styled(LinearGradient)`
+const Background = styled(LinearGradient)`
   width: 100%;
   justify-content: flex-end;
   align-items: center;
@@ -111,6 +112,7 @@ const TextBox = styled.View`
 
   ${({ theme: { space } }) => ({
     paddingHorizontal: space.xl,
+    paddingBottom: space.m2,
   })}
 `;
 

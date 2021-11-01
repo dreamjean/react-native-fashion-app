@@ -1,8 +1,8 @@
-import { Dimensions } from 'react-native';
+import { Dimensions } from "react-native";
 
-import theme from './theme';
+import theme from "./theme";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const aspectRatio = 884 / 1300;
 const SLIDE_HEIGHT = height * 0.61;

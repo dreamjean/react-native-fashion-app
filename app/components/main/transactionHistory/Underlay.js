@@ -1,20 +1,20 @@
-import dayjs from 'dayjs';
-import React from 'react';
-import styled from 'styled-components';
+import dayjs from "dayjs";
+import React from "react";
+import styled from "styled-components";
 
-import { calendar } from '../../../config';
-import { Text } from '../../../styles';
+import { constants } from "../../../config";
+import { Text } from "../../../styles";
 
 const Underlay = ({ dates, step }) => {
   return (
     <>
       {[500, 400, 300, 200, 100, 0].map((t) => (
-        <RowBar height={t === 500 ? 0 : calendar.GRAPH_HEIGHT / 5} key={t}>
+        <RowBar height={t === 500 ? 0 : constants.GRAPH_HEIGHT / 5} key={t}>
           <Text
             caption
             style={{
               opacity: 0.6,
-              position: 'absolute',
+              position: "absolute",
               bottom: -14,
               left: 0,
               marginRight: 4,
@@ -30,7 +30,7 @@ const Underlay = ({ dates, step }) => {
         {dates.map((date, index) => (
           <Dates key={index} width={step}>
             <Text caption center opacity={0.6}>
-              {dayjs(date).format('MMM')}
+              {dayjs(date).format("MMM")}
             </Text>
           </Dates>
         ))}

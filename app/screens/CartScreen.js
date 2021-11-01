@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import { CartContainer, CheckOut, HeaderBar, ListItem, TopContent } from '../components/main';
-import cartItems from '../data/cartItems';
-import { Text } from '../styles';
+import {
+  CartContainer,
+  CheckOut,
+  HeaderBar,
+  ListItem,
+  TopContent,
+} from "../components/main";
+import cartItems from "../data/cartItems";
+import { Text } from "../styles";
 
 const CartScreen = ({ navigation }) => {
   const [items, setItems] = useState(cartItems);
@@ -20,8 +26,8 @@ const CartScreen = ({ navigation }) => {
         dark
         white
         title="Shopping Cart"
-        left={{ icon: 'backspace-outline', onPress: () => navigation.toggleDrawer() }}
-        right={{ icon: 'cart', onPress: () => true }}
+        left={{ icon: "backspace-outline", onPress: () => navigation.goBack() }}
+        right={{ icon: "cart", onPress: () => true }}
       />
       <Text title3 center white style={{ marginTop: 6 }}>
         4 Items Added
@@ -32,7 +38,9 @@ const CartScreen = ({ navigation }) => {
           data={items}
           keyExtractor={(list) => list.id.toString()}
           contentContainerStyle={{ paddingVertical: 20 }}
-          renderItem={({ item }) => <ListItem item={item} onRemove={handleDelete} />}
+          renderItem={({ item }) => (
+            <ListItem item={item} onRemove={handleDelete} />
+          )}
           showsVerticalScrollIndicator={false}
         />
       </Wrapper>

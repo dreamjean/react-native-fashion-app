@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { Text } from '../../styles';
+import { Text } from "../../styles";
 
 const ErrorMessage = ({ error, visible }) => {
   if (!error || !visible) return null;

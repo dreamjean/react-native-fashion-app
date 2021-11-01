@@ -1,11 +1,11 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React from 'react';
-import styled from 'styled-components';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from "react";
+import styled from "styled-components";
 
 const Icon = ({
   backgroundColor,
   borderColor,
-  color = 'white',
+  color = "white",
   round = true,
   iconRatio = 0.7,
   iconName,

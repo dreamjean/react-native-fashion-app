@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const headingStyle = css`
   text-align: center;
@@ -62,7 +62,7 @@ const captionStyle = css`
     fontFamily: getFont(1),
     fontSize: size.s,
     color: white ? colors.white : colors.text2,
-    textTransform: upper ? 'uppercase' : 'none',
+    textTransform: upper ? "uppercase" : "none",
   })}
 `;
 

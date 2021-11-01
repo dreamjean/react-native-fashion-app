@@ -1,8 +1,8 @@
-import { useFormikContext } from 'formik';
-import React from 'react';
+import { useFormikContext } from "formik";
+import React from "react";
 
-import TextInput from '../TextInput';
-import ErrorMessage from './ErrorMessage';
+import TextInput from "../TextInput";
+import ErrorMessage from "./ErrorMessage";
 
 const FormField = ({ name, onSubmitEditing, onRef, ...rest }) => {
   const {

@@ -1,19 +1,19 @@
-import { useFocusEffect } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { useSharedValue, withTiming } from 'react-native-reanimated';
-import styled from 'styled-components';
+import { useFocusEffect } from "@react-navigation/native";
+import React, { useState } from "react";
+import { useSharedValue, withTiming } from "react-native-reanimated";
+import styled from "styled-components";
 
-import { Button, Content } from '../components';
-import { Graph, HeaderBar, Transaction } from '../components/main';
-import { calendar, colors } from '../config';
-import initialData from '../data/graphData';
-import { Text } from '../styles';
+import { Button, Content } from "../components";
+import { Graph, HeaderBar, Transaction } from "../components/main";
+import { colors, constants } from "../config";
+import initialData from "../data/graphData";
+import { Text } from "../styles";
 
-const { CELL_NUM } = calendar;
+const { CELL_NUM } = constants;
 
 const TransactionHistoryScreen = ({ navigation }) => {
   const [graphData, setGraphData] = useState(initialData);
-  const [buttonLabel, setButtonLabel] = useState('Filter');
+  const [buttonLabel, setButtonLabel] = useState("Filter");
   const scaleY = useSharedValue(0);
 
   useFocusEffect(() => {
@@ -24,12 +24,12 @@ const TransactionHistoryScreen = ({ navigation }) => {
   const fatchData = () => {
     let graphData = initialData;
 
-    if (buttonLabel === 'All Time') {
-      setButtonLabel('Filter');
+    if (buttonLabel === "All Time") {
+      setButtonLabel("Filter");
       setGraphData(graphData);
     }
-    if (buttonLabel === 'Filter') {
-      setButtonLabel('All Time');
+    if (buttonLabel === "Filter") {
+      setButtonLabel("All Time");
       graphData = graphData.filter((item) => item.value !== 0);
       setGraphData(graphData);
     }
@@ -40,15 +40,15 @@ const TransactionHistoryScreen = ({ navigation }) => {
       .map((p) => p.value)
       .reduce((a, b) => a + b)
       .toFixed(2)
-      .replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+      .replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, "$&,");
   };
 
   return (
     <Content>
       <HeaderBar
         title="Transaction History"
-        left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-        right={{ icon: 'share-variant', onPress: () => true }}
+        left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
+        right={{ icon: "share-variant", onPress: () => true }}
       />
       <Heading>
         <Box>

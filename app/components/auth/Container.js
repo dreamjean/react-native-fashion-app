@@ -1,14 +1,14 @@
-import { useNavigation } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
-import styled from 'styled-components';
+import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
+import styled from "styled-components";
 
-import { calendar, colors, images } from '../../config';
-import { Image } from '../../styles';
-import IconButton from '../IconButton';
+import { colors, constants, images } from "../../config";
+import { Image } from "../../styles";
+import IconButton from "../IconButton";
 
-const { BAR_HEIGHT, IMG_HEIGHT } = calendar;
+const { BAR_HEIGHT, IMG_HEIGHT } = constants;
 
 const Container = ({
   children,
@@ -22,37 +22,37 @@ const Container = ({
   const img = images[pattern];
 
   return (
-    <KeyboardAwareScrollView
-      enableOnAndroid
-      enableAutomaticScroll
-      extraScrollHeight={100}
-      contentContainerStyle={{ flexGrow: 1 }}
-      keyboardShouldPersistTaps="always"
-      showsVerticalScrollIndicator={false}
-    >
-      <Box>
-        <StatusBar style="dark" />
-        <Header>
-          <ImageBox {...{ imgLbr, imgRbr }}>
-            <Image source={img} />
-            <CloseButton
-              onPress={() => navigation.goBack()}
-              backgroundColor={colors.white}
-              color={colors.primary}
-              iconRatio={0.8}
-              iconName="arrow-left-bold-outline"
-              size={40}
-            />
-          </ImageBox>
-          <Border>
-            <Image barCurve source={img} />
-          </Border>
-        </Header>
-        <Medium {...{ ltBorder, rtBorder }}>
+    <Box>
+      <StatusBar style="dark" />
+      <Header>
+        <ImageBox {...{ imgLbr, imgRbr }}>
+          <Image source={img} />
+          <CloseButton
+            onPress={() => navigation.goBack()}
+            backgroundColor={colors.white}
+            color={colors.primary}
+            iconRatio={0.8}
+            iconName="arrow-left-bold-outline"
+            size={40}
+          />
+        </ImageBox>
+        <Border>
+          <Image barCurve source={img} />
+        </Border>
+      </Header>
+      <Medium {...{ ltBorder, rtBorder }}>
+        <KeyboardAwareScrollView
+          enableOnAndroid
+          enableAutomaticScroll
+          extraScrollHeight={100}
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps="always"
+          showsVerticalScrollIndicator={false}
+        >
           <MediumBox>{children}</MediumBox>
-        </Medium>
-      </Box>
-    </KeyboardAwareScrollView>
+        </KeyboardAwareScrollView>
+      </Medium>
+    </Box>
   );
 };
 

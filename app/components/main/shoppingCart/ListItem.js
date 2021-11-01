@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { calendar } from '../../../config';
-import { Text } from '../../../styles';
-import SwipeableRow from './swipeable/SwipeableRow';
+import { constants } from "../../../config";
+import { Text } from "../../../styles";
+import SwipeableRow from "./swipeable/SwipeableRow";
 
-const { LIST_CARD } = calendar;
+const { LIST_CARD } = constants;
 
 const ListItem = ({ item, onRemove }) => {
   return (
@@ -14,12 +14,12 @@ const ListItem = ({ item, onRemove }) => {
         <Picture />
         <Info>
           <Text caption>
-            Size{' '}
+            Size{" "}
             <ColorText caption upper>
               {item.size}
             </ColorText>
           </Text>
-          <Title mbt>No Broken{'\n'}Hearts Shirt</Title>
+          <Title mbt>No Broken{"\n"}Hearts Shirt</Title>
           <ColorText title3>${item.price}</ColorText>
         </Info>
         <Circle>

@@ -1,31 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import * as Yup from 'yup';
+import React from "react";
+import styled from "styled-components";
+import * as Yup from "yup";
 
-import { Text } from '../../../styles';
-import { Form, FormField, SubmitButton } from '../../forms';
-import PickerGroup from './PickerGroup';
+import { Text } from "../../../styles";
+import { Form, FormField, SubmitButton } from "../../forms";
+import PickerGroup from "./PickerGroup";
 
 const genders = [
   {
-    value: 'man',
-    label: 'Male',
+    value: "man",
+    label: "Male",
   },
   {
-    value: 'woman',
-    label: 'Female',
+    value: "woman",
+    label: "Female",
   },
 ];
 
 let validationSchema = Yup.object().shape({
-  name: Yup.string().required().label('Name'),
+  name: Yup.string().required().label("Name"),
   password: Yup.string()
     .required()
     .min(5)
     .max(50)
-    .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-    .matches(/\d/, 'Password must have a number')
-    .label('Password'),
+    .matches(/\w*[a-z]\w*/, "Password must have a small letter")
+    .matches(/\d/, "Password must have a number")
+    .label("Password"),
 });
 
 const PersonalInfo = () => {
@@ -35,7 +35,12 @@ const PersonalInfo = () => {
         Account Information
       </Text>
       <Form
-        initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        }}
         validationSchema={validationSchema}
         onSubmit={(values) => console.log(values)}
       >

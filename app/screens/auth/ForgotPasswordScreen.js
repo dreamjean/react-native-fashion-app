@@ -1,14 +1,14 @@
-import React from 'react';
-import { Keyboard, Linking } from 'react-native';
-import styled from 'styled-components';
-import * as Yup from 'yup';
+import React from "react";
+import { Keyboard, Linking } from "react-native";
+import styled from "styled-components";
+import * as Yup from "yup";
 
-import { Container, LinkFooter } from '../../components/auth';
-import { Form, FormField, SubmitButton } from '../../components/forms';
-import { Text } from '../../styles';
+import { Container, LinkFooter } from "../../components";
+import { Form, FormField, SubmitButton } from "../../components/forms";
+import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
-  email: Yup.string().required().email('Invalid Email').label('Email'),
+  email: Yup.string().required().email("Invalid Email").label("Email"),
 });
 
 const ForgotPasswordScreen = ({ navigation }) => {
@@ -24,10 +24,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
           </Text>
         </TextBox>
         <Form
-          initialValues={{ email: '' }}
+          initialValues={{ email: "" }}
           validationSchema={validationSchema}
           onSubmit={() => {
-            navigation.navigate('PasswordChanged');
+            navigation.navigate("PasswordChanged");
             Keyboard.dismiss();
           }}
         >
@@ -44,7 +44,9 @@ const ForgotPasswordScreen = ({ navigation }) => {
             placeholder="Enter email"
             textContentType="emailAddress"
           />
-          <SubmitButton label="Reset password" />
+          <ButtonWrapper>
+            <SubmitButton label="Reset password" />
+          </ButtonWrapper>
         </Form>
       </Container>
       <LinkFooter
@@ -61,7 +63,13 @@ const TextBox = styled.View`
 
   ${({ theme: { space } }) => ({
     paddingHorizontal: space.s2,
-    marginBottom: space.m2,
+    marginBottom: space.l2,
+  })}
+`;
+
+const ButtonWrapper = styled.View`
+  ${({ theme: { space } }) => ({
+    marginTop: space.m2,
   })}
 `;
 

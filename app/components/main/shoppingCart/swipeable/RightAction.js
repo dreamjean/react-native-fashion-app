@@ -1,10 +1,10 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import styled from 'styled-components';
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { StyleSheet } from "react-native";
+import styled from "styled-components";
 
-import { colors } from '../../../../config';
-import IconButton from '../../../IconButton';
+import { colors } from "../../../../config";
+import IconButton from "../../../IconButton";
 
 const RightAction = ({ onPlus, onMinus }) => {
   return (
@@ -16,8 +16,18 @@ const RightAction = ({ onPlus, onMinus }) => {
         style={StyleSheet.absoluteFill}
       />
       <Box>
-        <IconButton iconName="plus" size={26} backgroundColor={colors.primary} onPress={onPlus} />
-        <IconButton iconName="minus" size={26} backgroundColor={colors.danger} onPress={onMinus} />
+        <IconButton
+          iconName="plus"
+          size={26}
+          backgroundColor={colors.primary}
+          onPress={onPlus}
+        />
+        <IconButton
+          iconName="minus"
+          size={26}
+          backgroundColor={colors.danger}
+          onPress={onMinus}
+        />
       </Box>
     </>
   );

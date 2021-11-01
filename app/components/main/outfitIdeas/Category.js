@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
-import { Pressable } from 'react-native';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import { Pressable } from "react-native";
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+import styled from "styled-components";
 
-import { calendar } from '../../../config';
-import { Text } from '../../../styles';
+import { constants } from "../../../config";
+import { Text } from "../../../styles";
 
-const { CTG_RADIUS } = calendar;
+const { CTG_RADIUS } = constants;
 
 const Category = ({ backgroundColor, title }) => {
   const [selected, setSelected] = useState(false);
 
   const style = useAnimatedStyle(() => {
-    const scale = interpolate(selected, [0, 1, 1], [1, 0.8, 1], Extrapolate.CLAMP);
+    const scale = interpolate(
+      selected,
+      [0, 1, 1],
+      [1, 0.8, 1],
+      Extrapolate.CLAMP
+    );
 
     return {
       transform: [{ scale }],

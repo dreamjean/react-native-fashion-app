@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
-import { Transition, Transitioning } from 'react-native-reanimated';
-import styled from 'styled-components';
+import React, { useRef, useState } from "react";
+import { Transition, Transitioning } from "react-native-reanimated";
+import styled from "styled-components";
 
-import { HeaderBar, Outfits, PressFooter, TopCurve } from '../components/main';
-import { calendar } from '../config';
-import initialOutfits from '../data/outfits';
-import { View } from '../styles';
+import { HeaderBar, Outfits, PressFooter, TopCurve } from "../components/main";
+import { constants } from "../config";
+import initialOutfits from "../data/outfits";
+import { View } from "../styles";
 
-const { FOOTER_HEIGHT } = calendar;
+const { FOOTER_HEIGHT } = constants;
 
 const FavouriteOutfitsScreen = ({ navigation }) => {
   const [outfits, setOutfits] = useState(initialOutfits);
@@ -23,8 +23,8 @@ const FavouriteOutfitsScreen = ({ navigation }) => {
     <View container>
       <HeaderBar
         title="Favourite Outfits"
-        left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-        right={{ icon: 'shopping', onPress: () => navigation.navigate('Cart') }}
+        left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
+        right={{ icon: "shopping", onPress: () => navigation.navigate("Cart") }}
       />
       <ScrollOutfits showsVerticalScrollIndicator={false}>
         <Transitioning.View ref={list} transition={transition}>

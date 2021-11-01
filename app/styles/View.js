@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
-import styled, { css } from 'styled-components';
+import { StyleSheet } from "react-native";
+import styled, { css } from "styled-components";
 
-import { calendar } from '../config';
+import { constants } from "../config";
 
 const borderStyle = css`
-  height: ${calendar.CELL_NUM}px;
+  height: ${constants.CELL_NUM}px;
   overflow: hidden;
   z-index: -1;
 

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import { colors } from '../../../config';
-import { Text } from '../../../styles';
+import { colors } from "../../../config";
+import { Text } from "../../../styles";
 
 const Notification = ({ title, description }) => {
   const [isEnabled, setIsEnabled] = useState(false);

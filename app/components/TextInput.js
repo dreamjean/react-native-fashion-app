@@ -1,9 +1,9 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React, { forwardRef } from 'react';
-import styled from 'styled-components';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { forwardRef } from "react";
+import styled from "styled-components";
 
-import { colors } from '../config';
-import Icon from './Icon';
+import { colors } from "../config";
+import Icon from "./Icon";
 
 const TextInput = forwardRef(({ icon, error, touched, ...rest }, ref) => {
   const dangerPrimery = error ? colors.danger : colors.primary;
@@ -19,7 +19,13 @@ const TextInput = forwardRef(({ icon, error, touched, ...rest }, ref) => {
         selectionColor={colors.primary}
         underlineColorAndroid="transparent"
       />
-      {touched && <Icon iconName={error ? 'close' : 'check'} size={22} backgroundColor={reColor} />}
+      {touched && (
+        <Icon
+          iconName={error ? "close" : "check"}
+          size={22}
+          backgroundColor={reColor}
+        />
+      )}
     </Box>
   );
 });

@@ -1,5 +1,5 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
+import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
 
 import {
   ForgotPasswordScreen,
@@ -8,12 +8,14 @@ import {
   PasswordChangedScreen,
   RegisterScreen,
   WelcomeScreen,
-} from '../screens/auth';
+} from "../screens";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
-  <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
+  <Stack.Navigator
+    screenOptions={{ headerShown: false, presentation: "transparentModal" }}
+  >
     <Stack.Screen name="OnBoarding" component={OnBoardingScreen} />
     <Stack.Screen name="Welcome" component={WelcomeScreen} />
     <Stack.Screen name="Login" component={LoginScreen} />
