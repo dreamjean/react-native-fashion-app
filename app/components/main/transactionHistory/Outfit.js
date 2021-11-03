@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components";
 
-import { colors, constants } from "../../config";
-import IconButton from "../IconButton";
+import { colors, constants } from "../../../config";
+import IconButton from "../../IconButton";
 
 const { OUTFIT_WIDTH } = constants;
 

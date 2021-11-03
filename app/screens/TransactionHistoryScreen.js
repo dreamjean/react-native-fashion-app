@@ -55,7 +55,7 @@ const TransactionHistoryScreen = ({ navigation }) => {
           <Amount caption mbt opacity={0.6}>
             total spent
           </Amount>
-          <Text title2>${converAmountFormat()}</Text>
+          <Text title2>{`$${converAmountFormat()}`}</Text>
         </Box>
         <Button
           bgColor={colors.lightCyan}
