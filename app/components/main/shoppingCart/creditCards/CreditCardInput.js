@@ -1,5 +1,5 @@
 import { Feather } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components";
 
@@ -10,14 +10,16 @@ const { CDCARD_WIDTH, CDCARD_HEIGHT } = constants;
 const plusBoxWidth = CDCARD_WIDTH * 0.75;
 const plusBoxHeight = CDCARD_HEIGHT * 0.7;
 
-const CreditCardInput = ({ card, primary, onAddCard, onChangeCard }) => {
-  const [selected, setSelected] = useState(false);
-
+const CreditCardInput = ({
+  card,
+  primary,
+  selected,
+  onSelectCard,
+  onAddCard,
+}) => {
   const handlePress = () => {
-    if (!card) () => onAddCard();
-
-    () => onChangeCard();
-    setSelected((prev) => !prev);
+    if (card) onSelectCard();
+    else onAddCard();
   };
 
   return (
@@ -54,7 +56,7 @@ const CreditCardInput = ({ card, primary, onAddCard, onChangeCard }) => {
           </PlusBox>
         )}
       </Pressable>
-      {selected && card && <Dot {...{ primary }} />}
+      {selected && <Dot {...{ primary }} />}
     </Container>
   );
 };

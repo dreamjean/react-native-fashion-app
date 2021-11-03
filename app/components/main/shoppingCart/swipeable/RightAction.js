@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { colors } from "../../../../config";
 import IconButton from "../../../IconButton";
 
-const RightAction = ({ onPlus, onMinus }) => {
+const RightAction = ({ onAdd, onMinus }) => {
   return (
     <>
       <LinearGradient
@@ -20,7 +20,7 @@ const RightAction = ({ onPlus, onMinus }) => {
           iconName="plus"
           size={26}
           backgroundColor={colors.primary}
-          onPress={onPlus}
+          onPress={onAdd}
         />
         <IconButton
           iconName="minus"

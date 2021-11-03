@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { constants } from "../../../config";
@@ -8,8 +8,13 @@ import SwipeableRow from "./swipeable/SwipeableRow";
 const { LIST_CARD } = constants;
 
 const ListItem = ({ item, onRemove }) => {
+  const [numberOfItems, setNumberOfItems] = useState(1);
+
   return (
-    <SwipeableRow onRemove={onRemove}>
+    <SwipeableRow
+      {...{ numberOfItems, onRemove }}
+      onChangeNumberOfItems={setNumberOfItems}
+    >
       <Container>
         <Picture />
         <Info>
@@ -20,11 +25,11 @@ const ListItem = ({ item, onRemove }) => {
             </ColorText>
           </Text>
           <Title mbt>No Broken{"\n"}Hearts Shirt</Title>
-          <ColorText title3>${item.price}</ColorText>
+          <ColorText title3>{`$${item.price}`}</ColorText>
         </Info>
         <Circle>
           <Text caption white>
-            x2
+            {`x${numberOfItems}`}
           </Text>
         </Circle>
       </Container>

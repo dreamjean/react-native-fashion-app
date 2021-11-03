@@ -16,7 +16,7 @@ const CheckOut = ({ topHeight }) => {
         <Info>Delivery address</Info>
         <InfoBox>
           <Info mtp caption opacity={0.55}>
-            Unit 15,YorkFarmBusiness Centre,{"\n"}Watling St.Towceter
+            Unit 15,YorkFarmBusiness Centre,Watling St.Towceter
           </Info>
           <Button
             label="Change"
@@ -50,6 +50,7 @@ const CheckOut = ({ topHeight }) => {
 
 const Container = styled.View`
   flex: 1;
+  z-index: -5;
 
   ${({ topHeight, theme: { colors } }) => ({
     backgroundColor: colors.secondary,
@@ -70,11 +71,13 @@ const InfoBox = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    marginVertical: space.s2,
+    marginVertical: space.s1,
   })}
 `;
 
 const Info = styled(Text)`
+  flex: 1;
+
   ${({ theme: { colors } }) => ({
     color: colors.white,
   })}
@@ -90,7 +93,7 @@ const Wrapper = styled.View`
   align-items: center;
 
   ${({ theme: { space } }) => ({
-    padding: space.m2,
+    marginTop: space.l2,
   })}
 `;
 

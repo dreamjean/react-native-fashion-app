@@ -42,7 +42,12 @@ const timingConfig = {
   easing: Easing.bezier(0.25, 0.1, 0.25, 1),
 };
 
-const SwipeableRow = ({ children, onRemove }) => {
+const SwipeableRow = ({
+  children,
+  onRemove,
+  numberOfItems,
+  onChangeNumberOfItems,
+}) => {
   const isRemoving = useSharedValue(false);
   const translateX = useSharedValue(0);
 
@@ -112,7 +117,16 @@ const SwipeableRow = ({ children, onRemove }) => {
             <LeftAction onPress={handleRemovePress} />
           </LeftBox>
           <RightBox>
-            <RightAction />
+            <RightAction
+              onAdd={() => onChangeNumberOfItems(numberOfItems++)}
+              onMinus={() => {
+                onChangeNumberOfItems(numberOfItems--);
+
+                if (numberOfItems === 0) handleRemovePress();
+                if (!isRemoving.value && numberOfItems < 0)
+                  onChangeNumberOfItems(1);
+              }}
+            />
           </RightBox>
           {children}
         </Animated.View>
@@ -123,6 +137,10 @@ const SwipeableRow = ({ children, onRemove }) => {
 
 const Wrapper = styled.View`
   overflow: hidden;
+
+  /* ${({ theme: { space } }) => ({
+    marginTop: space.m2,
+  })} */
 `;
 
 const LeftBox = styled.View`
