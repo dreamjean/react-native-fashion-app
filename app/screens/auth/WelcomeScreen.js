@@ -1,5 +1,4 @@
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
 import styled from "styled-components";
 
 import { Button } from "../../components";

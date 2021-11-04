@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Animated, {
   Extrapolate,
   interpolate,

@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import React from "react";
 import styled from "styled-components";
 
 import { constants } from "../../../config";

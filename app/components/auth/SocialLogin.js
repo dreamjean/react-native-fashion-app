@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import Apple from "../../assets/svglogos/apple.svg";

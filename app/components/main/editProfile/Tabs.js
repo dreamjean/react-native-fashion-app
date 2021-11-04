@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import { Children } from "react";
 import { Pressable } from "react-native";
 import Animated, {
   Extrapolate,

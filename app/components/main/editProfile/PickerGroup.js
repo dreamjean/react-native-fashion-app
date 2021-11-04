@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { View } from "../../../styles";
 import Button from "../../Button";
 
-const PickerGroup = ({ data, radio }) => {
-  const [selectedValues, setSelectedValues] = useState([]);
+const PickerGroup = ({ data, radio, initialState = [] }) => {
+  const [selectedValues, setSelectedValues] = useState(initialState);
 
   return (
     <View pickerBox>

@@ -37,9 +37,10 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": ["error"],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "react/display-name": 0,
     "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };

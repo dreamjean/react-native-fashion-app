@@ -1,6 +1,5 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import React from "react";
 
 import { constants } from "../config";
 import AuthNavigator from "./AuthNavigator";
@@ -40,7 +39,6 @@ const AppNavigator = () => (
       },
     }}
   >
-    <Drawer.Screen name="Auth" component={AuthNavigator} />
     <Drawer.Screen
       name="Main"
       component={MainNavigator}
@@ -48,6 +46,7 @@ const AppNavigator = () => (
         headerTitle: getHeaderTitle(route),
       })}
     />
+    <Drawer.Screen name="Auth" component={AuthNavigator} />
   </Drawer.Navigator>
 );
 

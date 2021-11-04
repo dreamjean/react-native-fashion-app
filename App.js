@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 
 import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Theme } from "./app/components";
 import useLoadAssets from "./app/hooks/useLoadAssets";

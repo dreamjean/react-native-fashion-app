@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 import styled from "styled-components";
 

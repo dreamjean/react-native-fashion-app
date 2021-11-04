@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDerivedValue } from "react-native-reanimated";
 import { useTiming } from "react-native-redash";
 import styled from "styled-components";

@@ -1,4 +1,3 @@
-import React from "react";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import styled from "styled-components";
 

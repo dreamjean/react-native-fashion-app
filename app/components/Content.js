@@ -1,4 +1,3 @@
-import React from "react";
 import Svg, { ClipPath, Defs, Image, Path } from "react-native-svg";
 
 import { colors, constants, images } from "../config";

@@ -1,5 +1,5 @@
 import { useFocusEffect } from "@react-navigation/native";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSharedValue, withTiming } from "react-native-reanimated";
 import styled from "styled-components";
 

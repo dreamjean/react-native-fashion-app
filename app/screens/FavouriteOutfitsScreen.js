@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Transition, Transitioning } from "react-native-reanimated";
 import styled from "styled-components";
 

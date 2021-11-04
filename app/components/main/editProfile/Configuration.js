@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import * as options from "../../../data/options";
@@ -6,25 +5,27 @@ import { Text } from "../../../styles";
 import PickerGroup from "./PickerGroup";
 import RoundPickerGroup from "./RoundPickerGroup";
 
+const { genders, sizes, colorOptions, brands } = options;
+
 const Configuration = () => {
   return (
     <Box>
       <Text caption opacity={0.7}>
         What type of you usually wear?
       </Text>
-      <PickerGroup data={options.genders} radio />
+      <PickerGroup data={genders} radio initialState={[""]} />
       <Text caption opacity={0.7}>
         What is your clothing size?
       </Text>
-      <RoundPickerGroup data={options.sizes} />
+      <RoundPickerGroup data={sizes} />
       <Text caption opacity={0.7}>
         My preferred clothing colors
       </Text>
-      <RoundPickerGroup data={options.colorOptions} valueIsColor />
+      <RoundPickerGroup data={colorOptions} valueIsColor />
       <Text caption opacity={0.7}>
         My preferred brands
       </Text>
-      <PickerGroup data={options.brands} />
+      <PickerGroup data={brands} initialState={[""]} />
     </Box>
   );
 };

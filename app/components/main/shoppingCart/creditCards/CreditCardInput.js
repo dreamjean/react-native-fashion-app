@@ -1,5 +1,4 @@
 import { Feather } from "@expo/vector-icons";
-import React from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components";
 

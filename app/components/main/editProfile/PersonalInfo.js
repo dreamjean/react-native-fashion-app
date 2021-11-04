@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import * as Yup from "yup";
 
 import { Text } from "../../../styles";
-import { Form, FormField, SubmitButton } from "../../forms";
+import { Form, FormField, FormImagePicker, SubmitButton } from "../../forms";
 import PickerGroup from "./PickerGroup";
 
 const genders = [
@@ -18,6 +17,7 @@ const genders = [
 ];
 
 let validationSchema = Yup.object().shape({
+  picture: Yup.string().nullable().label("Picture"),
   name: Yup.string().required().label("Name"),
   password: Yup.string()
     .required()
@@ -31,19 +31,19 @@ let validationSchema = Yup.object().shape({
 const PersonalInfo = () => {
   return (
     <Box>
-      <Text opacity={0.7} style={{ marginBottom: 12 }}>
-        Account Information
-      </Text>
       <Form
         initialValues={{
+          picture: null,
           name: "",
-          email: "",
           password: "",
-          confirmPassword: "",
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => console.log(values)}
       >
+        <FormImagePicker name="picture" />
+        <Text opacity={0.7} style={{ marginBottom: 12 }}>
+          Account Information
+        </Text>
         <FormField
           allowFontScaling={false}
           autoCapitalize="none"

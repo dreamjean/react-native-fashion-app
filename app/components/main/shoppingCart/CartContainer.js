@@ -1,4 +1,3 @@
-import React from "react";
 import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   useAnimatedGestureHandler,

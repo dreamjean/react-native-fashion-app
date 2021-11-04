@@ -1,5 +1,4 @@
 import { Entypo } from "@expo/vector-icons";
-import React from "react";
 import styled from "styled-components";
 
 import { Button, Container, Icon, IconFooter } from "../../components";
