@@ -33,7 +33,7 @@ const CreditCardInput = ({
               logo
               {...{ primary }}
               resizeMode={primary ? "contain" : "cover"}
-              source={primary ? images[9] : images[10]}
+              source={primary ? images.visa : images.masterCard}
             />
 
             <InfoWrapper {...{ primary }}>

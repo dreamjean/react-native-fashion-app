@@ -9,7 +9,7 @@ import {
   FormField,
   SubmitButton,
 } from "../../components/forms";
-import { colors } from "../../config";
+import { colors, images } from "../../config";
 import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
@@ -24,7 +24,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <>
-      <Container pattern={6} imgLbr rtBorder>
+      <Container image={images.bg1} imgLbr rtBorder>
         <TextBox>
           <Text title2>Welcome Back</Text>
           <Text body center mtp>

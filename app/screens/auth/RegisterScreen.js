@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { Container, LinkFooter } from "../../components";
 import { Form, FormField, SubmitButton } from "../../components/forms";
+import { images } from "../../config";
 import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
@@ -28,7 +29,7 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <>
-      <Container pattern={7} imgRbr ltBorder>
+      <Container image={images.bg2} imgRbr ltBorder>
         <TextBox>
           <Text title2>Create Account</Text>
           <Text body center mtp>

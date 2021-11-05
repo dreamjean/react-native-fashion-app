@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { Container, LinkFooter } from "../../components";
 import { Form, FormField, SubmitButton } from "../../components/forms";
+import { images } from "../../config";
 import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
@@ -13,7 +14,7 @@ let validationSchema = Yup.object().shape({
 const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <>
-      <Container pattern={8} ltBorder rtBorder>
+      <Container image={images.bg3} ltBorder rtBorder>
         <TextBox>
           <Text title2 mbt>
             Forgot password?

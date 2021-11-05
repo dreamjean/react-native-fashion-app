@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 import styled from "styled-components";
 
-import { colors, constants, images } from "../../config";
+import { colors, constants } from "../../config";
 import { Image } from "../../styles";
 import IconButton from "../IconButton";
 
@@ -11,21 +11,20 @@ const { BAR_HEIGHT, IMG_HEIGHT } = constants;
 
 const Container = ({
   children,
-  pattern,
+  image,
   imgLbr = false,
   imgRbr = false,
   ltBorder = false,
   rtBorder = false,
 }) => {
   const navigation = useNavigation();
-  const img = images[pattern];
 
   return (
     <Box>
       <StatusBar style="dark" />
       <Header>
         <ImageBox {...{ imgLbr, imgRbr }}>
-          <Image source={img} />
+          <Image source={image} />
           <CloseButton
             onPress={() => navigation.goBack()}
             backgroundColor={colors.white}
@@ -36,7 +35,7 @@ const Container = ({
           />
         </ImageBox>
         <Border>
-          <Image barCurve source={img} />
+          <Image barCurve source={image} />
         </Border>
       </Header>
       <Medium {...{ ltBorder, rtBorder }}>

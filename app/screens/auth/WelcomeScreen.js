@@ -17,7 +17,7 @@ const WelcomeScreen = ({ navigation }) => {
           locations={[0.1, 0.3, 0.7, 0.9]}
           colors={[colors.purple3, colors.blue, colors.yellow, colors.pink]}
         >
-          <Image small resizeMode="contain" source={images[5]} />
+          <Image small resizeMode="contain" source={images.timg5} />
         </Background>
       </TopContainer>
       <Medium />

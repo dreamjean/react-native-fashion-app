@@ -39,6 +39,7 @@ const AppNavigator = () => (
       },
     }}
   >
+    <Drawer.Screen name="Auth" component={AuthNavigator} />
     <Drawer.Screen
       name="Main"
       component={MainNavigator}
@@ -46,7 +47,6 @@ const AppNavigator = () => (
         headerTitle: getHeaderTitle(route),
       })}
     />
-    <Drawer.Screen name="Auth" component={AuthNavigator} />
   </Drawer.Navigator>
 );
 

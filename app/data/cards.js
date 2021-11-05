@@ -3,18 +3,18 @@ import { images } from "../config";
 export default [
   {
     index: 3,
-    image: images[11],
+    image: images.timg6,
   },
   {
     index: 2,
-    image: images[12],
+    image: images.timg7,
   },
   {
     index: 1,
-    image: images[13],
+    image: images.timg8,
   },
   {
     index: 0,
-    image: images[14],
+    image: images.timg9,
   },
 ];

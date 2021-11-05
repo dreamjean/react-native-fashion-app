@@ -9,10 +9,10 @@ const ImgFooter = () => {
   return (
     <>
       <View bdBox>
-        <Image topCurve source={images[6]} />
+        <Image topCurve source={images.bg1} />
       </View>
       <Footer>
-        <Image source={images[6]} />
+        <Image source={images.bg1} />
       </Footer>
     </>
   );

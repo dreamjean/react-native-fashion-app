@@ -91,11 +91,11 @@ const CombinationButton = ({ label, onPay }) => {
             <View style={styles.wrapper}>
               <Animated.Image
                 style={[styles.image, cartStyle]}
-                source={images[15]}
+                source={images.cart}
               />
               <Animated.Image
                 style={[styles.image, bagStyle]}
-                source={images[16]}
+                source={images.giftBag}
               />
             </View>
           </Animated.View>

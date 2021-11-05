@@ -7,7 +7,7 @@ const Avatar = () => {
   return (
     <Container>
       <Box>
-        <Image avatar source={images[0]} />
+        <Image avatar source={images.avatar} />
       </Box>
       <Text title1>Rokia</Text>
       <Text>rokia@demo.com</Text>

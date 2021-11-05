@@ -2,13 +2,13 @@ import { Entypo } from "@expo/vector-icons";
 import styled from "styled-components";
 
 import { Button, Container, Icon, IconFooter } from "../../components";
-import { colors } from "../../config";
+import { colors, images } from "../../config";
 import { Text } from "../../styles";
 
 const PasswordChangedScreen = ({ navigation }) => {
   return (
     <>
-      <Container pattern={8} ltBorder rtBorder>
+      <Container image={images.bg3} ltBorder rtBorder>
         <Icon
           IconComponent={Entypo}
           iconName="emoji-happy"

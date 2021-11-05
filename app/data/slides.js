@@ -1,11 +1,10 @@
-import { images } from "../config/assets";
-import colors from "../config/colors";
+import { colors, images } from "../config";
 
 export default [
   {
     heading: "Relaxed",
     color: colors.lightCyan,
-    picture: images[1],
+    picture: images.timg1,
     title: "Find Your Outfits",
     description:
       "Confused about your outfit? Don't worry! Find the best outfit here!",
@@ -14,7 +13,7 @@ export default [
   {
     heading: "Playful",
     color: colors.lightGreen,
-    picture: images[2],
+    picture: images.timg2,
     title: "Hear it First, Wear it First",
     description:
       "Hating the clothes in your wardrobe? Explore hundreds of outfit ideas",
@@ -23,7 +22,7 @@ export default [
   {
     heading: "Excentric",
     color: colors.lightOriange,
-    picture: images[3],
+    picture: images.timg3,
     title: "Your Style, Your Way",
     description:
       "Create your individual & unique style and look anmazing everyday",
@@ -32,7 +31,7 @@ export default [
   {
     heading: "Funky",
     color: colors.lightPink,
-    picture: images[4],
+    picture: images.timg4,
     title: "Look Good, Feel Good",
     description:
       "Discover the latest trends in fashion and explore our personality",

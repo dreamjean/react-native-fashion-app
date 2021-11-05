@@ -16,7 +16,7 @@ const radius = CELL_NUM;
 }
 const d = `M ${x} ${y} V 0 A ${radius} ${radius} 0 0 1 ${midX} ${midY} H ${midY} A ${radius} ${radius} 0 0 0 0 ${y} Z`;
 
-const Content = ({ children, image = images[6] }) => {
+const Content = ({ children, image = images.bg1 }) => {
   return (
     <View container>
       {children}

@@ -13,7 +13,7 @@ const radius = CELL_NUM;
 
 const d = `M 0 0 H ${x} A ${radius} ${radius} 0 0 1 ${midX} ${midY} H ${midY} A ${radius} ${radius} 0 0 0 0 ${y} Z`;
 
-const ImgUnderFill = ({ image = images[6], children }) => {
+const ImgUnderFill = ({ image = images.bg1, children }) => {
   return (
     <View container>
       <View footer>

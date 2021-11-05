@@ -10,14 +10,14 @@ const BackgroundStyled = () => {
     <View container>
       <Header />
       <View bdBox>
-        <Image topCurve source={images[6]} />
+        <Image topCurve source={images.bg1} />
       </View>
       <Box>
-        <Image medium source={images[6]} />
+        <Image medium source={images.bg1} />
       </Box>
       <View bdBox style={{ marginTop: -CELL_NUM }} />
       <View bdBox>
-        <Image bottomCurve source={images[6]} />
+        <Image bottomCurve source={images.bg1} />
       </View>
       <Footer />
     </View>
