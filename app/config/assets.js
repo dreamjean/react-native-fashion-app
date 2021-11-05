@@ -1,9 +1,9 @@
 export const assets = [
   require("../assets/images/avatar.jpeg"),
-  require("../assets/images/timg1.jpg"),
-  require("../assets/images/timg2.jpg"),
-  require("../assets/images/timg3.jpg"),
-  require("../assets/images/timg4.jpg"),
+  require("../assets/images/timg1.png"),
+  require("../assets/images/timg2.png"),
+  require("../assets/images/timg3.png"),
+  require("../assets/images/timg4.png"),
   require("../assets/images/timg5.png"),
   require("../assets/images/bg1.png"),
   require("../assets/images/bg2.png"),
