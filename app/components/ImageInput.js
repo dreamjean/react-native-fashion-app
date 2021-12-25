@@ -8,7 +8,7 @@ import { colors } from "../config";
 import PermissionModal from "./PermissionModal";
 
 function ImageInput({ image, onChangeImage }) {
-  const [modelVisible, setModelVisitble] = useState(false);
+  const [modelVisible, setModelVisible] = useState(false);
 
   useEffect(() => {
     requestMediaLibraryPermission();
@@ -51,7 +51,7 @@ function ImageInput({ image, onChangeImage }) {
       console.log("Error @pickImage", error);
     }
 
-    setModelVisitble(false);
+    setModelVisible(false);
   };
 
   const pickerPhotograph = async () => {
@@ -68,7 +68,7 @@ function ImageInput({ image, onChangeImage }) {
       console.log("Error @pickImage", error);
     }
 
-    setModelVisitble(false);
+    setModelVisible(false);
   };
 
   return (
@@ -79,19 +79,19 @@ function ImageInput({ image, onChangeImage }) {
           justifyContent: "center",
           margin: 5,
         }}
-        onPress={() => setModelVisitble(true)}
+        onPress={() => setModelVisible(true)}
       >
         <Container>
           {image ? (
             <Image resizeMode="contain" source={{ uri: image }} />
           ) : (
-            <Entypo name="camera" size={40} color={colors.lightBlue} />
+            <Entypo name="camera" size={40} color={colors.violet} />
           )}
         </Container>
       </Pressable>
       <PermissionModal
         visible={modelVisible}
-        onCloseModal={() => setModelVisitble(false)}
+        onCloseModal={() => setModelVisible(false)}
         onCameraRollPermission={pickerImage}
         onCameraPermission={pickerPhotograph}
       />

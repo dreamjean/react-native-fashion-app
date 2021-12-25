@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   CartScreen,
   EditProfileScreen,
-  FavouriteOutfitsScreen,
+  FavoriteOutfitsScreen,
   OutfitIdeasScreen,
   SettingsScreen,
   TransactionHistoryScreen,
@@ -20,10 +20,7 @@ const MainNavigator = () => {
       }}
     >
       <Stack.Screen name="OutfitIdeas" component={OutfitIdeasScreen} />
-      <Stack.Screen
-        name="FavouriteOutfits"
-        component={FavouriteOutfitsScreen}
-      />
+      <Stack.Screen name="FavoriteOutfits" component={FavoriteOutfitsScreen} />
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen
         name="TransactionHistory"

@@ -21,7 +21,7 @@ export default [
   },
   {
     id: 4,
-    color: colors.lightOriange,
+    color: colors.lightOrange,
     aspectRatio: 1.25,
     selected: false,
   },

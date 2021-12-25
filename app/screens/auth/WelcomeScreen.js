@@ -12,10 +12,10 @@ const WelcomeScreen = ({ navigation }) => {
     <Container>
       <TopContainer>
         <Background
-          start={[0.8, 0.2]}
-          end={[0.1, 0.9]}
-          locations={[0.1, 0.3, 0.7, 0.9]}
-          colors={[colors.purple3, colors.blue, colors.yellow, colors.pink]}
+          start={{ x: 0.85, y: 0.15 }}
+          end={{ x: 0.05, y: 0.95 }}
+          locations={[0, 0.48, 1]}
+          colors={[colors.viridity, colors.lightViolet, colors.purple3]}
         >
           <Image small resizeMode="contain" source={images.timg5} />
         </Background>
@@ -79,7 +79,7 @@ const Medium = styled.View`
   height: ${CELL_NUM}px;
 
   ${({ theme: { colors } }) => ({
-    backgroundColor: colors.pink,
+    backgroundColor: colors.purple3,
   })};
 `;
 

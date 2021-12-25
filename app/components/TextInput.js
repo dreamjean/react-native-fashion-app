@@ -6,8 +6,8 @@ import { colors } from "../config";
 import Icon from "./Icon";
 
 const TextInput = forwardRef(({ icon, error, touched, ...rest }, ref) => {
-  const dangerPrimery = error ? colors.danger : colors.primary;
-  const reColor = !touched ? colors.violet : dangerPrimery;
+  const dangerPrimary = error ? colors.danger : colors.primary;
+  const reColor = !touched ? colors.violet : dangerPrimary;
 
   return (
     <Box style={{ borderColor: reColor }}>

@@ -10,9 +10,9 @@ export default [
   },
   {
     icon: "heart",
-    label: "Favourite Outfits",
-    title: "Favourite",
-    screen: "FavouriteOutfits",
+    label: "Favorite Outfits",
+    title: "Favorite",
+    screen: "FavoriteOutfits",
     color: colors.red,
   },
   {

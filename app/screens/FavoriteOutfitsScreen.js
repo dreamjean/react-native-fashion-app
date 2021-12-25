@@ -9,7 +9,7 @@ import { View } from "../styles";
 
 const { FOOTER_HEIGHT } = constants;
 
-const FavouriteOutfitsScreen = ({ navigation }) => {
+const FavoriteOutfitsScreen = ({ navigation }) => {
   const [outfits, setOutfits] = useState(initialOutfits);
   const list = useRef();
 
@@ -73,4 +73,4 @@ const FooterBox = styled.View`
   right: 0;
 `;
 
-export default FavouriteOutfitsScreen;
+export default FavoriteOutfitsScreen;

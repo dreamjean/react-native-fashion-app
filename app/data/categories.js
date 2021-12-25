@@ -19,11 +19,11 @@ export default [
   {
     id: "outlet",
     title: "Outlet",
-    color: colors.lightViotlet,
+    color: colors.lightViolet,
   },
   {
     id: "accesories",
     title: "Accesories",
-    color: colors.lightOriange,
+    color: colors.lightOrange,
   },
 ];

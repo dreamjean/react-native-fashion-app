@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { useDerivedValue } from "react-native-reanimated";
-import { useTiming } from "react-native-redash";
+import { mixColor, useTiming } from "react-native-redash";
 import styled from "styled-components";
 
 import {
@@ -10,6 +10,7 @@ import {
   CategoryBar,
   HeaderBar,
 } from "../components/main";
+import { colors } from "../config";
 import cards from "../data/cards";
 import { View } from "../styles";
 
@@ -32,11 +33,17 @@ const OutfitIdeasScreen = ({ navigation }) => {
         <BackgroundStyled />
         {cards.map(({ image, index }) => {
           const position = useDerivedValue(() => index * step - aIndex.value);
+          const backgroundColor = mixColor(
+            position.value,
+            colors.purple,
+            colors.purple2
+          );
 
           return (
             currentIndex < index * step + step && (
               <Card
                 key={index}
+                backgroundColor={backgroundColor}
                 position={position}
                 image={image}
                 step={step}

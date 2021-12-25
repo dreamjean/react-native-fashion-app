@@ -21,7 +21,7 @@ export default [
   },
   {
     heading: "Excentric",
-    color: colors.lightOriange,
+    color: colors.lightOrange,
     picture: images.timg3,
     title: "Your Style, Your Way",
     description:

@@ -18,14 +18,14 @@ const colors = {
 
   //bgColor
   lightCyan: "#ccf5ff",
-  lightBlue: "#b4b4fd",
+  lightBlue: "#64b3f4",
   lightGreen: "#ccffd3",
   lightGrey: "#dbdbf0",
   lightGrey2: "#f2f2f370",
-  lightOriange: "#fdd1b4",
+  lightOrange: "#fdd1b4",
   lightPink: "#f4bed5",
-  lightViotlet: "#d9b3ff",
-  lightYellowGreen: "#d9ffb3",
+  lightViolet: "#EACCF8",
+  lightYellowGreen: "#c2e59c",
   lightBrown: "#d5c3bb",
 
   blue: "#53cff9",
@@ -35,8 +35,9 @@ const colors = {
   green2: "#00d99a",
   orange: "#FF6600",
   pink: "#f14173",
-  purple3: "#7c53f9",
+  purple3: "#6654F1",
   red: "#ED1250",
+  viridity: "#69EACB",
   yellow: "#FFFC4B",
   yellow2: "#FCD307",
 };

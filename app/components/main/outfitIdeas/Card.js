@@ -11,10 +11,10 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { mix, mixColor, snapPoint } from "react-native-redash";
+import { mix, snapPoint } from "react-native-redash";
 import styled from "styled-components";
 
-import { colors, constants } from "../../../config";
+import { constants } from "../../../config";
 
 const { width, CARD_WIDTH, CARD_HEIGHT } = constants;
 const snapPoints = [-width, width];
@@ -23,11 +23,11 @@ const timingConfig = {
   easing: Easing.bezier(0.33, 0.01, 0, 1),
 };
 
-const Card = ({ image, step, onSwipe, position }) => {
+const Card = ({ backgroundColor, image, step, onSwipe, position }) => {
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
   const scale = useSharedValue(1);
-  const imgOpacity = useSharedValue(1);
+  const opacity = useSharedValue(1);
 
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: (_, ctx) => {
@@ -45,7 +45,7 @@ const Card = ({ image, step, onSwipe, position }) => {
         Extrapolate.CLAMP
       );
 
-      imgOpacity.value = interpolate(
+      opacity.value = interpolate(
         translateY.value,
         [-100, 0, 100],
         [0.6, 1, 0.6],
@@ -57,7 +57,7 @@ const Card = ({ image, step, onSwipe, position }) => {
         translateX.value = 0;
         translateY.value = 0;
 
-        imgOpacity.value = withTiming(1, timingConfig);
+        opacity.value = withTiming(1, timingConfig);
       } else {
         translateY.value = withSpring(0, { velocity: velocityY });
         const dest = snapPoint(translateX.value, velocityX, snapPoints);
@@ -71,49 +71,40 @@ const Card = ({ image, step, onSwipe, position }) => {
           runOnJS(onSwipe)()
         );
 
-        imgOpacity.value = withTiming(0.6, timingConfig);
+        opacity.value = withTiming(0.6, timingConfig);
       }
       scale.value = withTiming(1, timingConfig);
     },
   });
 
   const cardStyle = useAnimatedStyle(() => {
-    const backgroundColor = mixColor(
-      position.value,
-      colors.purple,
-      colors.purple2
-    );
+    const first = position.value === 0;
 
     return {
       backgroundColor,
-      opacity: imgOpacity.value,
+      opacity: opacity.value,
       transform: [
-        { translateX: position.value === 0 ? translateX.value : 0 },
+        { translateX: first ? translateX.value : 0 },
         {
-          translateY:
-            position.value === 0
-              ? translateY.value
-              : mix(position.value, 0, -44),
+          translateY: first ? translateY.value : mix(position.value, 0, -44),
         },
         {
-          scale:
-            position.value === 0 ? scale.value : mix(position.value, 1, 0.9),
+          scale: first ? scale.value : mix(position.value, 1, 0.9),
         },
       ],
     };
   });
 
   const stylei = useAnimatedStyle(() => {
-    const scale = interpolate(
-      position.value,
-      [0, step],
-      [1, 0.75],
-      Extrapolate.CLAMP
-    );
     return {
       transform: [
         {
-          scale,
+          scale: interpolate(
+            position.value,
+            [0, step],
+            [1, 0.75],
+            Extrapolate.CLAMP
+          ),
         },
       ],
     };
