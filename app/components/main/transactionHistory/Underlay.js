@@ -21,7 +21,7 @@ const Underlay = ({ dates, step }) => {
           >
             {t}
           </Text>
-          <Seperator />
+          <Separator />
         </RowBar>
       ))}
 
@@ -48,7 +48,7 @@ const RowBar = styled.View`
   })};
 `;
 
-const Seperator = styled.View`
+const Separator = styled.View`
   height: 1px;
   width: 90%;
 

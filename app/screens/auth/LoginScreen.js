@@ -2,14 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import * as Yup from "yup";
 
-import { Button, Container, LinkFooter } from "../../components";
-import {
-  Form,
-  FormCheckbox,
-  FormField,
-  SubmitButton,
-} from "../../components/forms";
+import { Button, Checkbox, Container, LinkFooter } from "../../components";
+import { Form, FormField, SubmitButton } from "../../components/forms";
 import { colors, images } from "../../config";
+import useFocusInput from "../../hooks/useFocusInput";
 import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
@@ -19,8 +15,8 @@ let validationSchema = Yup.object().shape({
 });
 
 const LoginScreen = ({ navigation }) => {
-  const [inputs] = useState([]);
-  const focusNextField = (nextField) => inputs[nextField].focus();
+  const [isRemembered, setIsRemembered] = useState(false);
+  const { onRef, focusNextField } = useFocusInput();
 
   return (
     <>
@@ -43,6 +39,7 @@ const LoginScreen = ({ navigation }) => {
             autoCorrect={false}
             blurOnSubmit={false}
             icon="email"
+            isRemembered={isRemembered}
             keyboardAppearance="default"
             keyboardType="email-address"
             name="email"
@@ -65,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
             maxLength={50}
             name="password"
             numberOfLines={1}
-            onRef={(input) => (inputs["password"] = input)}
+            onRef={onRef("password")}
             placeholder="Enter password"
             returnKeyLabel="go"
             returnKeyType="go"
@@ -73,7 +70,11 @@ const LoginScreen = ({ navigation }) => {
             textContentType="password"
           />
           <Box>
-            <FormCheckbox name="remember" title="remeber me" />
+            <Checkbox
+              title="Remember Me"
+              checked={isRemembered}
+              onPress={() => setIsRemembered((prev) => !prev)}
+            />
             <Button
               width={150}
               label="Forgot Password?"

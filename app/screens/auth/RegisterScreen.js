@@ -1,10 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
 import * as Yup from "yup";
 
 import { Container, LinkFooter } from "../../components";
 import { Form, FormField, SubmitButton } from "../../components/forms";
 import { images } from "../../config";
+import useFocusInput from "../../hooks/useFocusInput";
 import { Text } from "../../styles";
 
 let validationSchema = Yup.object().shape({
@@ -24,8 +24,7 @@ let validationSchema = Yup.object().shape({
 });
 
 const RegisterScreen = ({ navigation }) => {
-  const [inputs] = useState([]);
-  const focusNextField = (nextField) => inputs[nextField].focus();
+  const { onRef, focusNextField } = useFocusInput();
 
   return (
     <>
@@ -74,7 +73,7 @@ const RegisterScreen = ({ navigation }) => {
             keyboardType="email-address"
             name="email"
             numberOfLines={1}
-            onRef={(input) => (inputs["email"] = input)}
+            onRef={onRef("email")}
             onSubmitEditing={() => focusNextField("password")}
             placeholder="Email"
             returnKeyLabel="next"
@@ -94,7 +93,7 @@ const RegisterScreen = ({ navigation }) => {
             maxLength={50}
             name="password"
             numberOfLines={1}
-            onRef={(input) => (inputs["password"] = input)}
+            onRef={onRef("password")}
             onSubmitEditing={() => focusNextField("confirmPassword")}
             placeholder="Password"
             returnKeyLabel="next"
@@ -114,7 +113,7 @@ const RegisterScreen = ({ navigation }) => {
             maxLength={50}
             name="confirmPassword"
             numberOfLines={1}
-            onRef={(input) => (inputs["confirmPassword"] = input)}
+            onRef={onRef("confirmPassword")}
             placeholder="Confirm Password"
             returnKeyLabel="go"
             returnKeyType="go"

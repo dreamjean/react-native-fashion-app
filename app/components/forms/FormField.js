@@ -3,7 +3,7 @@ import { useFormikContext } from "formik";
 import TextInput from "../TextInput";
 import ErrorMessage from "./ErrorMessage";
 
-const FormField = ({ name, onSubmitEditing, onRef, ...rest }) => {
+const FormField = ({ name, isRemembered, onSubmitEditing, onRef, ...rest }) => {
   const {
     setFieldValue,
     setFieldTouched,
@@ -17,6 +17,7 @@ const FormField = ({ name, onSubmitEditing, onRef, ...rest }) => {
     <>
       <TextInput
         error={errors[name]}
+        defaultValue={isRemembered ? values[name] : ""}
         onBlur={() => setFieldTouched(name)}
         onChangeText={(text) => setFieldValue(name, text)}
         onSubmitEditing={onSubmitEditing ? onSubmitEditing : handleSubmit}
